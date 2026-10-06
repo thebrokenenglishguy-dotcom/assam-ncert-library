@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HTML and CSS3 — Part I: Introduction</title>
+<meta name="description" content="Class 10 Computer Science Chapter 2, HTML and CSS3 Part I: Introduction, questions and answers.">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#172033}
+header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:42px 20px;text-align:center}header h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px)}header p{margin:0;font-size:17px}
+.wrap{max-width:950px;margin:auto;padding:28px 18px 60px}.back{display:inline-block;margin-bottom:20px;text-decoration:none;color:#214e8a;font-weight:700}
+section{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #22304a10}h2{margin-top:0;color:#173b72;font-size:23px}.qa{margin:22px 0}.qa h3{font-size:18px;line-height:1.5;margin:0 0 10px}.answer{background:#f8fafc;border-left:4px solid #2d72c8;padding:13px 15px;line-height:1.65;border-radius:0 8px 8px 0}
+ol,ul{line-height:1.7}table{width:100%;border-collapse:collapse;margin:12px 0}th,td{border:1px solid #d8deea;padding:10px;text-align:left;vertical-align:top}th{background:#eef4ff}pre{background:#172033;color:#fff;padding:16px;border-radius:10px;overflow:auto;line-height:1.5}.remember{background:#eef4ff;border-radius:10px;padding:12px 15px;margin-top:12px;font-weight:600}
+footer{text-align:center;color:#6d7686;padding-top:28px;font-size:14px}@media(max-width:650px){section{padding:18px}table{font-size:14px}}
+</style>
+</head>
+<body>
+<header><h1>HTML and CSS3</h1><p>Class 10 • Computer Science • Chapter 2 • Part I: Introduction</p></header>
+<main class="wrap"><a class="back" href="../../index.html">← Back to Library</a>
+
+<section><h2>I. Fill in the Blanks</h2>
+<div class="qa"><h3>1. __________ documents are made up of text content and special codes.</h3><div class="answer"><strong>Answer:</strong> HTML</div></div>
+<div class="qa"><h3>2. __________ are used to write notes about an HTML document.</h3><div class="answer"><strong>Answer:</strong> Comments</div></div>
+<div class="qa"><h3>3. HTML document is saved with an extension __________.</h3><div class="answer"><strong>Answer:</strong> .html</div></div>
+<div class="qa"><h3>4. __________ are used to view the HTML documents.</h3><div class="answer"><strong>Answer:</strong> Web browsers</div></div>
+<div class="qa"><h3>5. The __________ element include both on and off tags.</h3><div class="answer"><strong>Answer:</strong> Container</div></div>
+<div class="qa"><h3>6. The __________ element splits the line and displays the text on a new line.</h3><div class="answer"><strong>Answer:</strong> &lt;br&gt;</div></div>
+</section>
+
+<section><h2>II. Multiple Choice Questions</h2>
+<div class="qa"><h3>1. Which is the correct way to comment out something in HTML?</h3><ol type="i"><li>Using ## and #</li><li><strong>Using &lt;!-- and --&gt;</strong> ✅</li><li>Using &lt;/-- and -/ &gt;</li><li>Using &lt;!-- and -&gt;</li></ol><div class="answer"><strong>Answer:</strong> ii. Using &lt;!-- and --&gt;</div></div>
+<div class="qa"><h3>2. The __________ tag draws a horizontal line across the web page.</h3><ol type="i"><li>&lt;br&gt;</li><li><strong>&lt;hr&gt;</strong> ✅</li><li>&lt;line&gt;</li></ol><div class="answer"><strong>Answer:</strong> ii. &lt;hr&gt;</div></div>
+<div class="qa"><h3>3. __________ provides a set of style rules for defining the layout of the HTML documents.</h3><ol type="i"><li><strong>CSS</strong> ✅</li><li>WSS</li><li>TSS</li></ol><div class="answer"><strong>Answer:</strong> i. CSS</div></div>
+<div class="qa"><h3>4. A property and its value are collectively known as __________.</h3><ol type="i"><li>Selector</li><li><strong>Attribute</strong> ✅</li><li>Declaration</li></ol><div class="answer"><strong>Answer:</strong> ii. Attribute</div></div>
+<div class="qa"><h3>5. Which tag indicates the beginning and end of the HTML documents?</h3><ol type="i"><li>&lt;HEAD&gt;</li><li>&lt;BODY&gt;</li><li><strong>&lt;HTML&gt;</strong> ✅</li></ol><div class="answer"><strong>Answer:</strong> iii. &lt;HTML&gt;</div></div>
+<div class="qa"><h3>6. Which of the following is used to define the style for a single HTML page?</h3><ol type="i"><li><strong>Inline CSS</strong> ✅</li><li>Internal CSS</li><li>External CSS</li></ol><div class="answer"><strong>Answer:</strong> i. Inline CSS</div></div>
+</section>
+
+<section><h2>III. Application Based Questions</h2>
+<div class="qa"><h3>1. Yashvi was styling an HTML document using CSS. She wants to add styles directly to an HTML tag using the style attribute with the tag. How can she do this?</h3><div class="answer"><p>She can use <strong>Inline CSS</strong>.</p><p>The CSS is written directly inside the <code>style</code> attribute of the HTML tag.</p><pre>&lt;p style="color: blue; font-size: 20px;"&gt;
+    Hello World
+&lt;/p&gt;</pre><p>Here, <code>style</code> is the <strong>attribute</strong>.</p></div></div>
+<div class="qa"><h3>2. Rohan wants to divide his web page into different sections so that the content is easily readable. Which tag can he use for this? Which attributes can he use to define some extra properties of this tag?</h3><div class="answer"><ul><li>He can use the <strong>&lt;div&gt; tag</strong>.</li><li>The &lt;div&gt; tag is used to divide a web page into different sections.</li><li>He can use attributes such as <strong>id</strong>, <strong>class</strong>, and <strong>style</strong>.</li></ul><pre>&lt;div id="header" style="background-color: yellow;"&gt;
+    Welcome to my website
+&lt;/div&gt;</pre></div></div>
+<div class="qa"><h3>3. Kirti wants to set the image of a park as the background of her web page but she is unable to do it. Which tag should she use to do so? Give the syntax.</h3><div class="answer"><ul><li>She can use the <strong>&lt;body&gt; tag</strong>.</li><li>The <code>background</code> attribute can be used to set a background image.</li></ul><pre>&lt;body background="park.jpg"&gt;</pre><p>Here, <code>park.jpg</code> is the image used as the background.</p></div></div>
+</section>
+
+<section><h2>IV. Answer the Following</h2>
+<div class="qa"><h3>1. What is a markup language?</h3><div class="answer"><ul><li>A <strong>markup language</strong> is a language used to add special codes or <strong>tags</strong> to text.</li><li>These tags tell the computer how the content should be displayed.</li><li><strong>HTML</strong> is an example of a markup language.</li></ul></div></div>
+<div class="qa"><h3>2. Write some features of HTML.</h3><div class="answer"><ol><li>HTML is a <strong>markup language</strong>.</li><li>It is used to <strong>create web pages</strong>.</li><li>It uses <strong>tags</strong> to define webpage content.</li><li>HTML is <strong>easy to learn and use</strong>.</li><li>It can be used with <strong>CSS and JavaScript</strong>.</li><li>HTML files can be viewed using a <strong>web browser</strong>.</li></ol></div></div>
+<div class="qa"><h3>3. Explain the terms tags and attributes with the help of an example.</h3><div class="answer"><p><strong>Tags:</strong> Tags are special codes used in HTML. They tell the browser how to display the content.</p><p><strong>Attributes:</strong> Attributes provide <strong>additional information or properties</strong> about an HTML tag. They are written inside the opening tag.</p><pre>&lt;p style="color: blue;"&gt;Hello&lt;/p&gt;</pre><ul><li><code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code> are <strong>tags</strong>.</li><li><code>style</code> is an <strong>attribute</strong>.</li><li><code>color: blue</code> is the value given to the attribute.</li></ul></div></div>
+<div class="qa"><h3>4. How are comments useful?</h3><div class="answer"><ol><li>They help us <strong>write notes</strong> in the HTML code.</li><li>They explain what a particular part of the code does.</li><li>They make the code <strong>easier to understand</strong>.</li><li>Comments are <strong>not displayed on the web page</strong>.</li><li>They help programmers remember important information.</li></ol><pre>&lt;!-- This is the heading of the page --&gt;
+&lt;h1&gt;My Website&lt;/h1&gt;</pre></div></div>
+<div class="qa"><h3>5. What are Cascading Style Sheets? Name the different methods available for applying Style rules in an HTML document.</h3><div class="answer"><p><strong>CSS (Cascading Style Sheets)</strong> is used to <strong>style and design HTML web pages</strong>.</p><p>It can change things such as:</p><ul><li>Text colour</li><li>Font size</li><li>Background colour</li><li>Spacing</li><li>Page layout</li></ul><p><strong>Three methods of applying CSS:</strong></p><ol><li><strong>Inline CSS</strong> — CSS is written inside the <code>style</code> attribute.</li><li><strong>Internal CSS</strong> — CSS is written inside the <code>&lt;style&gt;</code> tag in the HTML document.</li><li><strong>External CSS</strong> — CSS is written in a separate <code>.css</code> file and linked to the HTML document.</li></ol><div class="remember">Easy way to remember: Inline → Inside the tag | Internal → Inside the HTML file | External → Separate CSS file</div></div></div>
+<div class="qa"><h3>6. Differentiate between Internal CSS and External CSS.</h3><div class="answer"><table><thead><tr><th>Internal CSS</th><th>External CSS</th></tr></thead><tbody><tr><td>CSS is written inside the HTML document.</td><td>CSS is written in a separate .css file.</td></tr><tr><td>It uses the &lt;style&gt; tag.</td><td>It uses a separate CSS file.</td></tr><tr><td>It is useful for styling <strong>one webpage</strong>.</td><td>It can style <strong>many webpages</strong>.</td></tr><tr><td>The CSS and HTML are in the same file.</td><td>HTML and CSS are in separate files.</td></tr></tbody></table><p><strong>Example of Internal CSS:</strong></p><pre>&lt;style&gt;
+p {
+    color: blue;
+}
+&lt;/style&gt;</pre><p><strong>Example of External CSS:</strong></p><pre>&lt;link rel="stylesheet" href="style.css"&gt;</pre><pre>p {
+    color: blue;
+}</pre></div></div>
+</section>
+
+<section><h2>Lab Activity</h2>
+<div class="qa"><h3>1. Create a web page that serves as an invitation card to your birthday party.</h3><div class="answer"><p>A simple example:</p><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Birthday Invitation&lt;/title&gt;
+
+    &lt;style&gt;
+        body {
+            text-align: center;
+            background-color: lightyellow;
+        }
+
+        h1 {
+            color: purple;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;🎉 Birthday Party 🎉&lt;/h1&gt;
+
+    &lt;h2&gt;You are invited!&lt;/h2&gt;
+
+    &lt;p&gt;Come and celebrate my birthday with me.&lt;/p&gt;
+
+    &lt;p&gt;&lt;b&gt;Date:&lt;/b&gt; 15 October&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Time:&lt;/b&gt; 6:00 PM&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Place:&lt;/b&gt; My Home&lt;/p&gt;
+
+    &lt;h2&gt;See you there! 😊&lt;/h2&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre></div></div>
+<div class="qa"><h3>2. Create a web page that serves as a guide for mathematical formulas using HTML tags along with CSS properties.</h3><div class="answer"><p>Example:</p><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Mathematical Formulas&lt;/title&gt;
+
+    &lt;style&gt;
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Mathematical Formulas&lt;/h1&gt;
+
+    &lt;p&gt;&lt;b&gt;Area of Circle:&lt;/b&gt; πr²&lt;/p&gt;
+
+    &lt;p&gt;&lt;b&gt;Area of Rectangle:&lt;/b&gt; Length × Breadth&lt;/p&gt;
+
+    &lt;p&gt;&lt;b&gt;Simple Interest:&lt;/b&gt; (P × R × T) / 100&lt;/p&gt;
+
+    &lt;p&gt;&lt;b&gt;Speed:&lt;/b&gt; Distance / Time&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre></div></div>
+</section>
+
+<section><h2>⭐ Important Things to Remember</h2><ul>
+<li><strong>HTML</strong> → Creates the structure of a webpage</li><li><strong>CSS</strong> → Designs/styles the webpage</li><li><strong>Tag</strong> → Defines an HTML element</li><li><strong>Attribute</strong> → Gives extra information to a tag</li><li><strong>Inline CSS</strong> → Inside the HTML tag</li><li><strong>Internal CSS</strong> → Inside &lt;style&gt;</li><li><strong>External CSS</strong> → Separate .css file</li><li><strong>&lt;br&gt;</strong> → New line</li><li><strong>&lt;hr&gt;</strong> → Horizontal line</li><li><strong>&lt;div&gt;</strong> → Divides content into sections</li><li><strong>&lt;!-- --&gt;</strong> → HTML comment</li>
+</ul></section>
+<footer>Made as a free learning resource for students in Assam.</footer>
+</main></body></html>
