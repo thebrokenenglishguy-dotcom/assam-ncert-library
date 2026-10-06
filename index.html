@@ -69,6 +69,30 @@ input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();car
 document.querySelectorAll('.hindi-mil-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const section=card.querySelector('.hindi-mil-list');const open=section.classList.toggle('open');if(open){card.querySelectorAll('.social-list,.computer-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.social-toggle,.computer-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));document.querySelectorAll('.computer-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const section=card.querySelector('.computer-list');const open=section.classList.toggle('open');if(open){card.querySelectorAll('.hindi-mil-list,.social-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.hindi-mil-toggle,.social-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));
 document.querySelectorAll('.social-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const history=card.querySelector('.social-list');const open=history.classList.toggle('open');if(open){card.querySelectorAll('.hindi-mil-list,.computer-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.hindi-mil-toggle,.computer-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));
 document.querySelectorAll('.section-toggle').forEach(btn=>btn.addEventListener('click',()=>{const section=btn.nextElementSibling;const open=section.classList.toggle('open');btn.setAttribute('aria-expanded',open);}));
+/* Remember the subject menu before opening a chapter, so "Back to Library" returns students to the same menu. */
+document.querySelectorAll('.hindi-mil-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-hindi-mil')));
+document.querySelectorAll('.computer-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-computer')));
+document.querySelectorAll('.social-list > .chapter,.geography-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-social')));
+window.addEventListener('DOMContentLoaded',()=>{
+  const saved=sessionStorage.getItem('assamLibraryOpenMenu');
+  if(saved==='class10-hindi-mil'){
+    const card=document.querySelector('.card[data-search*="class 10"]');
+    const btn=card?.querySelector('.hindi-mil-toggle');
+    const section=card?.querySelector('.hindi-mil-list');
+    if(btn&&section){section.classList.add('open');btn.setAttribute('aria-expanded','true');}
+  }else if(saved==='class10-computer'){
+    const card=document.querySelector('.card[data-search*="class 10"]');
+    const btn=card?.querySelector('.computer-toggle');
+    const section=card?.querySelector('.computer-list');
+    if(btn&&section){section.classList.add('open');btn.setAttribute('aria-expanded','true');}
+  }else if(saved==='class10-social'){
+    const card=document.querySelector('.card[data-search*="class 10"]');
+    const btn=card?.querySelector('.social-toggle');
+    const section=card?.querySelector('.social-list');
+    if(btn&&section){section.classList.add('open');btn.setAttribute('aria-expanded','true');}
+  }
+  if(saved) sessionStorage.removeItem('assamLibraryOpenMenu');
+});
 const feedbackForm=document.getElementById('feedback-form');const feedbackStatus=document.getElementById('feedback-status');feedbackForm.addEventListener('submit',async e=>{e.preventDefault();const btn=feedbackForm.querySelector('button');btn.disabled=true;btn.textContent='Sending...';feedbackStatus.textContent='';try{const response=await fetch(feedbackForm.action,{method:'POST',body:new FormData(feedbackForm),headers:{Accept:'application/json'}});if(response.ok){feedbackForm.reset();feedbackStatus.textContent='✅ Thank you! Your feedback has been sent.';}else{feedbackStatus.textContent='❌ Could not send feedback. Please try again.';}}catch(err){feedbackStatus.textContent='❌ Could not send feedback. Please try again.';}finally{btn.disabled=false;btn.textContent='Send Feedback';}});
 </script>
 </body></html>
