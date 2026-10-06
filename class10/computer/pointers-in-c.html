@@ -1,0 +1,330 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Pointers in C</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:42px 20px;text-align:center}header h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px)}.wrap{max-width:950px;margin:auto;padding:28px 18px 60px}.back{color:#214e8a;font-weight:bold;text-decoration:none}section{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #22304a10}.qa{margin:24px 0}.answer{background:#f8fafc;border-left:4px solid #2d72c8;padding:14px 16px;line-height:1.65;border-radius:0 8px 8px 0}h2{color:#173b72}pre{background:#172033;color:#fff;padding:16px;border-radius:10px;overflow:auto;line-height:1.5}.remember{background:#eef4ff;padding:14px;border-radius:9px;font-weight:bold}table{width:100%;border-collapse:collapse}th,td{border:1px solid #d8deea;padding:10px;text-align:left}th{background:#eef4ff}footer{text-align:center;color:#6d7686;padding:25px}</style></head><body><header><h1>Pointers in C</h1><p>Class 10 • Computer Science • Chapter 8</p></header><main class="wrap"><a class="back" href="../../index.html">← Back to Library</a><section><h2>Exercise</h2>
+<div class="qa"><h3>1. How is a pointer variable different from a normal variable?</h3><div class="answer"><p>A <strong>normal variable</strong> stores a value, while a <strong>pointer variable</strong> stores the <strong>address of another variable</strong>.</p><pre>int x = 10;
+int *p = &amp;x;</pre><ul><li><code>x</code> → stores the value <strong>10</strong></li><li><code>p</code> → stores the <strong>address of x</strong></li><li><code>*p</code> → gives the value stored at that address, i.e. <strong>10</strong></li></ul><div class="remember">Variable → stores value<br>Pointer → stores address</div></div></div>
+<div class="qa"><h3>2. Why is dynamic memory allocation an efficient memory management technique?</h3><div class="answer"><ol><li>Memory is allocated <strong>only when required</strong>.</li><li>We can allocate memory according to the <strong>required size</strong>.</li><li>Memory can be released when it is <strong>no longer needed</strong>.</li><li>It avoids wasting a large amount of unused memory.</li><li>It is useful when the required memory size is <strong>not known in advance</strong>.</li></ol><p>Functions such as <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code> and <code>free()</code> are used for dynamic memory allocation.</p></div></div>
+<div class="qa"><h3>3. How many bytes are needed to store an <code>int</code> pointer? Is it the same for a <code>char</code> pointer?</h3><div class="answer"><p>The size of a pointer depends mainly on the <strong>computer system</strong>, not on the data type it points to.</p><p>On many modern <strong>64-bit systems</strong>:</p><ul><li><code>int *</code> → usually <strong>8 bytes</strong></li><li><code>char *</code> → usually <strong>8 bytes</strong></li></ul><p>Both store an address, so their sizes are usually the same.</p><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int *p1;
+    char *p2;
+
+    printf("Size of int pointer = %zu bytes\n", sizeof(p1));
+    printf("Size of char pointer = %zu bytes\n", sizeof(p2));
+
+    return 0;
+}</pre><div class="remember">Do not assume that a pointer is always 8 bytes. Its size depends on the system/compiler.</div></div></div>
+<div class="qa"><h3>4. Write the output of the following code segments.</h3><h4>(a)</h4><div class="answer"><pre>int *ptr, x = 9;
+
+ptr = &amp;x;
+
+printf("\n %d", (*ptr)++);</pre><p><strong>Output: 9</strong></p><p><code>(*ptr)++</code> first uses the value 9 and then increases it to 10. After the statement, <code>x</code> becomes 10.</p></div>
+<h4>(b)</h4><div class="answer"><pre>int *ptr, x = 9;
+
+ptr = &amp;x;
+
+printf("\n %d", (*ptr)++);
+
+printf("\n %d", ptr);</pre><p>The first <code>printf()</code> prints <strong>9</strong>. The second is incorrect because <code>ptr</code> contains an address but <code>%d</code> is being used to print it. This gives <strong>undefined behaviour</strong>.</p><p>Correct way:</p><pre>printf("\n %p", (void *)ptr);</pre></div>
+<h4>(c)</h4><div class="answer"><pre>int *ptr, x = 9;
+
+ptr = &amp;x;
+
+int y = ++(*ptr);
+
+printf("\n %d", y);</pre><p><strong>Output: 10</strong></p><p><code>++(*ptr)</code> is pre-increment: 9 → 10, then 10 is assigned to <code>y</code>.</p></div>
+<h4>(d)</h4><div class="answer"><pre>char *ptr, x = 'A';
+
+ptr = &amp;x;
+
+char y = *ptr;
+
+printf("\n %c", y);</pre><p><strong>Output: A</strong></p></div>
+<h4>(e)</h4><div class="answer"><pre>char *ptr, x = 'A';
+
+ptr = &amp;x;
+
+char y = (*ptr)++;
+
+printf("\n %c", y);</pre><p><strong>Output: A</strong></p><p><code>(*ptr)++</code> is post-increment. It gives A first, then changes <code>x</code> to B.</p></div>
+<h4>(f)</h4><div class="answer"><pre>char *ptr, x = 'A';
+
+ptr = &amp;x;
+
+char y = ++(*ptr);
+
+printf("\n %c", y);</pre><p><strong>Output: B</strong></p><p><code>++(*ptr)</code> first changes A to B and then assigns it to <code>y</code>.</p></div>
+<h4>(g)</h4><div class="answer"><pre>char *ptr, x = 'A';
+
+ptr = &amp;x;
+
+char *y;
+
+y = ptr;
+
+printf("\n %c", ++(*y));</pre><p><strong>Output: B</strong></p><p><code>y = ptr</code> means both pointers point to <code>x</code>. Then <code>++(*y)</code> changes A → B.</p></div></div>
+<div class="qa"><h3>5. Dynamically allocate memory for an array of 10 integers and display the first 5.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int *a;
+    int i;
+
+    a = (int *)malloc(10 * sizeof(int));
+
+    if(a == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    printf("Enter 10 integers:\n");
+
+    for(i = 0; i &lt; 10; i++)
+        scanf("%d", &amp;a[i]);
+
+    printf("First 5 elements:\n");
+
+    for(i = 0; i &lt; 5; i++)
+        printf("%d ", a[i]);
+
+    free(a);
+
+    return 0;
+}</pre><p><code>malloc(10 * sizeof(int))</code> allocates memory for <strong>10 integers</strong>. <code>free(a)</code> releases the allocated memory.</p></div></div>
+<div class="qa"><h3>6. Dynamically allocate an array to store runs scored in the last ten ODI matches and find the maximum.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int maximum(int a[], int n)
+{
+    int i;
+    int max = a[0];
+
+    for(i = 1; i &lt; n; i++)
+    {
+        if(a[i] &gt; max)
+            max = a[i];
+    }
+
+    return max;
+}
+
+int main()
+{
+    int *runs;
+    int i, max;
+
+    runs = (int *)malloc(10 * sizeof(int));
+
+    if(runs == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    printf("Enter runs in 10 matches:\n");
+
+    for(i = 0; i &lt; 10; i++)
+        scanf("%d", &amp;runs[i]);
+
+    max = maximum(runs, 10);
+
+    printf("Maximum runs = %d", max);
+
+    free(runs);
+
+    return 0;
+}</pre><ul><li>Store 10 scores dynamically.</li><li>Compare every score with <code>max</code>.</li><li>Keep the largest value.</li><li>Return the maximum score.</li></ul></div></div>
+<div class="qa"><h3>7. Allocate memory dynamically to store your name and write another function to display it.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+char *createName(int length)
+{
+    char *name;
+
+    name = (char *)malloc((length + 1) * sizeof(char));
+
+    return name;
+}
+
+void displayName(char *name)
+{
+    printf("Name = %s", name);
+}
+
+int main()
+{
+    int length;
+    char *name;
+
+    printf("Enter length of your name: ");
+    scanf("%d", &amp;length);
+
+    name = createName(length);
+
+    if(name == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    printf("Enter your name: ");
+    scanf("%s", name);
+
+    displayName(name);
+
+    free(name);
+
+    return 0;
+}</pre><p><strong>Why <code>length + 1</code>?</strong> A C string needs one extra space for the null character <code>'\0'</code> at the end.</p></div></div>
+<div class="qa"><h3>8. Store integers in an array, count the even numbers, dynamically allocate a second array for only the even numbers, and copy them.</h3><div class="answer"><p>First array: <code>2 4 0 9 1 9 8 6</code></p><p>Second array: <code>2 4 0 8 6</code></p><pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int countEven(int a[], int n)
+{
+    int i, count = 0;
+
+    for(i = 0; i &lt; n; i++)
+    {
+        if(a[i] % 2 == 0)
+            count++;
+    }
+
+    return count;
+}
+
+void copyEven(int a[], int b[], int n)
+{
+    int i, j = 0;
+
+    for(i = 0; i &lt; n; i++)
+    {
+        if(a[i] % 2 == 0)
+        {
+            b[j] = a[i];
+            j++;
+        }
+    }
+}
+
+int main()
+{
+    int a[] = {2, 4, 0, 9, 1, 9, 8, 6};
+    int n = 8;
+    int count, *b;
+    int i;
+
+    count = countEven(a, n);
+    b = (int *)malloc(count * sizeof(int));
+
+    if(b == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    copyEven(a, b, n);
+
+    printf("First array:\n");
+    for(i = 0; i &lt; n; i++)
+        printf("%d ", a[i]);
+
+    printf("\n\nSecond array:\n");
+    for(i = 0; i &lt; count; i++)
+        printf("%d ", b[i]);
+
+    free(b);
+
+    return 0;
+}</pre><p><strong>Output:</strong></p><pre>First array:
+2 4 0 9 1 9 8 6
+
+Second array:
+2 4 0 8 6</pre></div></div>
+<div class="qa"><h3>9. Store integers, select non-zero elements divisible by 3, dynamically allocate a second array, copy them, and calculate their sum.</h3><div class="answer"><p>First array: <code>2 4 0 9 1 9 8 6</code></p><p>Selected elements: <code>9 9 6</code></p><p>Sum: <strong>24</strong></p><pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int countDivisibleBy3(int a[], int n)
+{
+    int i, count = 0;
+
+    for(i = 0; i &lt; n; i++)
+    {
+        if(a[i] != 0 &amp;&amp; a[i] % 3 == 0)
+            count++;
+    }
+
+    return count;
+}
+
+void copyElements(int a[], int b[], int n)
+{
+    int i, j = 0;
+
+    for(i = 0; i &lt; n; i++)
+    {
+        if(a[i] != 0 &amp;&amp; a[i] % 3 == 0)
+        {
+            b[j] = a[i];
+            j++;
+        }
+    }
+}
+
+int sumElements(int b[], int n)
+{
+    int i, sum = 0;
+
+    for(i = 0; i &lt; n; i++)
+        sum = sum + b[i];
+
+    return sum;
+}
+
+int main()
+{
+    int a[] = {2, 4, 0, 9, 1, 9, 8, 6};
+    int n = 8;
+    int count, *b;
+    int sum, i;
+
+    count = countDivisibleBy3(a, n);
+    b = (int *)malloc(count * sizeof(int));
+
+    if(b == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    copyElements(a, b, n);
+    sum = sumElements(b, count);
+
+    printf("First array:\n");
+    for(i = 0; i &lt; n; i++)
+        printf("%d ", a[i]);
+
+    printf("\n\nSecond array:\n");
+    for(i = 0; i &lt; count; i++)
+        printf("%d ", b[i]);
+
+    printf("\n\nSummation = %d", sum);
+
+    free(b);
+
+    return 0;
+}</pre><p><strong>Output:</strong></p><pre>First array:
+2 4 0 9 1 9 8 6
+
+Second array:
+9 9 6
+
+Summation = 24</pre></div></div></section>
+<section><h2>⭐ Quick Revision — Pointers</h2><div class="remember"><h3>1. Pointer</h3><p>A pointer is a variable that <strong>stores the address of another variable</strong>.</p><pre>int x = 10;
+int *p = &amp;x;</pre><h3>2. <code>&amp;</code> operator</h3><p><code>&amp;</code> gives the <strong>address</strong> of a variable.</p><pre>&amp;p</pre><h3>3. <code>*</code> operator</h3><p><code>*</code> is used to <strong>access the value stored at an address</strong>.</p><pre>*p</pre><h3>4. Example</h3><pre>int x = 10;
+int *p = &amp;x;</pre><p><code>x</code> → 10<br><code>&amp;p</code> → address of p<br><code>p</code> → address of x<br><code>*p</code> → 10</p><h3>5. Dynamic memory functions</h3><table><tr><th>Function</th><th>Use</th></tr><tr><td><code>malloc()</code></td><td>Allocates memory</td></tr><tr><td><code>calloc()</code></td><td>Allocates and initializes memory</td></tr><tr><td><code>realloc()</code></td><td>Changes allocated memory size</td></tr><tr><td><code>free()</code></td><td>Releases allocated memory</td></tr></table><pre>int *p;
+
+p = (int *)malloc(10 * sizeof(int));
+
+free(p);</pre><p><strong>malloc() → get memory</strong><br><strong>free() → release memory</strong></p></div></section><footer>Made as a free learning resource for students in Assam.</footer></main></body></html>
