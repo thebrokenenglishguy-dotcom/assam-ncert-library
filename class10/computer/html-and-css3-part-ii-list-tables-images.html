@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HTML and CSS3 — Part II: List, Tables and Images</title>
+<meta name="description" content="Class 10 Computer Science Chapter 2, HTML and CSS3 Part II: List, Tables and Images, questions and answers.">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#172033}
+header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:42px 20px;text-align:center}header h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px)}header p{margin:0;font-size:17px}
+.wrap{max-width:950px;margin:auto;padding:28px 18px 60px}.back{display:inline-block;margin-bottom:20px;text-decoration:none;color:#214e8a;font-weight:700}
+section{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #22304a10}h2{margin-top:0;color:#173b72;font-size:23px}.qa{margin:22px 0}.qa h3{font-size:18px;line-height:1.5;margin:0 0 10px}.answer{background:#f8fafc;border-left:4px solid #2d72c8;padding:13px 15px;line-height:1.65;border-radius:0 8px 8px 0}
+ol,ul{line-height:1.7}table{width:100%;border-collapse:collapse;margin:12px 0}th,td{border:1px solid #d8deea;padding:10px;text-align:left;vertical-align:top}th{background:#eef4ff}pre{background:#172033;color:#fff;padding:16px;border-radius:10px;overflow:auto;line-height:1.5}.remember{background:#eef4ff;border-radius:10px;padding:12px 15px;margin-top:12px;font-weight:600}
+footer{text-align:center;color:#6d7686;padding-top:28px;font-size:14px}@media(max-width:650px){section{padding:18px}table{font-size:14px}}
+</style>
+</head>
+<body>
+<header><h1>HTML and CSS3</h1><p>Class 10 • Computer Science • Chapter 2 • Part II: List, Tables and Images</p></header>
+<main class="wrap"><a class="back" href="../../index.html">← Back to Library</a>
+
+<section><h2>I. Fill in the Blanks</h2>
+<div class="qa"><h3>1. By default, the unordered lists items are marked with __________.</h3><div class="answer"><strong>Answer:</strong> Disc</div></div>
+<div class="qa"><h3>2. __________ attribute of list lets you reverse the order of the item list.</h3><div class="answer"><strong>Answer:</strong> reversed</div></div>
+<div class="qa"><h3>3. A list inside another list is called a __________ list.</h3><div class="answer"><strong>Answer:</strong> Nested</div></div>
+<div class="qa"><h3>4. A collection of related elements is called __________.</h3><div class="answer"><strong>Answer:</strong> List</div></div>
+<div class="qa"><h3>5. __________ property of table defines the space between the content of the table and the border.</h3><div class="answer"><strong>Answer:</strong> Padding</div></div>
+<div class="qa"><h3>6. The &lt;img&gt; tag is an __________ tag, that means it has no closing tag.</h3><div class="answer"><strong>Answer:</strong> Empty</div></div>
+<div class="qa"><h3>7. __________ is an attribute of the &lt;img&gt; tag which specifies the location or URL of the image to be displayed.</h3><div class="answer"><strong>Answer:</strong> src</div></div>
+<div class="qa"><h3>8. __________ attribute is used to give border to an image.</h3><div class="answer"><strong>Answer:</strong> border</div></div>
+</section>
+
+<section><h2>II. Multiple Choice Questions</h2>
+<div class="qa"><h3>1. Which tag is used for List items?</h3><ol type="a"><li>&lt;OL&gt;</li><li><strong>&lt;LI&gt;</strong> ✅</li><li>&lt;UL&gt;</li><li>&lt;DL&gt;</li></ol><div class="answer"><strong>Answer:</strong> b. &lt;LI&gt;</div></div>
+<div class="qa"><h3>2. Which element contains definition?</h3><ol type="a"><li>&lt;DL&gt;</li><li><strong>&lt;DD&gt;</strong> ✅</li><li>&lt;DT&gt;</li><li>&lt;UL&gt;</li></ol><div class="answer"><strong>Answer:</strong> b. &lt;DD&gt;<div class="remember">Note: &lt;DL&gt; creates the description list, &lt;DT&gt; defines the term, and &lt;DD&gt; gives its description.</div></div></div>
+<div class="qa"><h3>3. Which of the following can't be the value of list-style-type?</h3><ol type="a"><li>Square</li><li>Circle</li><li><strong>Ellipse</strong> ✅</li><li>Disc</li></ol><div class="answer"><strong>Answer:</strong> c. Ellipse</div></div>
+<div class="qa"><h3>4. Which attribute is only used with &lt;ol&gt;?</h3><ol type="a"><li>Value</li><li>Type</li><li>Compact</li><li><strong>Start</strong> ✅</li></ol><div class="answer"><strong>Answer:</strong> d. Start</div></div>
+<div class="qa"><h3>5. With the help of which tag, is a row defined in HTML?</h3><ol type="a"><li>&lt;row&gt;</li><li><strong>&lt;tr&gt;</strong> ✅</li><li>&lt;row-table&gt;</li><li>&lt;tablerow&gt;</li></ol><div class="answer"><strong>Answer:</strong> b. &lt;tr&gt;</div></div>
+<div class="qa"><h3>6. By using which of the following options, the border of table can be collapsed?</h3><ol type="a"><li><strong>border-collapse: collapse</strong></li><li>table-border: collapse</li><li>border: collapse</li><li>table-border-collapse: collapse</li></ol><div class="answer"><strong>Answer:</strong> a. border-collapse: collapse</div></div>
+<div class="qa"><h3>7. Web browsers display images in the following format:</h3><ol type="a"><li>XBM</li><li>GIF</li><li>JPEG</li><li><strong>All of these</strong> ✅</li></ol><div class="answer"><strong>Answer:</strong> d. All of these</div></div>
+<div class="qa"><h3>8. The correct HTML code for inserting an image is</h3><ol type="a"><li>&lt;img href="image.gif"&gt;</li><li>&lt;img&gt; image.gif &lt;/gif&gt;</li><li><strong>&lt;img src="image.gif"&gt;</strong> ✅</li><li>&lt;image src="image.gif"&gt;</li></ol><div class="answer"><strong>Answer:</strong> c. &lt;img src="image.gif"&gt;</div></div>
+<div class="qa"><h3>9. <code>src</code> attribute used with &lt;img&gt; tag stands for</h3><ol type="a"><li>screen</li><li><strong>source</strong></li><li>screen resolution count</li><li>structure</li></ol><div class="answer"><strong>Answer:</strong> b. source</div></div>
+<div class="qa"><h3>10. <code>alt</code> attribute allows</h3><ol type="a"><li>addition of a hyperlink</li><li>addition of a border to image</li><li>use of an alternative image in place of the specified image</li><li><strong>addition of alternative text about an image</strong> ✅</li></ol><div class="answer"><strong>Answer:</strong> d. addition of alternative text about an image</div></div>
+</section>
+
+<section><h2>III. Application Based Questions</h2>
+<div class="qa"><h3>a. Ruchika was making an ordered list and she noticed that the items of the list by default started with numbers. She wants to use Roman numerals for numbering. How can she do this?</h3><div class="answer"><p>She can use the <strong>type</strong> attribute with the <code>&lt;ol&gt;</code> tag.</p><pre>&lt;ol type="I"&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ol&gt;</pre><p>Here, <code>type="I"</code> displays the list as:</p><p><strong>I. HTML<br>II. CSS<br>III. JavaScript</strong></p></div></div>
+<div class="qa"><h3>b. Rohan has created a table and he wants that the table border should be collapsed into a single border. Which property should he use?</h3><div class="answer"><ul><li>He should use the <strong>border-collapse</strong> property.</li><li>Its value should be <strong>collapse</strong>.</li></ul><pre>table {
+    border-collapse: collapse;
+}</pre></div></div>
+<div class="qa"><h3>c. Ashmita has added few images on her web page but she wants to keep some provisions for the visually impaired people or users using text-based browsers so that they get the description for the images. Which attribute should she use?</h3><div class="answer"><ul><li>She should use the <strong>alt</strong> attribute.</li><li>It provides alternative text describing the image.</li></ul><pre>&lt;img src="park.jpg" alt="A beautiful park"&gt;</pre></div></div>
+</section>
+
+<section><h2>IV. Answer the Following</h2>
+<div class="qa"><h3>a. Differentiate between the &lt;OL&gt; and &lt;UL&gt; tag.</h3><div class="answer"><table><thead><tr><th>&lt;OL&gt;</th><th>&lt;UL&gt;</th></tr></thead><tbody><tr><td>&lt;OL&gt; means <strong>Ordered List</strong>.</td><td>&lt;UL&gt; means <strong>Unordered List</strong>.</td></tr><tr><td>Items are shown in a particular order.</td><td>Items do not have a numbered order.</td></tr><tr><td>Items are normally marked with <strong>numbers</strong>.</td><td>Items are normally marked with <strong>bullets</strong>.</td></tr><tr><td>Example: 1, 2, 3</td><td>Example: •, •, •</td></tr></tbody></table><pre>&lt;ol&gt;
+    &lt;li&gt;Apple&lt;/li&gt;
+    &lt;li&gt;Mango&lt;/li&gt;
+&lt;/ol&gt;</pre><pre>&lt;ul&gt;
+    &lt;li&gt;Apple&lt;/li&gt;
+    &lt;li&gt;Mango&lt;/li&gt;
+&lt;/ul&gt;</pre></div></div>
+<div class="qa"><h3>b. Write the syntax for using list-style-type property.</h3><div class="answer"><pre>selector {
+    list-style-type: value;
+}</pre><p><strong>Example:</strong></p><pre>ul {
+    list-style-type: square;
+}</pre></div></div>
+<div class="qa"><h3>c. Define Padding property.</h3><div class="answer"><ul><li><strong>Padding</strong> is the space between the <strong>content of an element and its border</strong>.</li><li>It creates space inside the border.</li></ul><pre>p {
+    padding: 10px;
+}</pre></div></div>
+<div class="qa"><h3>d. What is description list? Define the different tags used to create a description.</h3><div class="answer"><p>A <strong>description list</strong> is a list used to show <strong>terms and their descriptions</strong>.</p><p>It uses three main tags:</p><ol><li><strong>&lt;dl&gt;</strong> – Defines the description list.</li><li><strong>&lt;dt&gt;</strong> – Defines the term.</li><li><strong>&lt;dd&gt;</strong> – Gives the description of the term.</li></ol><pre>&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+&lt;/dl&gt;</pre><div class="remember">Easy way to remember: DL → Description List | DT → Description Term | DD → Description Details</div></div></div>
+<div class="qa"><h3>e. What is the use of type attribute with an unordered list?</h3><div class="answer"><ul><li>The <code>type</code> attribute is used to <strong>change the style of bullets</strong> in an unordered list.</li><li>Common values are: <code>disc</code>, <code>circle</code>, <code>square</code>.</li></ul><pre>&lt;ul type="square"&gt;
+    &lt;li&gt;Apple&lt;/li&gt;
+    &lt;li&gt;Mango&lt;/li&gt;
+&lt;/ul&gt;</pre><p>The items will appear with <strong>square bullets</strong>.</p></div></div>
+<div class="qa"><h3>f. State the use of any two properties that you use to enhance the appearance of a table.</h3><div class="answer"><p><strong>1. <code>border</code></strong></p><ul><li>It adds a border around the table and its cells.</li></ul><pre>table {
+    border: 2px solid black;
+}</pre><p><strong>2. <code>background-color</code></strong></p><ul><li>It adds a background colour to the table.</li></ul><pre>table {
+    background-color: lightblue;
+}</pre><p><strong>Other useful properties:</strong> <code>padding</code>, <code>text-align</code>, <code>border-collapse</code>, etc.</p></div></div>
+<div class="qa"><h3>g. How are images added in an HTML document?</h3><div class="answer"><ul><li>Images are added using the <strong>&lt;img&gt; tag</strong>.</li><li>The <strong>src attribute</strong> specifies the location of the image.</li><li>The <strong>alt attribute</strong> provides alternative text.</li></ul><pre>&lt;img src="image.jpg" alt="Description of image"&gt;</pre><div class="remember">Remember: &lt;img&gt; is an <strong>empty tag</strong>, so it does not need a closing tag.</div></div></div>
+</section>
+
+<section><h2>V. Activity</h2>
+<div class="qa"><h3>1. Create a web page to show a list of various colours and their Hex codes.</h3><div class="answer"><p><strong>Example:</strong></p><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Colours and Hex Codes&lt;/title&gt;
+
+    &lt;style&gt;
+        body {
+            font-family: Arial;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Colours and Hex Codes&lt;/h1&gt;
+
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Colour&lt;/th&gt;
+            &lt;th&gt;Hex Code&lt;/th&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Red&lt;/td&gt;
+            &lt;td&gt;#FF0000&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Green&lt;/td&gt;
+            &lt;td&gt;#008000&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Blue&lt;/td&gt;
+            &lt;td&gt;#0000FF&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Yellow&lt;/td&gt;
+            &lt;td&gt;#FFFF00&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre></div></div>
+<div class="qa"><h3>2. Create a web page to form a tabular representation of different mobile names with their features.</h3><div class="answer"><p><strong>Example:</strong></p><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Mobile Phones&lt;/title&gt;
+
+    &lt;style&gt;
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        th {
+            background-color: lightblue;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Mobile Phones and Their Features&lt;/h1&gt;
+
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Mobile Name&lt;/th&gt;
+            &lt;th&gt;RAM&lt;/th&gt;
+            &lt;th&gt;Storage&lt;/th&gt;
+            &lt;th&gt;Camera&lt;/th&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Phone A&lt;/td&gt;
+            &lt;td&gt;6 GB&lt;/td&gt;
+            &lt;td&gt;128 GB&lt;/td&gt;
+            &lt;td&gt;50 MP&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Phone B&lt;/td&gt;
+            &lt;td&gt;8 GB&lt;/td&gt;
+            &lt;td&gt;256 GB&lt;/td&gt;
+            &lt;td&gt;64 MP&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;Phone C&lt;/td&gt;
+            &lt;td&gt;4 GB&lt;/td&gt;
+            &lt;td&gt;64 GB&lt;/td&gt;
+            &lt;td&gt;48 MP&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre></div></div>
+</section>
+
+<section><h2>⭐ Quick Revision</h2><ul>
+<li><strong>&lt;ol&gt;</strong> → Ordered List</li><li><strong>&lt;ul&gt;</strong> → Unordered List</li><li><strong>&lt;li&gt;</strong> → List Item</li><li><strong>&lt;dl&gt;</strong> → Description List</li><li><strong>&lt;dt&gt;</strong> → Description Term</li><li><strong>&lt;dd&gt;</strong> → Description/Details</li><li><strong>&lt;table&gt;</strong> → Creates a table</li><li><strong>&lt;tr&gt;</strong> → Table Row</li><li><strong>&lt;th&gt;</strong> → Table Heading</li><li><strong>&lt;td&gt;</strong> → Table Data</li><li><strong>&lt;img&gt;</strong> → Adds an image</li><li><strong>src</strong> → Image location</li><li><strong>alt</strong> → Alternative text</li><li><strong>border-collapse: collapse</strong> → Makes table borders a single border</li>
+</ul></section>
+<footer>Made as a free learning resource for students in Assam.</footer>
+</main></body></html>
