@@ -18,6 +18,7 @@ header h1{margin:0 0 12px;font-size:clamp(30px,5vw,52px)}header p{margin:0 auto;
 .history.open{display:block}.geography-list{margin-top:10px}.history h4{margin:0 0 12px}.chapter{display:block;padding:12px 13px;margin:8px 0;background:#fff;border-radius:9px;text-decoration:none;color:#214e8a;border:1px solid #e1e6ef}
 .chapter:hover{background:#eef4ff}.history-note{font-size:14px;color:#657084;margin:0 0 10px}
 footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
+.feedback{margin:34px auto 0;max-width:760px;background:#fff;border:1px solid #e6eaf2;border-radius:18px;padding:26px;box-shadow:0 10px 28px #22304a12}.feedback h2{margin:0 0 8px;text-align:center}.feedback p{color:#5d687b;text-align:center;line-height:1.5}.feedback input,.feedback textarea{width:100%;padding:13px 14px;margin:7px 0 12px;border:1px solid #d8deea;border-radius:10px;font:inherit}.feedback textarea{min-height:120px;resize:vertical}.feedback button{width:100%;padding:13px;border:0;border-radius:10px;background:#214e8a;color:#fff;font-size:16px;font-weight:700;cursor:pointer}.feedback button:hover{background:#173b72}.feedback-status{text-align:center;margin:12px 0 0;font-size:14px;color:#214e8a}.feedback-note{font-size:13px!important;margin:10px 0 0!important}
 </style>
 </head>
 <body>
@@ -58,6 +59,7 @@ footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 </div>
 </div></article>
 </section>
+<section class="feedback" id="feedback"><h2>💬 Send Feedback</h2><p>Have a suggestion, found a mistake, or want to request a chapter? Send us a message.</p><form id="feedback-form" action="https://formspree.io/f/mjygkgbr" method="POST"><input type="text" name="name" placeholder="Your name (optional)"><textarea name="message" placeholder="Write your feedback here..." required></textarea><input type="hidden" name="_subject" value="New feedback — Assam NCERT English Medium Library"><button type="submit">Send Feedback</button></form><p class="feedback-status" id="feedback-status" aria-live="polite"></p><p class="feedback-note">🔒 Your feedback is private and can only be viewed by the website owner.</p></section>
 <footer>Made as a free learning resource for students in Assam.</footer>
 </main>
 <script>
@@ -65,5 +67,6 @@ const input=document.getElementById('search');const cards=[...document.querySele
 input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();cards.forEach(c=>c.hidden=q&&!c.dataset.search.includes(q));});
 document.querySelectorAll('.social-toggle').forEach(btn=>btn.addEventListener('click',()=>{const history=btn.closest('.card').querySelector('.history');const open=history.classList.toggle('open');btn.setAttribute('aria-expanded',open);}));
 document.querySelectorAll('.section-toggle').forEach(btn=>btn.addEventListener('click',()=>{const section=btn.nextElementSibling;const open=section.classList.toggle('open');btn.setAttribute('aria-expanded',open);}));
+const feedbackForm=document.getElementById('feedback-form');const feedbackStatus=document.getElementById('feedback-status');feedbackForm.addEventListener('submit',async e=>{e.preventDefault();const btn=feedbackForm.querySelector('button');btn.disabled=true;btn.textContent='Sending...';feedbackStatus.textContent='';try{const response=await fetch(feedbackForm.action,{method:'POST',body:new FormData(feedbackForm),headers:{Accept:'application/json'}});if(response.ok){feedbackForm.reset();feedbackStatus.textContent='✅ Thank you! Your feedback has been sent.';}else{feedbackStatus.textContent='❌ Could not send feedback. Please try again.';}}catch(err){feedbackStatus.textContent='❌ Could not send feedback. Please try again.';}finally{btn.disabled=false;btn.textContent='Send Feedback';}});
 </script>
 </body></html>
