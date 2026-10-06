@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Introduction to Loops</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:42px 20px;text-align:center}header h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px)}.wrap{max-width:950px;margin:auto;padding:28px 18px 60px}.back{color:#214e8a;font-weight:bold;text-decoration:none}section{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #22304a10}h2{color:#173b72}.qa{margin:24px 0}.answer{background:#f8fafc;border-left:4px solid #2d72c8;padding:14px 16px;line-height:1.65;border-radius:0 8px 8px 0}pre{background:#172033;color:#fff;padding:16px;border-radius:10px;overflow:auto;line-height:1.5}table{width:100%;border-collapse:collapse}th,td{border:1px solid #d8deea;padding:10px;text-align:left}th{background:#eef4ff}.remember{background:#eef4ff;padding:12px;border-radius:9px;font-weight:bold}footer{text-align:center;color:#6d7686;padding:25px}</style></head>
+<body><header><h1>Introduction to Loops</h1><p>Class 10 • Computer Science • Chapter 4</p></header><main class="wrap"><a class="back" href="../../index.html">← Back to Library</a>
+
+<section><h2>Questions</h2>
+<div class="qa"><h3>1. Why do we use a loop in a C program?</h3><div class="answer"><ul><li>A <strong>loop</strong> is used to repeat a set of statements again and again.</li><li>It saves time because we do not have to write the same statement many times.</li><li>A loop is useful when we need to perform an operation repeatedly.</li></ul><p><strong>Example:</strong> Printing numbers from 1 to 100.</p></div></div>
+
+<div class="qa"><h3>2. Do we need to use only one type of loop in a C program? Justify your answer by writing a C program.</h3><div class="answer"><p><strong>No.</strong> We can use more than one type of loop in a C program.</p><p>The three main loops in C are:</p><ol><li><code>for</code> loop</li><li><code>while</code> loop</li><li><code>do-while</code> loop</li></ol><p>We can use them in the <strong>same program</strong> according to our requirement.</p><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+
+    // for loop
+    for(i = 1; i &lt;= 3; i++)
+        printf("%d ", i);
+
+    // while loop
+    i = 1;
+    while(i &lt;= 3)
+    {
+        printf("%d ", i);
+        i++;
+    }
+
+    // do-while loop
+    i = 1;
+    do
+    {
+        printf("%d ", i);
+        i++;
+    } while(i &lt;= 3);
+
+    return 0;
+}</pre><p><strong>Therefore, we can use different types of loops in the same C program.</strong></p></div></div>
+
+<div class="qa"><h3>3. What will happen if we write a while loop with <code>1</code> in place of the condition? Try it in a simple C program.</h3><div class="answer"><ul><li>In C, <code>1</code> means <strong>true</strong>.</li><li>Therefore, the condition will <strong>always be true</strong>.</li><li>The loop will never stop by itself.</li><li>It is called an <strong>infinite loop</strong>.</li><li>The statement will keep printing again and again.</li></ul><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    while(1)
+    {
+        printf("We must raise our voice against corruption\n");
+    }
+
+    return 0;
+}</pre><p><strong>Output:</strong></p><pre>We must raise our voice against corruption
+We must raise our voice against corruption
+We must raise our voice against corruption
+...</pre><p>It continues <strong>indefinitely</strong> until the program is stopped.</p></div></div>
+
+<div class="qa"><h3>4. Name different portions of a <code>for</code> loop. Can we put more than one statement within a portion?</h3><div class="answer"><pre>for(initialization; condition; increment/decrement)</pre><ol><li><strong>Initialization</strong> – gives the initial value.</li><li><strong>Condition</strong> – checks whether the loop should continue.</li><li><strong>Increment/Decrement</strong> – changes the value after each repetition.</li></ol><pre>for(i = 1; i &lt;= 10; i++)</pre><ul><li><code>i = 1</code> → Initialization</li><li><code>i &lt;= 10</code> → Condition</li><li><code>i++</code> → Increment</li></ul><p><strong>Yes</strong>, more than one expression can be used in the initialization and update portions by using the comma operator.</p><pre>for(i = 1, j = 10; i &lt;= 10; i++, j--)</pre></div></div>
+</section>
+
+<section><h2>5. Answer with TRUE or FALSE</h2>
+<div class="qa"><h3>(i) If the condition of the while loop is false, the control comes to the second statement inside the loop.</h3><div class="answer"><strong>Answer: FALSE ❌</strong><p>If the condition is false, the loop body is <strong>not executed</strong> and control moves outside the loop.</p></div></div>
+<div class="qa"><h3>(ii) We can use at most three loops in a single C program.</h3><div class="answer"><strong>Answer: FALSE ❌</strong><p>We can use <strong>any number of loops</strong> in a C program.</p></div></div>
+<div class="qa"><h3>(iii) The statements inside the do-while loop executes at least once even if the condition is false.</h3><div class="answer"><strong>Answer: TRUE ✅</strong><p>The <code>do-while</code> loop executes the body <strong>before checking the condition</strong>.</p></div></div>
+<div class="qa"><h3>(iv) Only the first statement inside the do-while loop executes when the condition is false.</h3><div class="answer"><strong>Answer: FALSE ❌</strong><p>All statements inside the <code>do</code> block execute once before the condition is checked.</p></div></div>
+<div class="qa"><h3>(v) In a do-while loop, the condition is written at the end of the loop.</h3><div class="answer"><strong>Answer: TRUE ✅</strong><pre>do
+{
+    // statements
+}
+while(condition);</pre></div></div>
+</section>
+
+<section><h2>6. Programming Exercises</h2>
+<h3>A. Write a C program to find the summation of the following series.</h3>
+<div class="qa"><h3>(a) 1² + 2² + 3² + 4² + ... + N²</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, n, sum = 0;
+
+    printf("Enter N: ");
+    scanf("%d", &amp;n);
+
+    for(i = 1; i &lt;= n; i++)
+    {
+        sum = sum + i * i;
+    }
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}</pre><p><strong>Example:</strong> If N = 5: 1 + 4 + 9 + 16 + 25 = <strong>55</strong>.</p></div></div>
+<div class="qa"><h3>(b) 1³ + 2³ + 3³ + 4³ + ... + N³</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, n, sum = 0;
+
+    printf("Enter N: ");
+    scanf("%d", &amp;n);
+
+    for(i = 1; i &lt;= n; i++)
+    {
+        sum = sum + i * i * i;
+    }
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}</pre><p><strong>Example:</strong> If N = 3: 1 + 8 + 27 = <strong>36</strong>.</p></div></div>
+<div class="qa"><h3>(c) 1×2 + 2×3 + 3×4 + ... + N×(N+1)</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, n, sum = 0;
+
+    printf("Enter N: ");
+    scanf("%d", &amp;n);
+
+    for(i = 1; i &lt;= n; i++)
+    {
+        sum = sum + i * (i + 1);
+    }
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}</pre><p><strong>Example:</strong> If N = 3: 2 + 6 + 12 = <strong>20</strong>.</p></div></div>
+
+<h3>B. Write a C program to continuously take a number as input and announce whether the number is odd or even. Hint: use do-while loop.</h3>
+<div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    do
+    {
+        printf("Enter a number: ");
+        scanf("%d", &amp;n);
+
+        if(n % 2 == 0)
+            printf("Even\n");
+        else
+            printf("Odd\n");
+
+    } while(1);
+
+    return 0;
+}</pre><ul><li><code>%</code> gives the <strong>remainder</strong>.</li><li>If <code>n % 2 == 0</code> → number is <strong>Even</strong>.</li><li>Otherwise → number is <strong>Odd</strong>.</li><li><code>while(1)</code> makes the program continue continuously.</li></ul></div>
+
+<h3>C. Write a C program to display the following pattern.</h3><pre>1
+1 1
+1 1 1
+1 1 1 1
+1 1 1 1 1</pre><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+
+    for(i = 1; i &lt;= 5; i++)
+    {
+        for(j = 1; j &lt;= i; j++)
+        {
+            printf("1 ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre><p>Outer loop → controls the <strong>rows</strong>. Inner loop → prints <code>1</code> according to the row number.</p></div>
+
+<h3>D. Write a C program to display the following pattern.</h3><pre>5
+5 4
+5 4 3
+5 4 3 2
+5 4 3 2 1</pre><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+
+    for(i = 5; i &gt;= 1; i--)
+    {
+        for(j = 5; j &gt;= i; j--)
+        {
+            printf("%d ", j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre></div>
+
+<h3>E. Write a C program to display the following pattern.</h3><pre>5 4 3 2 1
+5 4 3 2
+5 4 3
+5 4
+5</pre><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+
+    for(i = 5; i &gt;= 1; i--)
+    {
+        for(j = 5; j &gt;= 6 - i; j--)
+        {
+            printf("%d ", j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre></div>
+</section>
+
+<section><h2>⭐ Quick Revision of Loops</h2><table><tr><th>Loop</th><th>Condition checked</th><th>Executes at least once?</th></tr><tr><td><strong>for</strong></td><td>Before execution</td><td>❌ No</td></tr><tr><td><strong>while</strong></td><td>Before execution</td><td>❌ No</td></tr><tr><td><strong>do-while</strong></td><td>After execution</td><td>✅ Yes</td></tr></table><h3>Basic syntax</h3><p><strong>for loop:</strong></p><pre>for(initialization; condition; update)
+{
+    statements;
+}</pre><p><strong>while loop:</strong></p><pre>while(condition)
+{
+    statements;
+}</pre><p><strong>do-while loop:</strong></p><pre>do
+{
+    statements;
+}
+while(condition);</pre><div class="remember"><strong>while</strong> → condition first → may execute 0 times<br><strong>do-while</strong> → body first → executes at least 1 time</div></section>
+<footer>Made as a free learning resource for students in Assam.</footer></main></body></html>
