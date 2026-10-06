@@ -13,9 +13,10 @@ header h1{margin:0 0 12px;font-size:clamp(30px,5vw,52px)}header p{margin:0 auto;
 .section-title{text-align:center;margin:18px 0 22px;font-size:28px}.classes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
 .card{background:#fff;border-radius:18px;padding:28px;box-shadow:0 10px 28px #22304a12;border:1px solid #e6eaf2}
 .card h3{margin-top:0;font-size:25px}.card p{color:#5d687b;line-height:1.5}.subjects{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
-.subject{padding:12px;border-radius:10px;background:#eef4ff;text-decoration:none;color:#214e8a;font-weight:600;text-align:center}
-.history{margin-top:20px;padding:18px;background:#f8fafc;border-radius:12px;border:1px solid #e5e9f0}
-.history h4{margin:0 0 12px}.chapter{display:block;padding:11px 13px;margin:8px 0;background:#fff;border-radius:9px;text-decoration:none;color:#214e8a;border:1px solid #e1e6ef}
+.subject{padding:12px;border-radius:10px;background:#eef4ff;text-decoration:none;color:#214e8a;font-weight:600;text-align:center;border:0;font-size:16px;font-family:inherit;cursor:pointer;width:100%}
+.subject:hover{background:#dfeaff}.history{display:none;margin-top:18px;padding:18px;background:#f8fafc;border-radius:12px;border:1px solid #e5e9f0}
+.history.open{display:block}.history h4{margin:0 0 12px}.chapter{display:block;padding:12px 13px;margin:8px 0;background:#fff;border-radius:9px;text-decoration:none;color:#214e8a;border:1px solid #e1e6ef}
+.chapter:hover{background:#eef4ff}.history-note{font-size:14px;color:#657084;margin:0 0 10px}
 footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 </style>
 </head>
@@ -25,17 +26,42 @@ footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 <div class="search"><input id="search" type="search" placeholder="Search a class, subject or chapter..."></div>
 <h2 class="section-title">Choose Your Class</h2>
 <section class="classes">
-<article class="card" data-search="class 9 english hindi mathematics science social science computer"><h3>📘 Class 9</h3><p>Explore study material arranged subject by subject and chapter by chapter.</p><div class="subjects">
-<a class="subject" href="#">English</a><a class="subject" href="#">Hindi</a><a class="subject" href="#">Mathematics</a><a class="subject" href="#">Science</a><a class="subject" href="#">Social Science</a><a class="subject" href="#">Computer</a></div></article>
+
+<article class="card" data-search="class 9 english hindi mathematics science social science computer">
+<h3>📘 Class 9</h3><p>Explore study material arranged subject by subject and chapter by chapter.</p>
+<div class="subjects">
+<a class="subject" href="#">English</a><a class="subject" href="#">Hindi</a><a class="subject" href="#">Mathematics</a><a class="subject" href="#">Science</a>
+<button class="subject social-toggle" type="button" aria-expanded="false">Social Science</button><a class="subject" href="#">Computer</a>
+</div>
+<div class="history"><h4>📚 Social Science — History</h4><p class="history-note">Choose a chapter:</p></div>
+</article>
+
 <article class="card" data-search="class 10 english hindi mathematics science social science history computer partition bengal swadeshi gandhi freedom">
 <h3>📕 Class 10</h3><p>Find questions and answers, important questions, notes and practice material.</p>
-<div class="subjects"><a class="subject" href="#">English</a><a class="subject" href="#">Hindi</a><a class="subject" href="#">Mathematics</a><a class="subject" href="#">Science</a><a class="subject" href="#">Social Science</a><a class="subject" href="#">Computer</a></div>
-<div class="history"><h4>📚 Social Science — History</h4>
+<div class="subjects">
+<a class="subject" href="#">English</a><a class="subject" href="#">Hindi</a><a class="subject" href="#">Mathematics</a><a class="subject" href="#">Science</a>
+<button class="subject social-toggle" type="button" aria-expanded="false">Social Science</button><a class="subject" href="#">Computer</a>
+</div>
+<div class="history"><h4>📚 Social Science — History</h4><p class="history-note">Choose a chapter:</p>
 <a class="chapter" href="class10/social-science/partition-of-bengal-1905-1911.html">Chapter 1 — Partition of Bengal (1905–1911 A.D.) and Swadeshi Movement</a>
 <a class="chapter" href="class10/social-science/rise-of-gandhi-freedom-movement.html">Chapter 2 — Rise of Gandhi and the Freedom Movement of India</a>
-</div></article>
+</div>
+</article>
+
 </section>
 <footer>Made as a free learning resource for students in Assam.</footer>
 </main>
-<script>const input=document.getElementById('search');const cards=[...document.querySelectorAll('.card')];input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();cards.forEach(c=>c.hidden=q&&!c.dataset.search.includes(q));});</script>
-</body></html>
+<script>
+const input=document.getElementById('search');
+const cards=[...document.querySelectorAll('.card')];
+input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();cards.forEach(c=>c.hidden=q&&!c.dataset.search.includes(q));});
+document.querySelectorAll('.social-toggle').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const history=btn.closest('.card').querySelector('.history');
+    const open=history.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+  });
+});
+</script>
+</body>
+</html>
