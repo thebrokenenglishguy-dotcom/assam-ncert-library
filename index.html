@@ -26,42 +26,24 @@ footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 <div class="search"><input id="search" type="search" placeholder="Search a class, subject or chapter..."></div>
 <h2 class="section-title">Choose Your Class</h2>
 <section class="classes">
+<article class="card" data-search="class 9 english hindi mathematics science social science computer"><h3>📘 Class 9</h3><p>Explore study material arranged subject by subject and chapter by chapter.</p><div class="subjects">
+<a class="subject" href="#">English</a><a class="subject" href="#">Hindi</a><a class="subject" href="#">Mathematics</a><a class="subject" href="#">Science</a><button class="subject social-toggle" type="button" aria-expanded="false">Social Science</button><a class="subject" href="#">Computer</a>
+</div><div class="history"><h4>📚 Social Science — History</h4><p class="history-note">Choose a chapter:</p></div></article>
 
-<article class="card" data-search="class 9 english hindi mathematics science social science computer">
-<h3>📘 Class 9</h3><p>Explore study material arranged subject by subject and chapter by chapter.</p>
-<div class="subjects">
-<a class="subject" href="#">English</a><a class="subject" href="#">Hindi</a><a class="subject" href="#">Mathematics</a><a class="subject" href="#">Science</a>
-<button class="subject social-toggle" type="button" aria-expanded="false">Social Science</button><a class="subject" href="#">Computer</a>
-</div>
-<div class="history"><h4>📚 Social Science — History</h4><p class="history-note">Choose a chapter:</p></div>
-</article>
-
-<article class="card" data-search="class 10 english hindi mathematics science social science history computer partition bengal swadeshi gandhi freedom">
+<article class="card" data-search="class 10 english hindi mathematics science social science history computer partition bengal swadeshi gandhi freedom anti british peasant revolts assam">
 <h3>📕 Class 10</h3><p>Find questions and answers, important questions, notes and practice material.</p>
-<div class="subjects">
-<a class="subject" href="#">English</a><a class="subject" href="#">Hindi</a><a class="subject" href="#">Mathematics</a><a class="subject" href="#">Science</a>
-<button class="subject social-toggle" type="button" aria-expanded="false">Social Science</button><a class="subject" href="#">Computer</a>
-</div>
+<div class="subjects"><a class="subject" href="#">English</a><a class="subject" href="#">Hindi</a><a class="subject" href="#">Mathematics</a><a class="subject" href="#">Science</a><button class="subject social-toggle" type="button" aria-expanded="false">Social Science</button><a class="subject" href="#">Computer</a></div>
 <div class="history"><h4>📚 Social Science — History</h4><p class="history-note">Choose a chapter:</p>
 <a class="chapter" href="class10/social-science/partition-of-bengal-1905-1911.html">Chapter 1 — Partition of Bengal (1905–1911 A.D.) and Swadeshi Movement</a>
 <a class="chapter" href="class10/social-science/rise-of-gandhi-freedom-movement.html">Chapter 2 — Rise of Gandhi and the Freedom Movement of India</a>
-</div>
-</article>
-
+<a class="chapter" href="class10/social-science/anti-british-rising-peasant-revolts-assam.html">Chapter 3 — Anti-British Rising and Peasant Revolts in Assam</a>
+</div></article>
 </section>
 <footer>Made as a free learning resource for students in Assam.</footer>
 </main>
 <script>
-const input=document.getElementById('search');
-const cards=[...document.querySelectorAll('.card')];
+const input=document.getElementById('search');const cards=[...document.querySelectorAll('.card')];
 input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();cards.forEach(c=>c.hidden=q&&!c.dataset.search.includes(q));});
-document.querySelectorAll('.social-toggle').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const history=btn.closest('.card').querySelector('.history');
-    const open=history.classList.toggle('open');
-    btn.setAttribute('aria-expanded',open);
-  });
-});
+document.querySelectorAll('.social-toggle').forEach(btn=>btn.addEventListener('click',()=>{const history=btn.closest('.card').querySelector('.history');const open=history.classList.toggle('open');btn.setAttribute('aria-expanded',open);}));
 </script>
-</body>
-</html>
+</body></html>
