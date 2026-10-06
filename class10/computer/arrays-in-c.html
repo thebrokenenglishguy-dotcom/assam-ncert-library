@@ -1,0 +1,270 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Arrays in C</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:42px 20px;text-align:center}header h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px)}.wrap{max-width:950px;margin:auto;padding:28px 18px 60px}.back{color:#214e8a;font-weight:bold;text-decoration:none}section{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #22304a10}h2{color:#173b72}.qa{margin:24px 0}.answer{background:#f8fafc;border-left:4px solid #2d72c8;padding:14px 16px;line-height:1.65;border-radius:0 8px 8px 0}pre{background:#172033;color:#fff;padding:16px;border-radius:10px;overflow:auto;line-height:1.5}.remember{background:#eef4ff;padding:12px;border-radius:9px;font-weight:bold}footer{text-align:center;color:#6d7686;padding:25px}</style></head><body><header><h1>Arrays in C</h1><p>Class 10 • Computer Science • Chapter 6</p></header><main class="wrap"><a class="back" href="../../index.html">← Back to Library</a>
+<section><h2>Exercise</h2>
+<div class="qa"><h3>1. Define array. Why do we use arrays in computer programs?</h3><div class="answer"><p>An <strong>array</strong> is a collection of elements of the <strong>same data type</strong> stored under one name.</p><h4>Why do we use arrays?</h4><ul><li>To store many values using <strong>one variable name</strong>.</li><li>It makes handling large amounts of data easier.</li><li>We can access each element using its <strong>index</strong>.</li></ul><p><strong>Example:</strong></p><pre>int marks[5];</pre><p>Here, <code>marks</code> can store <strong>5 integer values</strong>.</p></div></div>
+<div class="qa"><h3>2. Can we store both integer and float types of data in a single array?</h3><div class="answer"><p><strong>No.</strong></p><ul><li>An array can normally store elements of <strong>only one data type</strong>.</li><li>We cannot directly store both <code>int</code> and <code>float</code> values in the same array.</li></ul><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a[3] = {10, 20, 30};
+    float b[3] = {1.5, 2.5, 3.5};
+
+    printf("%d\n", a[0]);
+    printf("%.1f\n", b[0]);
+
+    return 0;
+}</pre><ul><li><code>a</code> is an <strong>integer array</strong>.</li><li><code>b</code> is a <strong>float array</strong>.</li></ul></div></div>
+<div class="qa"><h3>3. Write the indices of the first and last element of the array <code>char city[7] = {'S','I','L','C','H','A','R'};</code></h3><div class="answer"><p>There are <strong>7 elements</strong>. C array indexing starts from <strong>0</strong>.</p><pre>Index:    0   1   2   3   4   5   6
+Element:  S   I   L   C   H   A   R</pre><p><strong>First element index = 0</strong><br><strong>Last element index = 6</strong></p><p><strong>Formula:</strong> Last index = Size − 1</p><p>7 − 1 = <strong>6</strong></p></div></div>
+<div class="qa"><h3>4. Declare an integer array with capacity 7, take input, and display the 8th element. Analyze the output.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num[7];
+    int i;
+
+    printf("Enter 7 numbers:\n");
+
+    for(i = 0; i &lt; 7; i++)
+    {
+        scanf("%d", &amp;num[i]);
+    }
+
+    printf("8th element = %d", num[7]);
+
+    return 0;
+}</pre><h4>Analysis</h4><p><code>int num[7];</code> creates indexes:</p><pre>0  1  2  3  4  5  6</pre><p>There is <strong>no index 7</strong>. Therefore <code>num[7]</code> tries to access memory outside the array. This is called <strong>out-of-bounds access</strong> and gives <strong>undefined/invalid output</strong>.</p><div class="remember">7 elements → indexes 0 to 6</div></div></div>
+<div class="qa"><h3>5. Declare an integer array with 7 elements and display the address of each element.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num[7];
+    int i;
+
+    for(i = 0; i &lt; 7; i++)
+    {
+        printf("Address of num[%d] = %p\n",
+               i, (void *)&amp;num[i]);
+    }
+
+    return 0;
+}</pre><ul><li><code>&amp;num[i]</code> gives the <strong>address</strong> of the element.</li><li><code>%p</code> is used to display an address.</li></ul></div></div>
+<div class="qa"><h3>6. Declare two integer arrays, take input only to the first, copy it to the second, and display the second.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a[7], b[7];
+    int i;
+
+    printf("Enter 7 numbers:\n");
+
+    for(i = 0; i &lt; 7; i++)
+    {
+        scanf("%d", &amp;a[i]);
+    }
+
+    /* Copy first array to second array */
+    for(i = 0; i &lt; 7; i++)
+    {
+        b[i] = a[i];
+    }
+
+    printf("Elements of second array:\n");
+
+    for(i = 0; i &lt; 7; i++)
+    {
+        printf("%d ", b[i]);
+    }
+
+    return 0;
+}</pre><p><strong>Main logic:</strong> <code>b[i] = a[i];</code> copies each element from <code>a</code> to <code>b</code>.</p></div></div>
+<div class="qa"><h3>7. Find the summation of all even numbers stored in an array.</h3><div class="answer"><p>Given: <code>{1, 2, 4, 3, 5, 6, 7, 8}</code></p><p><strong>Logic:</strong></p><ol><li>Start <code>sum = 0</code>.</li><li>Check every element.</li><li>If the element is divisible by 2, it is even.</li><li>Add it to <code>sum</code>.</li><li>Finally, print <code>sum</code>.</li></ol><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a[8] = {1, 2, 4, 3, 5, 6, 7, 8};
+    int i, sum = 0;
+
+    for(i = 0; i &lt; 8; i++)
+    {
+        if(a[i] % 2 == 0)
+        {
+            sum = sum + a[i];
+        }
+    }
+
+    printf("Sum of even numbers = %d", sum);
+
+    return 0;
+}</pre><p><strong>Calculation:</strong> 2 + 4 + 6 + 8 = <strong>20</strong></p></div></div>
+<div class="qa"><h3>8. Find the summation of all the even positioned numbers stored in an array.</h3><div class="answer"><p>Here <strong>position</strong> means the position starting from <strong>1</strong>.</p><pre>Position:  1  2  3  4  5  6  7  8
+Element:   1  2  4  3  5  6  7  8</pre><p>Even positions are 2, 4, 6, 8.</p><p>2 + 3 + 6 + 8 = <strong>19</strong></p><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a[8] = {1, 2, 4, 3, 5, 6, 7, 8};
+    int i, sum = 0;
+
+    for(i = 1; i &lt; 8; i = i + 2)
+    {
+        sum = sum + a[i];
+    }
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}</pre><p><strong>Important note:</strong> The source says the textbook image gives output <strong>18</strong>, but with the given array and the usual meaning of even positions, the calculation is <strong>19</strong>. The source identifies 18 as a textbook error.</p></div></div>
+<div class="qa"><h3>9. Replace only the first occurrence of an element in an array.</h3><div class="answer"><p>Given: <code>{1, 2, 3, 4, 5, 1, 2, 3}</code></p><p>Replace the <strong>first 3</strong> by <code>0</code>.</p><p>Result: <code>{1, 2, 0, 4, 5, 1, 2, 3}</code></p><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a[8] = {1, 2, 3, 4, 5, 1, 2, 3};
+    int i;
+
+    for(i = 0; i &lt; 8; i++)
+    {
+        if(a[i] == 3)
+        {
+            a[i] = 0;
+            break;
+        }
+    }
+
+    for(i = 0; i &lt; 8; i++)
+    {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}</pre><p><code>break</code> stops the loop after replacing the <strong>first occurrence</strong>.</p></div></div>
+<div class="qa"><h3>10. Replace only the last occurrence of an element in an array.</h3><div class="answer"><p>Given: <code>{1, 2, 3, 4, 5, 1, 2, 3}</code></p><p>Replace the <strong>last 3</strong> by <code>0</code>.</p><p>Result: <code>{1, 2, 3, 4, 5, 1, 2, 0}</code></p><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a[8] = {1, 2, 3, 4, 5, 1, 2, 3};
+    int i;
+
+    for(i = 7; i &gt;= 0; i--)
+    {
+        if(a[i] == 3)
+        {
+            a[i] = 0;
+            break;
+        }
+    }
+
+    for(i = 0; i &lt; 8; i++)
+    {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}</pre><p><strong>Important:</strong> First occurrence → search left to right. Last occurrence → search right to left.</p></div></div>
+<div class="qa"><h3>11. Replace all the even positioned elements in an integer array by 0.</h3><div class="answer"><p>Given: <code>{1, 2, 3, 9, 5, 5, 7, 1, 9}</code></p><p>Result: <code>{1, 0, 3, 0, 5, 0, 7, 0, 9}</code></p><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a[9] = {1, 2, 3, 9, 5, 5, 7, 1, 9};
+    int i;
+
+    for(i = 1; i &lt; 9; i = i + 2)
+    {
+        a[i] = 0;
+    }
+
+    for(i = 0; i &lt; 9; i++)
+    {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}</pre><p><strong>Why <code>i = 1</code>?</strong> C uses <strong>0-based indexing</strong>.</p><pre>Position:  1 2 3 4 5 6 7 8 9
+Index:     0 1 2 3 4 5 6 7 8</pre><p>So even positions correspond to indexes <strong>1, 3, 5, 7</strong>.</p></div></div>
+<div class="qa"><h3>12. Replace all the odd numbers in an integer array by 0.</h3><div class="answer"><p>Given: <code>{1, 2, 3, 9, 5, 5, 7, 1, 9}</code></p><p>Result: <code>{0, 2, 0, 0, 0, 0, 0, 0, 0}</code></p><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a[9] = {1, 2, 3, 9, 5, 5, 7, 1, 9};
+    int i;
+
+    for(i = 0; i &lt; 9; i++)
+    {
+        if(a[i] % 2 != 0)
+        {
+            a[i] = 0;
+        }
+    }
+
+    for(i = 0; i &lt; 9; i++)
+    {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}</pre><p><code>a[i] % 2 != 0</code> means the number is <strong>odd</strong>.</p></div></div>
+<div class="qa"><h3>13. Store your name and your mother's name in two different strings and display them one after another.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char name[50];
+    char mother[50];
+
+    printf("Enter your name: ");
+    scanf("%s", name);
+
+    printf("Enter your mother's name: ");
+    scanf("%s", mother);
+
+    printf("\nYour name: %s\n", name);
+    printf("Mother's name: %s\n", mother);
+
+    return 0;
+}</pre><p>A string in C is stored using a <strong>character array</strong>.</p><pre>char name[50];</pre></div></div>
+<div class="qa"><h3>14. Store marks of 10 students in 3 subjects, calculate average, and display PASS or FAIL.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int sub1[10], sub2[10], sub3[10];
+    int avg[10];
+    int i;
+
+    printf("Enter marks of 10 students:\n");
+
+    for(i = 0; i &lt; 10; i++)
+    {
+        printf("\nStudent %d\n", i + 1);
+
+        printf("Subject 1: ");
+        scanf("%d", &amp;sub1[i]);
+
+        printf("Subject 2: ");
+        scanf("%d", &amp;sub2[i]);
+
+        printf("Subject 3: ");
+        scanf("%d", &amp;sub3[i]);
+
+        avg[i] = (sub1[i] + sub2[i] + sub3[i]) / 3;
+    }
+
+    printf("\nResult:\n");
+
+    for(i = 0; i &lt; 10; i++)
+    {
+        printf("Student %d: Average = %d ", i + 1, avg[i]);
+
+        if(avg[i] &gt;= 45)
+            printf("PASS\n");
+        else
+            printf("FAIL\n");
+    }
+
+    return 0;
+}</pre><p><strong>Formula:</strong> Average = (Subject 1 + Subject 2 + Subject 3) / 3</p><p><strong>Rule:</strong> Average ≥ 45 → PASS; Average &lt; 45 → FAIL</p></div></div>
+<div class="qa"><h3>15. Write any two limitations of arrays. Can you store your name and roll number in the same array?</h3><div class="answer"><h4>Two limitations of arrays:</h4><ol><li>An array normally stores elements of <strong>only one data type</strong>.</li><li>The size of an array is <strong>fixed</strong> after it is created.</li></ol><h4>Can we store name and roll number in the same array?</h4><p><strong>No</strong>, not in a normal C array.</p><pre>Name → character/string data
+Roll number → integer data</pre><p>They have different data types. We should use separate variables/arrays:</p><pre>char name[50];
+int roll;</pre></div></div>
+</section>
+<section><h2>⭐ Quick Revision: Arrays in C</h2><div class="remember"><h3>1. What is an array?</h3><p>A collection of elements of the same data type under one name.</p><h3>2. Indexing</h3><p>C arrays start from <strong>Index = 0</strong>.</p><pre>int a[5];
+
+0   1   2   3   4</pre><h3>3. Last index</h3><p><strong>Last index = Size − 1</strong></p><p>For <code>a[7]</code>: Last index = <strong>6</strong></p><h3>4. Accessing an element</h3><pre>a[0]
+a[1]
+a[2]</pre><h3>5. Address of an element</h3><pre>&amp;a[i]</pre><h3>6. Even number</h3><pre>a[i] % 2 == 0</pre><h3>7. Odd number</h3><pre>a[i] % 2 != 0</pre><h3>8. First occurrence</h3><p>Search <strong>left → right</strong> and use <code>break;</code> after finding it.</p><h3>9. Last occurrence</h3><p>Search <strong>right → left</strong> and use <code>break;</code> after finding it.</p><h3>10. Even positions</h3><p>For 1-based positions: <strong>2nd, 4th, 6th, 8th...</strong></p><p>In C indexes: <strong>1, 3, 5, 7...</strong></p><p><strong>This distinction between position and index is very important for your exam.</strong></p></div></section><footer>Made as a free learning resource for students in Assam.</footer></main></body></html>
