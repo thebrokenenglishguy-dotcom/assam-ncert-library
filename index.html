@@ -65,7 +65,13 @@ footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 </main>
 <script>
 const input=document.getElementById('search');const cards=[...document.querySelectorAll('.card')];
-input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();cards.forEach(c=>c.hidden=q&&!c.dataset.search.includes(q));});
+input.addEventListener('input',()=>{
+  const tokens=input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  cards.forEach(c=>{
+    const searchable=(c.dataset.search+' '+c.textContent).toLowerCase();
+    c.hidden=tokens.length>0&&!tokens.every(token=>searchable.includes(token));
+  });
+});
 document.querySelectorAll('.hindi-mil-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const section=card.querySelector('.hindi-mil-list');const open=section.classList.toggle('open');if(open){card.querySelectorAll('.social-list,.computer-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.social-toggle,.computer-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));document.querySelectorAll('.computer-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const section=card.querySelector('.computer-list');const open=section.classList.toggle('open');if(open){card.querySelectorAll('.hindi-mil-list,.social-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.hindi-mil-toggle,.social-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));
 document.querySelectorAll('.social-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const history=card.querySelector('.social-list');const open=history.classList.toggle('open');if(open){card.querySelectorAll('.hindi-mil-list,.computer-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.hindi-mil-toggle,.computer-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));
 document.querySelectorAll('.section-toggle').forEach(btn=>btn.addEventListener('click',()=>{const section=btn.nextElementSibling;const open=section.classList.toggle('open');btn.setAttribute('aria-expanded',open);}));
