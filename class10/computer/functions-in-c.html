@@ -1,0 +1,204 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Functions in C</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:42px 20px;text-align:center}header h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px)}.wrap{max-width:950px;margin:auto;padding:28px 18px 60px}.back{color:#214e8a;font-weight:bold;text-decoration:none}section{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #22304a10}.qa{margin:24px 0}.answer{background:#f8fafc;border-left:4px solid #2d72c8;padding:14px 16px;line-height:1.65;border-radius:0 8px 8px 0}h2{color:#173b72}pre{background:#172033;color:#fff;padding:16px;border-radius:10px;overflow:auto;line-height:1.5}.remember{background:#eef4ff;padding:14px;border-radius:9px;font-weight:bold}footer{text-align:center;color:#6d7686;padding:25px}</style></head><body><header><h1>Functions in C</h1><p>Class 10 • Computer Science • Chapter 7</p></header><main class="wrap"><a class="back" href="../../index.html">← Back to Library</a><section><h2>Exercise</h2>
+<div class="qa"><h3>1. What is a global variable in C? Why do we need such a variable?</h3><div class="answer"><p>A <strong>global variable</strong> is a variable declared <strong>outside all functions</strong>.</p><h4>Why do we need it?</h4><ul><li>It can be accessed by <strong>different functions</strong> in the program.</li><li>It remains available throughout the execution of the program.</li><li>It is useful when the same data needs to be shared by several functions.</li></ul><pre>int x = 10;   // Global variable
+
+int main()
+{
+    printf("%d", x);
+    return 0;
+}</pre></div></div>
+<div class="qa"><h3>2. Write the syntax of a function declaration. The function is <code>calculateAge()</code>.</h3><div class="answer"><pre>return_type function_name(parameters);</pre><p>For <code>calculateAge()</code>:</p><pre>int calculateAge(int currentYear, int birthYear);</pre><ul><li><code>int</code> → return type</li><li><code>calculateAge</code> → function name</li><li><code>currentYear</code> and <code>birthYear</code> → parameters</li></ul></div></div>
+<div class="qa"><h3>3. Write the function definition of <code>calculateAge()</code>.</h3><div class="answer"><pre>int calculateAge(int currentYear, int birthYear)
+{
+    int age;
+
+    age = currentYear - birthYear;
+
+    return age;
+}</pre><p><strong>Example:</strong> Current year = 2026, Birth year = 2006 → Age = <strong>20</strong>.</p></div></div>
+<div class="qa"><h3>4. What are different types of functions in C? Differentiate among them.</h3><div class="answer"><h4>1. Library Functions</h4><ul><li>Already provided by C libraries.</li><li>We can directly use them by including the required header file.</li></ul><p>Examples:</p><pre>printf()
+scanf()
+sqrt()
+strlen()</pre><h4>2. User-defined Functions</h4><ul><li>Created by the programmer according to the requirement.</li></ul><pre>int square(int n)
+{
+    return n * n;
+}</pre><p><strong>Difference:</strong></p><ul><li>Library function → already available in C libraries.</li><li>User-defined function → created by the programmer.</li></ul></div></div>
+<div class="qa"><h3>5. Differentiate between caller and callee functions. Identify them in a C program.</h3><div class="answer"><p><strong>Caller function:</strong> A function that calls another function.</p><p><strong>Callee function:</strong> A function that is called by another function.</p><pre>#include &lt;stdio.h&gt;
+
+void message()
+{
+    printf("Hello");
+}
+
+int main()
+{
+    message();
+
+    return 0;
+}</pre><p><code>main()</code> → <strong>Caller</strong><br><code>message()</code> → <strong>Callee</strong></p></div></div>
+<div class="qa"><h3>6. When do we call a function user-defined? Is <code>printf()</code> a user-defined function?</h3><div class="answer"><p>A function is called <strong>user-defined</strong> when it is created and defined by the programmer.</p><pre>int square(int n)
+{
+    return n * n;
+}</pre><p><code>printf()</code> is <strong>not</strong> a user-defined function.</p><ul><li><code>printf()</code> is a <strong>library function</strong>.</li><li>It is provided by the C standard library.</li><li>It is declared in the <code>stdio.h</code> header file.</li></ul></div></div>
+<div class="qa"><h3>7. Can we have two functions with the same name but different numbers of parameters in a single C program?</h3><div class="answer"><p><strong>No.</strong> C does <strong>not support function overloading</strong>.</p><p>This is not allowed in C:</p><pre>int add(int a, int b)
+{
+    return a + b;
+}
+
+int add(int a, int b, int c)
+{
+    return a + b + c;
+}</pre><p>Both functions have the name <code>add()</code>, so this causes an error.</p><div class="remember">C → No function overloading<br>C++ → Supports function overloading</div></div></div>
+<div class="qa"><h3>8. What are different components of a function? Show with a complete C program.</h3><div class="answer"><p>The main components are:</p><ol><li>Function declaration/prototype</li><li>Function call</li><li>Function definition</li><li>Parameters</li><li>Return value</li></ol><pre>#include &lt;stdio.h&gt;
+
+/* Function declaration */
+int add(int a, int b);
+
+int main()
+{
+    int result;
+
+    /* Function call */
+    result = add(10, 20);
+
+    printf("Sum = %d", result);
+
+    return 0;
+}
+
+/* Function definition */
+int add(int a, int b)
+{
+    return a + b;
+}</pre><ul><li><code>int add(int a, int b);</code> → Function declaration</li><li><code>add(10, 20);</code> → Function call</li><li><code>int add(int a, int b)</code> → Function definition</li><li><code>a</code> and <code>b</code> → Parameters</li><li><code>return a + b;</code> → Return value</li></ul></div></div>
+<div class="qa"><h3>9. Define recursive function. Can we use a recursive function to solve all kinds of problems?</h3><div class="answer"><p>A <strong>recursive function</strong> is a function that <strong>calls itself</strong>.</p><pre>int count(int n)
+{
+    if(n == 0)
+        return 0;
+
+    return count(n - 1);
+}</pre><p><strong>Can recursion solve all problems? No.</strong></p><ul><li>Some problems are suitable for recursion.</li><li>Some problems are better solved using loops.</li><li>Recursion can use more memory because each function call is stored in the <strong>call stack</strong>.</li></ul></div></div>
+<div class="qa"><h3>10. Consider the code and list the important error.</h3><div class="answer"><pre>int fun(int x)
+{
+    if(x %2 == 0)
+        return 1;
+    else
+        return 0;
+}
+
+int main()
+{
+    int number;
+
+    printf("\n Enter the number: ");
+    scanf("%d", &amp;number);
+
+    int x = fun();
+
+    return 0;
+}</pre><p>The function is declared as <code>int fun(int x)</code>, so it requires <strong>one argument</strong>. But it is called as <code>fun()</code>, with no argument.</p><p><strong>Correct statement:</strong></p><pre>int x = fun(number);</pre><p>The source notes that the important problem intended by the exercise is the missing argument.</p></div></div>
+<div class="qa"><h3>11. Find the output if the user enters 5.</h3><div class="answer"><p>The function checks whether the number is even.</p><pre>5 % 2 = 1</pre><p>The condition is false, so the function returns <code>0</code>.</p><div class="remember">Output = 0</div></div></div>
+<div class="qa"><h3>12. Write a C program with a function <code>square()</code> that returns the square of a number.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int square(int n)
+{
+    return n * n;
+}
+
+int main()
+{
+    int num, result;
+
+    printf("Enter a number: ");
+    scanf("%d", &amp;num);
+
+    result = square(num);
+
+    printf("Square = %d", result);
+
+    return 0;
+}</pre><p>If input is <code>5</code>, output is <strong>Square = 25</strong>.</p></div></div>
+<div class="qa"><h3>13. Write a C program with a function <code>search()</code> that searches an element in an array and returns its index.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int search(int a[], int size, int key)
+{
+    int i;
+
+    for(i = 0; i &lt; size; i++)
+    {
+        if(a[i] == key)
+            return i;
+    }
+
+    return -1;
+}
+
+int main()
+{
+    int a[5] = {10, 20, 30, 40, 50};
+    int key, index;
+
+    printf("Enter element to search: ");
+    scanf("%d", &amp;key);
+
+    index = search(a, 5, key);
+
+    if(index != -1)
+        printf("Element found at index %d", index);
+    else
+        printf("Element not found");
+
+    return 0;
+}</pre><p>If the element is not found, <code>return -1;</code> is used.</p></div></div>
+<div class="qa"><h3>14. Write a C program with a recursive function to find the sum of first N natural numbers.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int sum(int n)
+{
+    if(n == 0)
+        return 0;
+
+    return n + sum(n - 1);
+}
+
+int main()
+{
+    int n, result;
+
+    printf("Enter N: ");
+    scanf("%d", &amp;n);
+
+    result = sum(n);
+
+    printf("Sum = %d", result);
+
+    return 0;
+}</pre><p><strong>Example:</strong> If N = 5:</p><pre>5 + 4 + 3 + 2 + 1 = 15</pre><p><strong>How recursion works:</strong></p><pre>sum(5)
+= 5 + sum(4)
+= 5 + 4 + sum(3)
+= 5 + 4 + 3 + sum(2)
+= 5 + 4 + 3 + 2 + sum(1)
+= 15</pre></div></div>
+<div class="qa"><h3>15. Write a C program with a function <code>add()</code> that accepts three array indices and returns the sum of the elements stored at those indices.</h3><div class="answer"><p>Given array:</p><pre>Index:    0  1  2  3  4  5
+Element:  7  8  8  0  0  9</pre><p><code>add(0, 2, 5)</code> returns 7 + 8 + 9 = <strong>24</strong>.</p><pre>#include &lt;stdio.h&gt;
+
+int add(int a[], int i, int j, int k)
+{
+    return a[i] + a[j] + a[k];
+}
+
+int main()
+{
+    int a[6] = {7, 8, 8, 0, 0, 9};
+    int result;
+
+    result = add(a, 0, 2, 5);
+
+    printf("Sum = %d", result);
+
+    return 0;
+}</pre><div class="remember">Output: Sum = 24</div></div></div>
+</section>
+<section><h2>⭐ Quick Revision — Functions in C</h2><div class="remember"><h3>1. Function</h3><p>A <strong>function</strong> is a block of code that performs a particular task.</p><h3>2. Function declaration</h3><pre>int add(int, int);</pre><h3>3. Function definition</h3><pre>int add(int a, int b)
+{
+    return a + b;
+}</pre><h3>4. Function call</h3><pre>add(10, 20);</pre><h3>5. Caller</h3><p>The function that <strong>calls another function</strong>.</p><h3>6. Callee</h3><p>The function that is <strong>called</strong>.</p><h3>7. Library function</h3><p>Already provided by C. Examples: <code>printf()</code>, <code>scanf()</code>, <code>strlen()</code>, <code>sqrt()</code>.</p><h3>8. User-defined function</h3><p>Created by the programmer. Example: <code>square()</code>.</p><h3>9. Recursive function</h3><p>A function that <strong>calls itself</strong>.</p><h3>10. Important exam point</h3><p><strong>C does not support function overloading.</strong></p><pre>add(int, int)
+add(int, int, int)</pre><p>cannot be written with the same function name in C.</p></div></section><footer>Made as a free learning resource for students in Assam.</footer></main></body></html>
