@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Database Part II: MySQL</title>
+<style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:42px 20px;text-align:center}header h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px)}header p{margin:0}.wrap{max-width:950px;margin:auto;padding:28px 18px 60px}.back{display:inline-block;margin-bottom:20px;color:#214e8a;font-weight:bold;text-decoration:none}section{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #22304a10}h2{color:#173b72}.qa{margin:22px 0}.qa h3{line-height:1.5}.answer{background:#f8fafc;border-left:4px solid #2d72c8;padding:13px 15px;line-height:1.65;border-radius:0 8px 8px 0}ol,ul{line-height:1.7}pre{background:#172033;color:#fff;padding:16px;border-radius:10px;overflow:auto}table{width:100%;border-collapse:collapse}th,td{border:1px solid #d8deea;padding:9px;text-align:left}th{background:#eef4ff}.remember{background:#eef4ff;padding:12px;border-radius:9px;font-weight:bold}footer{text-align:center;color:#6d7686;padding:25px}</style></head>
+<body><header><h1>Database</h1><p>Class 10 • Computer Science • Chapter 3 • Part II: MySQL</p></header><main class="wrap"><a class="back" href="../../index.html">← Back to Library</a>
+
+<section><h2>I. Multiple Choice Questions</h2>
+<div class="qa"><h3>1. The command used to modify the content of a table is:</h3><p>a) ALTER TABLE<br>b) SELECT<br>c) <strong>UPDATE</strong> ✅</p><div class="answer"><strong>Answer:</strong> c) UPDATE</div></div>
+<div class="qa"><h3>2. The command used to display the table structure is:</h3><p>a) DISPLAY<br>b) STRUCTURE<br>c) <strong>DESCRIBE</strong> ✅</p><div class="answer"><strong>Answer:</strong> c) DESCRIBE</div></div>
+<div class="qa"><h3>3. A table name should begin with:</h3><p>a) Number<br>b) <strong>Alphabet</strong> ✅<br>c) Symbol</p><div class="answer"><strong>Answer:</strong> b) Alphabet</div></div>
+<div class="qa"><h3>4. The command used to delete the database physically.</h3><p>a) DELETE<br>b) ERASE<br>c) <strong>DROP</strong> ✅</p><div class="answer"><strong>Answer:</strong> c) DROP</div><div class="remember">DROP removes the database/table itself.</div></div>
+<div class="qa"><h3>5. This wildcard character allows finding a match for any string of any length, including zero length:</h3><p>a) <strong>%</strong> ✅<br>b) _<br>c) #</p><div class="answer"><strong>Answer:</strong> a) %</div></div>
+<div class="qa"><h3>6. This operator displays only those records that do not satisfy the specified condition:</h3><p>a) AND<br>b) OR<br>c) <strong>NOT</strong> ✅</p><div class="answer"><strong>Answer:</strong> c) NOT</div></div>
+</section>
+
+<section><h2>II. Fill in the Blanks</h2>
+<div class="qa"><h3>1. MySQL is named after co-founder Michael Widenius's daughter, __________.</h3><div class="answer"><strong>Answer:</strong> My</div></div><div class="qa"><h3>2. The number of rows denotes the __________ of the table.</h3><div class="answer"><strong>Answer:</strong> Cardinality</div></div><div class="qa"><h3>3. The number of columns denotes the Degree of the table.</h3><div class="answer"><strong>Answer:</strong> Degree</div></div><div class="qa"><h3>4. __________ words are not allowed in a table name.</h3><div class="answer"><strong>Answer:</strong> Reserved</div></div><div class="qa"><h3>5. A MySQL statement is terminated by a __________.</h3><div class="answer"><strong>Answer:</strong> Semicolon (;)</div></div><div class="qa"><h3>6. The underscore wildcard allows finding a match for any __________ character.</h3><div class="answer"><strong>Answer:</strong> single</div></div>
+</section>
+
+<section><h2>III. Answer the Following Questions</h2>
+<div class="qa"><h3>1. Who were the developers of MySQL?</h3><div class="answer"><ol><li>Michael Widenius</li><li>David Axmark</li><li>Allan Larsson</li></ol><p>They developed MySQL in Sweden.</p></div></div>
+<div class="qa"><h3>2. Why is MySQL becoming so popular? Give two reasons.</h3><div class="answer"><ol><li>MySQL is <strong>open-source</strong> and freely available.</li><li>It is <strong>fast, reliable and easy to use</strong>.</li></ol></div></div>
+<div class="qa"><h3>3. What is a constraint? Name any two constraints.</h3><div class="answer"><p>A <strong>constraint</strong> is a rule applied to a table to control the type of data that can be entered.</p><ol><li>PRIMARY KEY</li><li>NOT NULL</li></ol><p>Other examples include UNIQUE, DEFAULT, CHECK and FOREIGN KEY.</p></div></div>
+<div class="qa"><h3>4. Give examples of DML commands.</h3><div class="answer"><p>INSERT, UPDATE and DELETE. These commands are used to add, change and remove data.</p></div></div>
+<div class="qa"><h3>5. What are the characteristics by which you can determine the data type of MySQL?</h3><div class="answer"><ol><li>Type of data – number, text or date.</li><li>Size of data – how much space the data needs.</li><li>Range of values – minimum and maximum values that can be stored.</li></ol></div></div>
+<div class="qa"><h3>6. What is the query to display the table structure?</h3><div class="answer"><pre>DESCRIBE table_name;</pre><p>Example:</p><pre>DESCRIBE customer;</pre></div></div>
+<div class="qa"><h3>7. What is the query to display all the records in a table?</h3><div class="answer"><pre>SELECT * FROM table_name;</pre><p>Example:</p><pre>SELECT * FROM customer;</pre><p>Here, <code>*</code> means all columns.</p></div></div>
+<div class="qa"><h3>8. List the Arithmetic Operators used in MySQL.</h3><div class="answer"><table><tr><th>Operator</th><th>Meaning</th></tr><tr><td>+</td><td>Addition</td></tr><tr><td>-</td><td>Subtraction</td></tr><tr><td>*</td><td>Multiplication</td></tr><tr><td>/</td><td>Division</td></tr><tr><td>%</td><td>Modulus/Remainder</td></tr></table></div></div>
+<div class="qa"><h3>9. List the Relational Operators used in MySQL.</h3><div class="answer"><ul><li>= → Equal to</li><li>&gt; → Greater than</li><li>&lt; → Less than</li><li>&gt;= → Greater than or equal to</li><li>&lt;= → Less than or equal to</li><li>&lt;&gt; or != → Not equal to</li></ul></div></div>
+<div class="qa"><h3>10. Differentiate between COUNT(*) and COUNT.</h3><div class="answer"><table><tr><th>COUNT(*)</th><th>COUNT(column)</th></tr><tr><td>Counts all rows in a table.</td><td>Counts the non-NULL values in the specified column.</td></tr><tr><td>It includes rows even when some column values are NULL.</td><td>NULL values in that column are not counted.</td></tr></table><pre>SELECT COUNT(*) FROM Worker;</pre><p>This counts all records.</p><pre>SELECT COUNT(Salary) FROM Worker;</pre><p>This counts records having a non-NULL Salary.</p></div></div>
+<div class="qa"><h3>11. What are the rules for naming a table in MySQL?</h3><div class="answer"><ol><li>A table name should generally begin with a <strong>letter</strong>.</li><li>It should not contain <strong>spaces</strong>.</li><li>It should not use <strong>reserved words</strong>.</li><li>It should be meaningful and easy to understand.</li><li>Special characters should generally be avoided.</li><li>Table names should be unique within a database.</li></ol></div></div>
+<div class="qa"><h3>12. Explain the five categories of SQL commands.</h3><div class="answer"><h4>1. DDL – Data Definition Language</h4><p>Used to define or change the structure of a database.</p><p>Examples: CREATE, ALTER, DROP</p><h4>2. DML – Data Manipulation Language</h4><p>Used to add, modify and delete data.</p><p>Examples: INSERT, UPDATE, DELETE</p><h4>3. DQL – Data Query Language</h4><p>Used to retrieve data.</p><p>Example: SELECT</p><h4>4. DCL – Data Control Language</h4><p>Used to control access to data.</p><p>Examples: GRANT, REVOKE</p><h4>5. TCL – Transaction Control Language</h4><p>Used to manage database transactions.</p><p>Examples: COMMIT, ROLLBACK</p><div class="remember">DDL → Structure | DML → Data | DQL → Query | DCL → Control | TCL → Transaction</div></div></div>
+</section>
+
+<section><h2>IV. Practical Exercise</h2>
+<div class="qa"><h3>1. Create a table <code>customer</code> in a database named <code>Klubmart</code>.</h3><div class="answer"><table><tr><th>Column Name</th><th>Data Type</th><th>Size</th><th>Constraints</th></tr><tr><td>CustomerID</td><td>INT</td><td>—</td><td>PRIMARY KEY</td></tr><tr><td>CustomerName</td><td>VARCHAR</td><td>20</td><td>NOT NULL</td></tr><tr><td>CustomerMobile</td><td>VARCHAR</td><td>11</td><td>NOT NULL</td></tr><tr><td>CustomerCategory</td><td>CHAR</td><td>1</td><td>X, Y or Z</td></tr></table><p><strong>Step 1: Create the database</strong></p><pre>CREATE DATABASE Klubmart;</pre><p><strong>Step 2: Select the database</strong></p><pre>USE Klubmart;</pre><p><strong>Step 3: Create the table</strong></p><pre>CREATE TABLE customer
+(
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(20) NOT NULL,
+    CustomerMobile VARCHAR(11) NOT NULL,
+    CustomerCategory CHAR(1)
+);</pre></div></div>
+<div class="qa"><h3>2. Display the structure of the table.</h3><div class="answer"><pre>DESCRIBE customer;</pre></div></div>
+<div class="qa"><h3>3. Insert five records in the table.</h3><div class="answer"><pre>INSERT INTO customer VALUES
+(1, 'Atul', '9435110011', 'X');
+
+INSERT INTO customer VALUES
+(2, 'Ashwini', '9864080787', 'Y');
+
+INSERT INTO customer VALUES
+(3, 'Anjana', '7086219344', 'Z');
+
+INSERT INTO customer VALUES
+(4, 'Archana', '9435987611', 'Y');
+
+INSERT INTO customer VALUES
+(5, 'Amresh', '9435110011', 'X');</pre></div></div>
+<div class="qa"><h3>4. Display all the records.</h3><div class="answer"><pre>SELECT * FROM customer;</pre></div></div>
+<div class="qa"><h3>5. Display the CustomerName &amp; CustomerMobile.</h3><div class="answer"><pre>SELECT CustomerName, CustomerMobile
+FROM customer;</pre></div></div>
+<div class="qa"><h3>6. Display the CustomerName whose CustomerCategory is 'X'.</h3><div class="answer"><pre>SELECT CustomerName
+FROM customer
+WHERE CustomerCategory = 'X';</pre></div></div>
+<div class="qa"><h3>7. Display the CustomerID whose CustomerCategory is 'Y' OR 'Z'.</h3><div class="answer"><pre>SELECT CustomerID
+FROM customer
+WHERE CustomerCategory = 'Y'
+OR CustomerCategory = 'Z';</pre></div></div>
+<div class="qa"><h3>8. Display the distinct CustomerCategory from the table.</h3><div class="answer"><pre>SELECT DISTINCT CustomerCategory
+FROM customer;</pre><p><strong>DISTINCT</strong> displays each value only once.</p></div></div>
+<div class="qa"><h3>2. Create a table <code>Worker</code> in a database named <code>Organisation</code>.</h3><div class="answer"><table><tr><th>Worker_ID</th><th>First_Name</th><th>Last_Name</th><th>Salary</th><th>Joining_Date</th><th>Department</th></tr><tr><td>001</td><td>Rebecca</td><td>Doungel</td><td>40000</td><td>2014-02-20</td><td>HR</td></tr><tr><td>002</td><td>Jahnavi</td><td>Borthakur</td><td>68000</td><td>2014-06-11</td><td>Admin</td></tr><tr><td>003</td><td>Digvijay</td><td>Goswami</td><td>50000</td><td>2014-02-20</td><td>HR</td></tr><tr><td>004</td><td>Krishang</td><td>Shandilya</td><td>50000</td><td>2014-02-20</td><td>Admin</td></tr><tr><td>005</td><td>Jaspal</td><td>Bhatti</td><td>55000</td><td>2014-06-11</td><td>Admin</td></tr><tr><td>006</td><td>Kankana</td><td>Devi</td><td>20000</td><td>2014-06-11</td><td>Account</td></tr><tr><td>007</td><td>Shristi</td><td>Goswami</td><td>75000</td><td>2014-01-20</td><td>Account</td></tr><tr><td>008</td><td>Geeta</td><td>Sharma</td><td>90000</td><td>2014-04-11</td><td>Admin</td></tr></table></div></div>
+<div class="qa"><h3>1. Display Worker_ID and Joining_Date of Admin Department.</h3><div class="answer"><pre>SELECT Worker_ID, Joining_Date
+FROM Worker
+WHERE Department = 'Admin';</pre></div></div>
+<div class="qa"><h3>2. Display records in ascending order of Salary.</h3><div class="answer"><pre>SELECT *
+FROM Worker
+ORDER BY Salary ASC;</pre><p><code>ASC</code> means ascending order, from lowest to highest.</p></div></div>
+<div class="qa"><h3>3. Display records having Salary in the range 50000 to 90000.</h3><div class="answer"><pre>SELECT *
+FROM Worker
+WHERE Salary BETWEEN 50000 AND 90000;</pre><p><strong>Important:</strong> The textbook's printed solution appears to omit <code>WHERE Salary</code> here. The correct SQL syntax is the one above.</p></div></div>
+<div class="qa"><h3>4. Display the record of persons whose First_Name ends with 'a'.</h3><div class="answer"><pre>SELECT *
+FROM Worker
+WHERE First_Name LIKE '%a';</pre><p><code>%</code> means any number of characters. <code>'%a'</code> means ends with a.</p></div></div>
+<div class="qa"><h3>5. Display the records of HR and Account Department.</h3><div class="answer"><pre>SELECT *
+FROM Worker
+WHERE Department = 'HR'
+OR Department = 'Account';</pre></div></div>
+<div class="qa"><h3>6. The worker is given bonus as 1% of the Salary. Display the First_Name, Last_Name and Bonus.</h3><div class="answer"><pre>SELECT First_Name, Last_Name, Salary * 0.01 AS BONUS
+FROM Worker;</pre><p>If Salary = ₹40,000: <strong>Bonus = ₹400</strong>.</p></div></div>
+<div class="qa"><h3>7. Display the sum, maximum, minimum and average Salary.</h3><div class="answer"><pre>SELECT SUM(Salary),
+       MAX(Salary),
+       MIN(Salary),
+       AVG(Salary)
+FROM Worker;</pre><ul><li>SUM() → Total salary</li><li>MAX() → Highest salary</li><li>MIN() → Lowest salary</li><li>AVG() → Average salary</li></ul></div></div>
+<div class="qa"><h3>8. Display the count of records where Department = 'HR'.</h3><div class="answer"><pre>SELECT COUNT(*)
+FROM Worker
+WHERE Department = 'HR';</pre><p>There are <strong>2 HR workers</strong> in the given table.</p></div></div>
+</section>
+
+<section><h2>⭐ Important MySQL Commands From This Chapter</h2><table><tr><th>Command</th><th>Use</th></tr><tr><td>CREATE DATABASE</td><td>Creates a database</td></tr><tr><td>USE</td><td>Selects a database</td></tr><tr><td>CREATE TABLE</td><td>Creates a table</td></tr><tr><td>INSERT INTO</td><td>Adds records</td></tr><tr><td>SELECT</td><td>Displays data</td></tr><tr><td>DESCRIBE</td><td>Displays table structure</td></tr><tr><td>UPDATE</td><td>Changes existing data</td></tr><tr><td>DELETE</td><td>Deletes records</td></tr><tr><td>DROP</td><td>Deletes a table/database</td></tr><tr><td>WHERE</td><td>Applies a condition</td></tr><tr><td>ORDER BY</td><td>Sorts records</td></tr><tr><td>LIKE</td><td>Searches for a pattern</td></tr><tr><td>BETWEEN</td><td>Searches within a range</td></tr><tr><td>DISTINCT</td><td>Removes duplicate values</td></tr><tr><td>COUNT()</td><td>Counts records</td></tr><tr><td>SUM()</td><td>Finds total</td></tr><tr><td>MAX()</td><td>Finds highest value</td></tr><tr><td>MIN()</td><td>Finds lowest value</td></tr><tr><td>AVG()</td><td>Finds average</td></tr></table><h3>Most important symbols to remember</h3><pre>%  → any number of characters
+_  → exactly one character
+=  → equal to
+&lt;&gt; → not equal to
+&gt;  → greater than
+&lt;  → less than
+&gt;= → greater than or equal to
+&lt;= → less than or equal to</pre></section>
+<footer>Made as a free learning resource for students in Assam.</footer></main></body></html>
