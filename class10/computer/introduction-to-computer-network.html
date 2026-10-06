@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Introduction to Computer Network — Class 10 Computer</title>
+<meta name="description" content="Class 10 Computer Science Chapter 1 questions and answers on Introduction to Computer Network.">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#172033}
+header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:42px 20px;text-align:center}
+header h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px)}header p{margin:0;font-size:17px}
+.wrap{max-width:950px;margin:auto;padding:28px 18px 60px}
+.back{display:inline-block;margin-bottom:20px;text-decoration:none;color:#214e8a;font-weight:700}
+section{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #22304a10}
+h2{margin-top:0;color:#173b72;font-size:23px}.qa{margin:22px 0}.qa h3{font-size:18px;line-height:1.5;margin:0 0 10px}.answer{background:#f8fafc;border-left:4px solid #2d72c8;padding:13px 15px;line-height:1.65;border-radius:0 8px 8px 0}
+ol,ul{line-height:1.7}.remember{background:#eef4ff;border-radius:10px;padding:12px 15px;margin-top:12px;font-weight:600}
+table{width:100%;border-collapse:collapse;margin:12px 0}th,td{border:1px solid #d8deea;padding:10px;text-align:left;vertical-align:top}th{background:#eef4ff}
+pre{background:#172033;color:#fff;padding:16px;border-radius:10px;overflow:auto;line-height:1.5}
+footer{text-align:center;color:#6d7686;padding-top:28px;font-size:14px}
+@media(max-width:650px){section{padding:18px}table{font-size:14px}}
+</style>
+</head>
+<body>
+<header><h1>Introduction to Computer Network</h1><p>Class 10 • Computer Science • Chapter 1</p></header>
+<main class="wrap">
+<a class="back" href="../../index.html">← Back to Library</a>
+
+<section><h2>I. Fill in the Blanks</h2>
+<div class="qa"><h3>1. The hostname command is used to display __________.</h3><div class="answer"><strong>Answer:</strong> hostname of the computer</div></div>
+<div class="qa"><h3>2. The length of a IPv-4 and IPv-6 is __________ and __________ bytes respectively.</h3><div class="answer"><strong>Answer:</strong> 4 bytes and 16 bytes</div></div>
+<div class="qa"><h3>3. An access point is used to connect __________.</h3><div class="answer"><strong>Answer:</strong> wireless devices to a network</div></div>
+<div class="qa"><h3>4. The ping command is used to __________.</h3><div class="answer"><strong>Answer:</strong> test network connectivity</div></div>
+<div class="qa"><h3>5. HTTPS transfers __________ data.</h3><div class="answer"><strong>Answer:</strong> encrypted</div></div>
+</section>
+
+<section><h2>II. Multiple Choice Questions</h2>
+<div class="qa"><h3>1. Which device is required to connect multiple heterogeneous networks?</h3><ol type="A"><li>Hub</li><li>Switch</li><li><strong>Router</strong> ✅</li><li>Access Point</li></ol><div class="answer"><strong>Answer:</strong> C) Router</div></div>
+<div class="qa"><h3>2. Which is the largest type of computer network?</h3><ol type="A"><li>PAN</li><li>LAN</li><li>MAN</li><li><strong>WAN</strong> ✅</li></ol><div class="answer"><strong>Answer:</strong> D) WAN</div></div>
+<div class="qa"><h3>3. Which protocol transfers encrypted data instead of plain data?</h3><ol type="A"><li>HTTP</li><li><strong>HTTPS</strong> ✅</li><li>FTP</li><li>SMTP</li></ol><div class="answer"><strong>Answer:</strong> B) HTTPS</div></div>
+<div class="qa"><h3>4. How many bytes are reserved for OUI in a MAC address?</h3><ol type="A"><li><strong>3</strong> ✅</li><li>8</li><li>24</li><li>12</li></ol><div class="answer"><strong>Answer:</strong> A) 3 bytes<div class="remember">Remember: MAC address = 6 bytes → OUI = first 3 bytes.</div></div></div>
+<div class="qa"><h3>5. IP address can be automatically assigned if the network is connected with</h3><ol type="A"><li>Access Point</li><li>Mail Server</li><li>Web Server</li><li><strong>DHCP Server</strong> ✅</li></ol><div class="answer"><strong>Answer:</strong> D) DHCP Server</div></div>
+</section>
+
+<section><h2>III. Short Answer Questions</h2>
+<div class="qa"><h3>1. Mention the name of components required to set up a MAN network. Draw a block diagram of a MAN network labeling name of each component.</h3><div class="answer"><p>The main components required are:</p><ol><li><strong>LANs</strong> – Local Area Networks.</li><li><strong>Routers</strong> – connect different LANs.</li><li><strong>High-speed communication links</strong> – connect the LANs over a city or large area.</li></ol><p><strong>Simple block diagram:</strong></p><pre>LAN 1
+Computers
+   ↓
+Switch
+   ↓
+Router
+   │
+   │ High-speed link
+   ↓
+Router
+   ↓
+Switch
+   ↓
+LAN 2
+Computers</pre><div class="remember">Remember: MAN = Multiple LANs connected over a large area such as a city.</div></div></div>
+
+<div class="qa"><h3>2. Why hostname should not be used to identify a computer in a computer network?</h3><div class="answer"><ul><li>A hostname is simply a <strong>name given to a computer</strong>.</li><li>It may be changed.</li><li>The same hostname can sometimes be used on different networks.</li><li>Therefore, a hostname is <strong>not a reliable unique identification</strong> of a computer.</li><li>An <strong>IP address or MAC address</strong> is more suitable for identifying a device on a network.</li></ul></div></div>
+
+<div class="qa"><h3>3. Give five examples of valid and five examples of invalid IPv4 addresses.</h3><div class="answer"><p>An IPv4 address has <strong>four parts</strong>, separated by dots. Each part must be between <strong>0 and 255</strong>.</p><p><strong>Five valid IPv4 addresses:</strong></p><ol><li>192.168.1.1 ✅</li><li>10.0.0.1 ✅</li><li>172.16.5.20 ✅</li><li>8.8.8.8 ✅</li><li>127.0.0.1 ✅</li></ol><p><strong>Five invalid IPv4 addresses:</strong></p><ol><li>256.1.1.1 ❌ → 256 is greater than 255.</li><li>192.168.1 ❌ → only 3 parts.</li><li>192.168.1.1.5 ❌ → 5 parts.</li><li>192.168.-1.1 ❌ → negative number.</li><li>192.168.1.abc ❌ → contains letters.</li></ol><div class="remember">Easy rule: IPv4 = 4 parts + each part 0–255.</div></div></div>
+
+<div class="qa"><h3>4. Can we compare HTTP and FTP protocols? Mention their functionality.</h3><div class="answer"><p>Yes, HTTP and FTP can be compared because both are <strong>network protocols</strong>, but they have different purposes.</p><table><thead><tr><th>HTTP</th><th>FTP</th></tr></thead><tbody><tr><td>HTTP means <strong>HyperText Transfer Protocol</strong>.</td><td>FTP means <strong>File Transfer Protocol</strong>.</td></tr><tr><td>It is mainly used for accessing <strong>web pages and web resources</strong>.</td><td>It is mainly used for <strong>transferring files</strong>.</td></tr><tr><td>It is commonly used between a <strong>web browser and web server</strong>.</td><td>It is commonly used between an <strong>FTP client and FTP server</strong>.</td></tr></tbody></table><p><strong>In short:</strong></p><ul><li><strong>HTTP → Web pages</strong></li><li><strong>FTP → Files</strong></li></ul></div></div>
+
+<div class="qa"><h3>5. How many 16-port switches are required to connect 31 computers in a network?</h3><div class="answer"><p>We need <strong>3 switches</strong>.</p><p><strong>Why?</strong></p><ul><li>Each switch has <strong>16 ports</strong>.</li><li>To connect 31 computers, 2 switches are not enough because they provide only 32 ports, but some ports must be used to connect the switches together.</li><li>With <strong>3 switches</strong>, there are <strong>48 ports</strong>.</li><li>The switches need ports to connect with each other.</li><li>The remaining ports are enough for all <strong>31 computers</strong>.</li></ul><p><strong>Answer = 3 × 16-port switches</strong> ✅</p></div></div>
+</section>
+<footer>Made as a free learning resource for students in Assam.</footer>
+</main>
+</body>
+</html>
