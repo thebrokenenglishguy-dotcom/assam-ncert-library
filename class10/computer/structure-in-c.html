@@ -1,0 +1,380 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Structure in C</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:42px 20px;text-align:center}header h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px)}.wrap{max-width:950px;margin:auto;padding:28px 18px 60px}.back{color:#214e8a;font-weight:bold;text-decoration:none}section{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #22304a10}.qa{margin:24px 0}.answer{background:#f8fafc;border-left:4px solid #2d72c8;padding:14px 16px;line-height:1.65;border-radius:0 8px 8px 0}h2{color:#173b72}pre{background:#172033;color:#fff;padding:16px;border-radius:10px;overflow:auto;line-height:1.5}.remember{background:#eef4ff;padding:14px;border-radius:9px;font-weight:bold}table{width:100%;border-collapse:collapse}th,td{border:1px solid #d8deea;padding:10px;text-align:left}th{background:#eef4ff}footer{text-align:center;color:#6d7686;padding:25px}</style></head><body><header><h1>Structure in C</h1><p>Class 10 • Computer Science • Chapter 9</p></header><main class="wrap"><a class="back" href="../../index.html">← Back to Library</a><section><h2>Exercise</h2>
+<div class="qa"><h3>1. Define structure in the context of a programming language. How is it different from an array?</h3><div class="answer"><p>A <strong>structure</strong> is a user-defined data type in C that allows us to store different types of data under one name.</p><pre>struct Student
+{
+    char name[30];
+    int age;
+    float marks;
+};</pre><table><tr><th>Structure</th><th>Array</th></tr><tr><td>Can store <strong>different data types</strong>.</td><td>Normally stores elements of the <strong>same data type</strong>.</td></tr><tr><td>Members can be int, float, char, etc.</td><td>All elements have the same data type.</td></tr><tr><td>Members are accessed using <code>.</code></td><td>Elements are accessed using an index <code>[ ]</code>.</td></tr><tr><td>Example: student name, age and marks.</td><td>Example: marks of many students.</td></tr></table><div class="remember">Array → Same type of data<br>Structure → Different types of data</div></div></div>
+<div class="qa"><h3>2. Is structure a built-in data type? Can we apply arithmetic operations to structure variables?</h3><div class="answer"><ul><li><strong>No</strong>, structure is not a built-in data type.</li><li>It is a <strong>user-defined data type</strong>.</li><li>We cannot directly perform addition or subtraction on two complete structure variables.</li><li>We can perform arithmetic operations on their <strong>individual members</strong>.</li></ul><pre>#include &lt;stdio.h&gt;
+
+struct Number
+{
+    int a;
+    int b;
+};
+
+int main()
+{
+    struct Number n1, n2, result;
+
+    n1.a = 10;
+    n1.b = 20;
+
+    n2.a = 5;
+    n2.b = 10;
+
+    result.a = n1.a + n2.a;
+    result.b = n1.b + n2.b;
+
+    printf("a = %d\n", result.a);
+    printf("b = %d\n", result.b);
+
+    return 0;
+}</pre><p><strong>Output:</strong></p><pre>a = 15
+b = 30</pre><p>This is <strong>not allowed</strong>:</p><pre>result = n1 + n2;</pre></div></div>
+<div class="qa"><h3>3. Identify the members of the structure.</h3><div class="answer"><pre>struct Account
+{
+    char acNo[15];
+    char ifsc[15];
+    char acType[7];
+    double balance;
+    double minBalance;
+};</pre><p>The structure has <strong>five members</strong>:</p><ol><li><code>acNo</code></li><li><code>ifsc</code></li><li><code>acType</code></li><li><code>balance</code></li><li><code>minBalance</code></li></ol><table><tr><th>Member</th><th>Data Type</th></tr><tr><td>acNo</td><td>char[15]</td></tr><tr><td>ifsc</td><td>char[15]</td></tr><tr><td>acType</td><td>char[7]</td></tr><tr><td>balance</td><td>double</td></tr><tr><td>minBalance</td><td>double</td></tr></table></div></div>
+<div class="qa"><h3>4. Identify the structure variables.</h3><div class="answer"><pre>struct Account account1, account2, account3, account[10];</pre><p>The structure variables are:</p><ol><li><code>account1</code></li><li><code>account2</code></li><li><code>account3</code></li><li><code>account[10]</code></li></ol><p><code>account1</code>, <code>account2</code>, and <code>account3</code> are individual structure variables. <code>account[10]</code> is an array of 10 structure variables.</p></div></div>
+<div class="qa"><h3>5. Consider <code>struct Teacher</code> and write statements.</h3><div class="answer"><pre>struct Teacher
+{
+    char name[30];
+    int age;
+};</pre><h4>(a) Declare a variable</h4><pre>struct Teacher teacher1;</pre><p>Here, <code>teacher1</code> is a structure variable.</p><h4>(b) Display the age</h4><pre>printf("%d", teacher1.age);</pre><p>The dot <code>.</code> operator is used to access a structure member.</p></div></div>
+<div class="qa"><h3>6. Declare a pointer for <code>Teacher</code> and dynamically allocate memory for 10 records.</h3><div class="answer"><pre>struct Teacher *teacher;
+
+teacher = (struct Teacher *)malloc(10 * sizeof(struct Teacher));</pre><p>Include:</p><pre>#include &lt;stdlib.h&gt;</pre><p><strong>Complete small example:</strong></p><pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct Teacher
+{
+    char name[30];
+    int age;
+};
+
+int main()
+{
+    struct Teacher *teacher;
+
+    teacher = (struct Teacher *)malloc(
+        10 * sizeof(struct Teacher)
+    );
+
+    if(teacher == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    free(teacher);
+
+    return 0;
+}</pre></div></div>
+<div class="qa"><h3>7. Consider <code>struct Employee</code> and write statements/programs.</h3><div class="answer"><pre>struct Employee
+{
+    char name[30];
+    double salary;
+};</pre><h4>(a) Declare a pointer and display the salary.</h4><pre>struct Employee emp;
+struct Employee *ptr;
+
+ptr = &amp;emp;
+
+printf("%lf", ptr-&gt;salary);</pre><p>When using a structure pointer, we use the <strong>arrow <code>-&gt;</code> operator</strong>. <code>ptr-&gt;salary</code> means the salary member of the structure pointed to by <code>ptr</code>.</p><h4>(b) Use a single pointer for two structure variables and display the employee whose salary is more.</h4><pre>#include &lt;stdio.h&gt;
+
+struct Employee
+{
+    char name[30];
+    double salary;
+};
+
+int main()
+{
+    struct Employee e1 = {"Rahul", 40000};
+    struct Employee e2 = {"Amit", 50000};
+
+    struct Employee *ptr;
+
+    if(e1.salary &gt; e2.salary)
+        ptr = &amp;e1;
+    else
+        ptr = &amp;e2;
+
+    printf("Name: %s\n", ptr-&gt;name);
+    printf("Salary: %.2lf\n", ptr-&gt;salary);
+
+    return 0;
+}</pre><p><strong>Output:</strong></p><pre>Name: Amit
+Salary: 50000.00</pre></div></div>
+<div class="qa"><h3>8. Rewrite Q. 7 for dynamic memory allocation for N records where N is user input.</h3><div class="answer"><pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct Employee
+{
+    char name[30];
+    double salary;
+};
+
+int main()
+{
+    struct Employee *emp;
+    int n, i;
+
+    printf("Enter number of employees: ");
+    scanf("%d", &amp;n);
+
+    emp = (struct Employee *)malloc(
+        n * sizeof(struct Employee)
+    );
+
+    if(emp == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    for(i = 0; i &lt; n; i++)
+    {
+        printf("\nEnter name: ");
+        scanf("%s", emp[i].name);
+
+        printf("Enter salary: ");
+        scanf("%lf", &amp;emp[i].salary);
+    }
+
+    printf("\nEmployee Details:\n");
+
+    for(i = 0; i &lt; n; i++)
+    {
+        printf("\nName: %s", emp[i].name);
+        printf("\nSalary: %.2lf\n", emp[i].salary);
+    }
+
+    free(emp);
+
+    return 0;
+}</pre><div class="remember"><code>malloc(n * sizeof(struct Employee))</code> allocates memory for <strong>N employee records</strong>.</div></div></div>
+<div class="qa"><h3>9. Design a simple banking system using structures.</h3><div class="answer"><p>The program supports:</p><ol><li>Opening an account</li><li>Displaying details using account number</li><li>Displaying all account details</li><li>Displaying accounts with balance more than 1000</li><li>Depositing money</li><li>Withdrawing money</li></ol><pre>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+#define MAX 100
+
+struct Account
+{
+    char acNo[15];
+    char ifsc[15];
+    char acType[7];
+    double balance;
+    double minBalance;
+};
+
+struct Account accounts[MAX];
+int count = 0;
+
+void openAccount()
+{
+    if(count &gt;= MAX)
+    {
+        printf("Account limit reached.\n");
+        return;
+    }
+
+    printf("\nEnter Account Number: ");
+    scanf("%14s", accounts[count].acNo);
+
+    printf("Enter IFSC Code: ");
+    scanf("%14s", accounts[count].ifsc);
+
+    printf("Enter Account Type: ");
+    scanf("%6s", accounts[count].acType);
+
+    printf("Enter Minimum Balance: ");
+    scanf("%lf", &amp;accounts[count].minBalance);
+
+    printf("Enter Initial Balance: ");
+    scanf("%lf", &amp;accounts[count].balance);
+
+    count++;
+    printf("Account opened successfully.\n");
+}
+
+int findAccount(char acNo[])
+{
+    int i;
+
+    for(i = 0; i &lt; count; i++)
+    {
+        if(strcmp(accounts[i].acNo, acNo) == 0)
+            return i;
+    }
+
+    return -1;
+}
+
+void displayAccount(int i)
+{
+    printf("\nAccount Number : %s", accounts[i].acNo);
+    printf("\nIFSC Code     : %s", accounts[i].ifsc);
+    printf("\nAccount Type   : %s", accounts[i].acType);
+    printf("\nBalance        : %.2lf", accounts[i].balance);
+    printf("\nMinimum Balance: %.2lf\n", accounts[i].minBalance);
+}
+
+void displayByAccountNumber()
+{
+    char acNo[15];
+    int index;
+
+    printf("\nEnter Account Number: ");
+    scanf("%14s", acNo);
+
+    index = findAccount(acNo);
+
+    if(index == -1)
+        printf("Account not found.\n");
+    else
+        displayAccount(index);
+}
+
+void displayAll()
+{
+    int i;
+
+    if(count == 0)
+    {
+        printf("No accounts available.\n");
+        return;
+    }
+
+    for(i = 0; i &lt; count; i++)
+        displayAccount(i);
+}
+
+void displayAbove1000()
+{
+    int i;
+
+    for(i = 0; i &lt; count; i++)
+    {
+        if(accounts[i].balance &gt; 1000)
+            displayAccount(i);
+    }
+}
+
+void deposit()
+{
+    char acNo[15];
+    double amount;
+    int index;
+
+    printf("\nEnter Account Number: ");
+    scanf("%14s", acNo);
+
+    index = findAccount(acNo);
+
+    if(index == -1)
+    {
+        printf("Account not found.\n");
+        return;
+    }
+
+    printf("Enter amount to deposit: ");
+    scanf("%lf", &amp;amount);
+
+    if(amount &lt;= 0)
+    {
+        printf("Invalid amount.\n");
+        return;
+    }
+
+    accounts[index].balance += amount;
+
+    printf("Deposit successful.\n");
+    printf("New Balance = %.2lf\n", accounts[index].balance);
+}
+
+void withdraw()
+{
+    char acNo[15];
+    double amount;
+    int index;
+
+    printf("\nEnter Account Number: ");
+    scanf("%14s", acNo);
+
+    index = findAccount(acNo);
+
+    if(index == -1)
+    {
+        printf("Account not found.\n");
+        return;
+    }
+
+    printf("Enter amount to withdraw: ");
+    scanf("%lf", &amp;amount);
+
+    if(amount &lt;= 0)
+    {
+        printf("Invalid amount.\n");
+        return;
+    }
+
+    if(accounts[index].balance - amount < accounts[index].minBalance)
+    {
+        printf("Withdrawal not allowed.\n");
+        printf("Minimum balance must be maintained.\n");
+        return;
+    }
+
+    accounts[index].balance -= amount;
+
+    printf("Withdrawal successful.\n");
+    printf("New Balance = %.2lf\n", accounts[index].balance);
+}
+
+int main()
+{
+    int choice;
+
+    do
+    {
+        printf("\n===== BANKING SYSTEM =====\n");
+        printf("1. Open Account\n");
+        printf("2. Display Account\n");
+        printf("3. Display All Accounts\n");
+        printf("4. Display Accounts with Balance &gt; 1000\n");
+        printf("5. Deposit\n");
+        printf("6. Withdraw\n");
+        printf("7. Exit\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &amp;choice);
+
+        switch(choice)
+        {
+            case 1: openAccount(); break;
+            case 2: displayByAccountNumber(); break;
+            case 3: displayAll(); break;
+            case 4: displayAbove1000(); break;
+            case 5: deposit(); break;
+            case 6: withdraw(); break;
+            case 7: printf("Thank you!\n"); break;
+            default: printf("Invalid choice.\n");
+        }
+    } while(choice != 7);
+
+    return 0;
+}</pre><h4>How this program works</h4><ol><li><strong>Open account:</strong> stores account number, IFSC, account type, minimum balance and initial balance.</li><li><strong>Display by account number:</strong> searches for the account number and displays its details.</li><li><strong>Display all:</strong> displays every stored account.</li><li><strong>Balance greater than 1000:</strong> checks <code>accounts[i].balance &gt; 1000</code>.</li><li><strong>Deposit:</strong> adds the amount to the balance.</li><li><strong>Withdrawal:</strong> checks that the minimum balance will be maintained before subtracting the amount.</li></ol></div></div></section>
+<section><h2>⭐ Quick Revision — Structures in C</h2><div class="remember"><h3>Structure declaration</h3><pre>struct Student
+{
+    char name[30];
+    int age;
+    float marks;
+};</pre><h3>Structure variable</h3><pre>struct Student s1;</pre><h3>Accessing a member</h3><p>Use the <strong>dot (<code>.</code>) operator</strong>:</p><pre>s1.age</pre><h3>Structure pointer</h3><pre>struct Student *ptr;
+ptr = &amp;s1;</pre><p>Use the <strong>arrow (<code>-&gt;</code>) operator</strong>:</p><pre>ptr-&gt;age</pre><h3>Dynamic structure array</h3><pre>struct Student *s;
+
+s = malloc(10 * sizeof(struct Student));</pre><h3>Free memory</h3><pre>free(s);</pre><p><strong>Structure → different types of data</strong><br><strong>Array → same type of data</strong><br><strong>. → normal structure variable</strong><br><strong>-&gt; → structure pointer</strong><br><strong>malloc() → dynamically allocate memory</strong><br><strong>free() → release memory</strong></p></div></section><footer>Made as a free learning resource for students in Assam.</footer></main></body></html>
