@@ -67,9 +67,25 @@ footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 const input=document.getElementById('search');const cards=[...document.querySelectorAll('.card')];
 input.addEventListener('input',()=>{
   const tokens=input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  const classTokens=tokens.filter(t=>t==='class'||t==='9'||t==='10');
+  const subjectTokens=tokens.filter(t=>!classTokens.includes(t));
   cards.forEach(c=>{
-    const searchable=(c.dataset.search+' '+c.textContent).toLowerCase();
-    c.hidden=tokens.length>0&&!tokens.every(token=>searchable.includes(token));
+    const cardText=(c.dataset.search+' '+c.textContent).toLowerCase();
+    const cardMatches=tokens.length===0||tokens.every(token=>cardText.includes(token));
+    c.hidden=!cardMatches;
+    if(cardMatches){
+      const subjects=c.querySelectorAll('.subjects > .subject');
+      subjects.forEach(s=>{
+        const text=s.textContent.toLowerCase();
+        s.hidden=subjectTokens.length>0&&!subjectTokens.every(token=>text.includes(token));
+      });
+      /* If the search names a subject, show only that subject button. */
+      const matchingSubjects=[...subjects].filter(s=>!s.hidden);
+      if(subjectTokens.length>0 && matchingSubjects.length>0){
+        c.querySelectorAll('.history').forEach(section=>section.classList.remove('open'));
+        c.querySelectorAll('[aria-expanded="true"]').forEach(btn=>btn.setAttribute('aria-expanded','false'));
+      }
+    }
   });
 });
 document.querySelectorAll('.hindi-mil-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const section=card.querySelector('.hindi-mil-list');const open=section.classList.toggle('open');if(open){card.querySelectorAll('.social-list,.computer-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.social-toggle,.computer-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));document.querySelectorAll('.computer-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const section=card.querySelector('.computer-list');const open=section.classList.toggle('open');if(open){card.querySelectorAll('.hindi-mil-list,.social-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.hindi-mil-toggle,.social-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));
