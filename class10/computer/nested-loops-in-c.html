@@ -1,0 +1,303 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Nested Loops in C</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:42px 20px;text-align:center}header h1{margin:0 0 10px;font-size:clamp(28px,5vw,46px)}.wrap{max-width:950px;margin:auto;padding:28px 18px 60px}.back{color:#214e8a;font-weight:bold;text-decoration:none}section{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 8px 24px #22304a10}h2{color:#173b72}.qa{margin:24px 0}.answer{background:#f8fafc;border-left:4px solid #2d72c8;padding:14px 16px;line-height:1.65;border-radius:0 8px 8px 0}pre{background:#172033;color:#fff;padding:16px;border-radius:10px;overflow:auto;line-height:1.5}table{width:100%;border-collapse:collapse}th,td{border:1px solid #d8deea;padding:10px;text-align:left}th{background:#eef4ff}.remember{background:#eef4ff;padding:12px;border-radius:9px;font-weight:bold}footer{text-align:center;color:#6d7686;padding:25px}</style></head><body><header><h1>Nested Loops in C</h1><p>Class 10 • Computer Science • Chapter 5</p></header><main class="wrap"><a class="back" href="../../index.html">← Back to Library</a><section><h2>Exercise</h2><div class="remember">A <strong>nested loop</strong> means a loop inside another loop. Usually, the outer loop controls rows and the inner loop controls columns.</div>
+<div class="qa"><h3>1(a). Display the pattern</h3><pre>1   2   3
+1   2   3
+1   2   3
+1   2   3
+1   2   3</pre><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+
+    for(i = 1; i &lt;= 5; i++)
+    {
+        for(j = 1; j &lt;= 3; j++)
+        {
+            printf("%d ", j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre></div></div>
+<div class="qa"><h3>1(b). Display the pattern</h3><pre>1   2   1
+1   2   1
+1   2   1
+1   2   1
+1   2   1</pre><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+
+    for(i = 1; i &lt;= 5; i++)
+    {
+        printf("1 2 1\n");
+    }
+
+    return 0;
+}</pre><p><strong>Simpler version:</strong> This produces the required pattern directly.</p></div></div>
+<div class="qa"><h3>1(c). Display the pattern</h3><pre>4   3   2   1
+4   3   2   1
+4   3   2   1
+4   3   2   1
+4   3   2   1</pre><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+
+    for(i = 1; i &lt;= 5; i++)
+    {
+        for(j = 4; j &gt;= 1; j--)
+        {
+            printf("%d ", j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre></div></div>
+<div class="qa"><h3>1(d). Display the pattern</h3><pre>        2
+      2 3 4
+    2 3 4 5 6</pre><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+
+    for(i = 1; i &lt;= 3; i++)
+    {
+        for(j = 1; j &lt;= 3 - i; j++)
+        {
+            printf("  ");
+        }
+
+        for(j = 2; j &lt;= 2 * i; j++)
+        {
+            printf("%d ", j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre></div></div>
+<div class="qa"><h3>1(e). Display the pattern</h3><pre>        1
+      1 2 1
+    1 2 3 2 1</pre><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+
+    for(i = 1; i &lt;= 3; i++)
+    {
+        for(j = 1; j &lt;= 3 - i; j++)
+        {
+            printf("  ");
+        }
+
+        for(j = 1; j &lt;= i; j++)
+        {
+            printf("%d ", j);
+        }
+
+        for(j = i - 1; j &gt;= 1; j--)
+        {
+            printf("%d ", j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre></div></div>
+<div class="qa"><h3>1(f). Star Pattern</h3><pre>         *
+       * * *
+     * * * * *
+   * * * * * * *
+     * * * * *
+       * * *
+         *</pre><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+
+    /* Upper half */
+    for(i = 1; i &lt;= 4; i++)
+    {
+        for(j = 1; j &lt;= 4 - i; j++)
+        {
+            printf("  ");
+        }
+
+        for(j = 1; j &lt;= 2 * i - 1; j++)
+        {
+            printf("* ");
+        }
+
+        printf("\n");
+    }
+
+    /* Lower half */
+    for(i = 3; i &gt;= 1; i--)
+    {
+        for(j = 1; j &lt;= 4 - i; j++)
+        {
+            printf("  ");
+        }
+
+        for(j = 1; j &lt;= 2 * i - 1; j++)
+        {
+            printf("* ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre></div></div>
+<div class="qa"><h3>1(g). Display the pattern</h3><pre>x       x
+x x     x x
+x x x   x x x
+x x x x x x x x
+x x x x x x x x x x</pre><div class="answer"><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+
+    for(i = 1; i &lt;= 5; i++)
+    {
+        for(j = 1; j &lt;= i; j++)
+            printf("x ");
+
+        for(j = 1; j &lt;= 2 * (5 - i); j++)
+            printf("  ");
+
+        for(j = 1; j &lt;= i; j++)
+            printf("x ");
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre></div></div></section>
+<section><h2>2. Modify Question 1 to accept the number of lines as input.</h2><div class="answer"><p>The main change is that instead of fixing the number of rows, we take the number of rows from the user.</p><p><strong>Example for pattern (a):</strong></p><pre>Enter number of lines: 4
+
+1 2 3
+1 2 3
+1 2 3
+1 2 3</pre><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j, n;
+
+    printf("Enter number of lines: ");
+    scanf("%d", &amp;n);
+
+    for(i = 1; i &lt;= n; i++)
+    {
+        for(j = 1; j &lt;= 3; j++)
+        {
+            printf("%d ", j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre><p><strong>Important:</strong> Previously <code>i &lt;= 5</code>; now <code>i &lt;= n</code>, where <code>n</code> is entered by the user.</p></div></section>
+<section><h2>3. Make Example 5.6 and Example 5.7 dynamic by accepting the number of lines.</h2><div class="answer"><p>To make a pattern <strong>dynamic</strong>, we take the number of lines from the user.</p><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j, n;
+
+    printf("Enter number of lines: ");
+    scanf("%d", &amp;n);
+
+    for(i = 1; i &lt;= n; i++)
+    {
+        for(j = 1; j &lt;= i; j++)
+        {
+            printf("%d ", j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre><p>If the user enters <code>5</code>:</p><pre>1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5</pre></div></section>
+<section><h2>4. What is a nested loop? Why do we use nested loops?</h2><div class="answer"><h3>Nested loop</h3><ul><li>A <strong>nested loop</strong> is a loop placed <strong>inside another loop</strong>.</li><li>The inner loop runs for every iteration of the outer loop.</li></ul><pre>for(i = 1; i &lt;= 3; i++)
+{
+    for(j = 1; j &lt;= 3; j++)
+    {
+        printf("* ");
+    }
+
+    printf("\n");
+}</pre><ul><li>Outer <code>for</code> loop → controls the <strong>rows</strong>.</li><li>Inner <code>for</code> loop → controls the <strong>columns</strong>.</li></ul><h3>Why do we use nested loops?</h3><ul><li>To create <strong>patterns</strong>.</li><li>To work with <strong>rows and columns</strong>.</li><li>To process <strong>tables and matrices</strong>.</li><li>To repeat one operation inside another repeated operation.</li></ul></div></section>
+<section><h2>5. Do outer and inner loops need to be the same type?</h2><div class="answer"><p><strong>No.</strong> The outer and inner loops do not have to be the same type.</p><p>We can use different types of loops.</p><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j;
+
+    for(i = 1; i &lt;= 3; i++)
+    {
+        j = 1;
+
+        while(j &lt;= 3)
+        {
+            printf("* ");
+            j++;
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</pre><p>We can also use:</p><ul><li><code>while</code> inside <code>for</code></li><li><code>for</code> inside <code>while</code></li><li><code>do-while</code> inside <code>for</code></li><li><code>for</code> inside <code>do-while</code></li></ul><p>So, <strong>the type of inner loop can be different from the outer loop.</strong></p></div></section>
+<section><h2>6. Can we put a third loop inside the inner loop?</h2><div class="answer"><p><strong>Yes.</strong> We can put another loop inside the inner loop. This is called a <strong>three-level nested loop</strong>.</p><pre>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j, k;
+
+    for(i = 1; i &lt;= 2; i++)
+    {
+        for(j = 1; j &lt;= 2; j++)
+        {
+            for(k = 1; k &lt;= 2; k++)
+            {
+                printf("%d %d %d\n", i, j, k);
+            }
+        }
+    }
+
+    return 0;
+}</pre><p><strong>Output:</strong></p><pre>1 1 1
+1 1 2
+1 2 1
+1 2 2
+2 1 1
+2 1 2
+2 2 1
+2 2 2</pre><p>Therefore, a loop can contain another loop, and that loop can contain a third loop.</p></div></section>
+<section><h2>⭐ Quick Revision</h2><div class="remember"><p><strong>Nested loop:</strong> Loop inside another loop.</p><pre>for(i = 1; i &lt;= rows; i++)
+{
+    for(j = 1; j &lt;= columns; j++)
+    {
+        // statement
+    }
+}</pre><ul><li><strong>Outer loop → Rows</strong></li><li><strong>Inner loop → Columns</strong></li><li><strong>Third loop → Possible</strong></li><li>Outer and inner loops <strong>do not need to be the same type</strong>.</li><li>Nested loops are especially useful for <strong>patterns, tables and matrices</strong>.</li></ul></div></section><footer>Made as a free learning resource for students in Assam.</footer></main></body></html>
