@@ -105,6 +105,7 @@ subjectMenus.forEach(name=>{
   }));
 });
 document.querySelectorAll('.science-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-science')));
+document.querySelectorAll('.section-toggle').forEach(btn=>btn.addEventListener('click',()=>{const section=btn.nextElementSibling;const open=section.classList.toggle('open');btn.setAttribute('aria-expanded',open);}));
 document.querySelectorAll('.english-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-english')));
 /* Remember the subject menu before opening a chapter, so "Back to Library" returns students to the same menu. */
 document.querySelectorAll('.hindi-mil-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-hindi-mil')));
