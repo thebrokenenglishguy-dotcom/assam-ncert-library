@@ -85,10 +85,27 @@ input.addEventListener('input',()=>{
     }
   });
 });
-document.querySelectorAll('.science-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const section=card.querySelector('.science-list');const open=section.classList.toggle('open');if(open){card.querySelectorAll('.english-list,.hindi-mil-list,.social-list,.computer-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.english-toggle,.hindi-mil-toggle,.social-toggle,.computer-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));document.querySelectorAll('.science-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-science')));document.querySelectorAll('.english-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const section=card.querySelector('.english-list');const open=section.classList.toggle('open');if(open){card.querySelectorAll('.hindi-mil-list,.social-list,.computer-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.hindi-mil-toggle,.social-toggle,.computer-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));document.querySelectorAll('.english-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-english')));
-document.querySelectorAll('.hindi-mil-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const section=card.querySelector('.hindi-mil-list');const open=section.classList.toggle('open');if(open){card.querySelectorAll('.social-list,.computer-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.social-toggle,.computer-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));document.querySelectorAll('.computer-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const section=card.querySelector('.computer-list');const open=section.classList.toggle('open');if(open){card.querySelectorAll('.hindi-mil-list,.social-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.hindi-mil-toggle,.social-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));
-document.querySelectorAll('.social-toggle').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.card');const history=card.querySelector('.social-list');const open=history.classList.toggle('open');if(open){card.querySelectorAll('.hindi-mil-list,.computer-list').forEach(s=>s.classList.remove('open'));card.querySelectorAll('.hindi-mil-toggle,.computer-toggle').forEach(t=>t.setAttribute('aria-expanded','false'));}btn.setAttribute('aria-expanded',open);}));
-document.querySelectorAll('.section-toggle').forEach(btn=>btn.addEventListener('click',()=>{const section=btn.nextElementSibling;const open=section.classList.toggle('open');btn.setAttribute('aria-expanded',open);}));
+const subjectMenus=['science','english','hindi-mil','social','computer'];
+function closeOtherMenus(card,active){
+  subjectMenus.forEach(name=>{
+    if(name===active)return;
+    const section=card.querySelector('.'+name+'-list');
+    const btn=card.querySelector('.'+name+'-toggle');
+    if(section)section.classList.remove('open');
+    if(btn)btn.setAttribute('aria-expanded','false');
+  });
+}
+subjectMenus.forEach(name=>{
+  document.querySelectorAll('.'+name+'-toggle').forEach(btn=>btn.addEventListener('click',()=>{
+    const card=btn.closest('.card');
+    const section=card.querySelector('.'+name+'-list');
+    const open=section.classList.toggle('open');
+    if(open)closeOtherMenus(card,name);
+    btn.setAttribute('aria-expanded',open);
+  }));
+});
+document.querySelectorAll('.science-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-science')));
+document.querySelectorAll('.english-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-english')));
 /* Remember the subject menu before opening a chapter, so "Back to Library" returns students to the same menu. */
 document.querySelectorAll('.hindi-mil-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-hindi-mil')));
 document.querySelectorAll('.computer-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-computer')));
