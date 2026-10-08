@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Class 9 Computer — Chapter 8: Introduction to C Programming | Assam NCERT Library</title><style>body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033;line-height:1.6}header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:38px 18px;text-align:center}header h1{margin:0 0 8px;font-size:clamp(24px,5vw,38px)}.wrap{max-width:1000px;margin:auto;padding:28px 18px 60px}.back{display:inline-block;padding:10px 14px;background:#fff;border:1px solid #dfe5ef;border-radius:9px;color:#214e8a;text-decoration:none;font-weight:700;margin-bottom:18px}.card{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:22px;margin:18px 0;box-shadow:0 8px 22px #22304a10}h2{color:#214e8a;border-bottom:2px solid #e6eaf2;padding-bottom:8px}.qa{margin:16px 0}.q{font-weight:700}.ans{margin:5px 0 0 18px}.code{background:#f1f4f8;border-radius:8px;padding:10px 14px;font-family:monospace;white-space:pre-wrap}ol{padding-left:28px}.note{background:#f8fafc;border-left:4px solid #2d72c8;padding:12px 14px}</style></head><body><header><h1>Chapter 8 — Introduction to C Programming</h1><p>Class 9 Computer • Questions and Answers</p></header><main class="wrap"><a class="back" href="index.html">← Back to Class 9 Computer</a>
+
+<section class="card"><h2>1. Fill in the Blanks</h2><ol type="a">
+<li>C is the only high-level programming language — <b>False</b>.</li>
+<li>IDE stands for <b>Integrated Development Environment</b>.</li>
+<li>We always need a very powerful computer to run C programs — <b>False</b>.</li>
+<li>Every statement in a C program has to end with a <b>semicolon (;)</b>.</li>
+<li>Execution of a program starts from <b>main()</b>.</li>
+</ol></section>
+
+<section class="card"><h2>2. Short Answer Questions</h2>
+<div class="qa"><div class="q">a. While writing a computer program, what does a programmer need to assume about the CPU and storage?</div><div class="ans">The programmer needs to assume that the computer has a <b>CPU</b> capable of executing instructions and <b>memory/storage</b> for holding the program, data and results. The programmer works with a logical model rather than the detailed physical construction of the hardware.</div></div>
+<div class="qa"><div class="q">b. Do we always need Coped to write C programs? Explain.</div><div class="ans">No. A dedicated IDE is not always necessary to write C programs. A programmer can use a simple text editor to write the source code and then use a C compiler and other tools separately to compile and run it.</div></div>
+<div class="qa"><div class="q">c. Why do we need header files? Name a few standard header files in C.</div><div class="ans">Header files contain declarations and information about functions, macros and other definitions that a C program can use. They help the compiler understand library functions. Examples are <b>stdio.h, stdlib.h, string.h, math.h</b> and <b>ctype.h</b>.</div></div>
+</section>
+
+<section class="card"><h2>3. Long Answer Questions</h2>
+<div class="qa"><div class="q">a. Explain the process of compilation of a C program. When we save a C program with the name Namaskar.c, what files will be created at each step of compilation?</div><div class="ans">Compilation changes the C source program into executable machine code through several stages:<ol><li><b>Preprocessing:</b> header files and macros are processed; an intermediate preprocessed file such as <b>Namaskar.i</b> is produced.</li><li><b>Compilation:</b> the preprocessed C code is translated into assembly code, such as <b>Namaskar.s</b>.</li><li><b>Assembly:</b> assembly code is converted into an object file, such as <b>Namaskar.o</b>.</li><li><b>Linking:</b> object code and required library code are combined to create the executable program, commonly <b>a.out</b> on Unix-like systems or an <b>.exe</b> executable on Windows.</li></ol></div></div>
+<div class="qa"><div class="q">b. Can we compile an erroneous code in C? If we do not write the function main() in our C program, will it compile successfully?</div><div class="ans">If a C program contains <b>syntax or compilation errors</b>, the compiler reports errors and cannot produce a valid executable. If <b>main()</b> is missing, the source may be compiled into an object file by some toolchains, but the linking stage normally fails because a C executable requires an entry point such as <b>main()</b>. Therefore, it will not successfully produce a normal executable program.</div></div>
+<div class="qa"><div class="q">c. What is a programmer's view of memory? Is it different from actual memory? Explain briefly.</div><div class="ans">A programmer's view of memory is a <b>logical view</b> in which memory is treated as a collection of addresses and storage locations for variables, instructions and data. It is different from the actual physical memory because the programmer does not normally deal directly with the physical electronic arrangement of memory cells.</div></div>
+</section>
+
+<section class="card"><h2>4. Programming Assignments</h2>
+<div class="qa"><div class="q">a. Write and execute a C program to print your name.</div><div class="code">#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    printf("Your Name");
+    return 0;
+}</div></div>
+<div class="qa"><div class="q">b. Write and execute a C program to print your name and your mother's name in two different lines but using a single printf.</div><div class="code">#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    printf("Your Name\nYour Mother's Name");
+    return 0;
+}</div></div>
+<div class="qa"><div class="q">c. Write and execute a C program to print the sentence “I am from Assam. I am a responsible citizen of my country.” five times.</div><div class="code">#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    printf("I am from Assam. I am a responsible citizen of my country.\n");
+    printf("I am from Assam. I am a responsible citizen of my country.\n");
+    printf("I am from Assam. I am a responsible citizen of my country.\n");
+    printf("I am from Assam. I am a responsible citizen of my country.\n");
+    printf("I am from Assam. I am a responsible citizen of my country.\n");
+    return 0;
+}</div></div>
+<div class="qa"><div class="q">d. Remove the semicolons (;) from the C program of the previous question. Compile the program and check the errors. Note the line numbers and then rectify them.</div><div class="ans">The compiler reports syntax errors at the statements where the semicolons are missing. The exact line numbers depend on how the program is entered. Add <b>;</b> at the end of each <code>printf()</code> statement and the <code>return 0</code> statement, then compile again.</div></div>
+<div class="qa"><div class="q">e. Write and execute a C program to print your name in the order Last name First name. But you will pass them in First name Last name order inside printf. (Hint: use proper escape sequence).</div><div class="code">#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    printf("First Name\b\b\b\b\b\b\bLast Name");
+    return 0;
+}</div><div class="ans"><b>Note:</b> The exact number of backspaces depends on the length of the first name. The <code>\b</code> escape sequence moves the cursor one position backward.</div></div>
+</section>
+
+<div class="note">This page contains the questions visible in the supplied Chapter 8 screenshot, with simple exam-ready answers and C programs for the programming assignments.</div>
+</main></body></html>
