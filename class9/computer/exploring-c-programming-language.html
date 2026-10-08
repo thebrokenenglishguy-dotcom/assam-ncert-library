@@ -1,0 +1,126 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Class 9 Computer — Chapter 9: Exploring C Programming Language | Assam NCERT Library</title><style>body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033;line-height:1.6}header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:38px 18px;text-align:center}header h1{margin:0 0 8px;font-size:clamp(24px,5vw,38px)}.wrap{max-width:1050px;margin:auto;padding:28px 18px 60px}.back{display:inline-block;padding:10px 14px;background:#fff;border:1px solid #dfe5ef;border-radius:9px;color:#214e8a;text-decoration:none;font-weight:700;margin-bottom:18px}.card{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:22px;margin:18px 0;box-shadow:0 8px 22px #22304a10}h2{color:#214e8a;border-bottom:2px solid #e6eaf2;padding-bottom:8px}.qa{margin:16px 0}.q{font-weight:700}.ans{margin:5px 0 0 18px}.code{background:#f1f4f8;border-radius:8px;padding:12px 14px;font-family:monospace;white-space:pre-wrap;overflow:auto}ol{padding-left:28px}.note{background:#f8fafc;border-left:4px solid #2d72c8;padding:12px 14px}</style></head><body><header><h1>Chapter 9 — Exploring C Programming Language</h1><p>Class 9 Computer • Questions and Answers</p></header><main class="wrap"><a class="back" href="index.html">← Back to Class 9 Computer</a>
+
+<section class="card"><h2>1. Fill in the Blanks</h2><ol type="a">
+<li>Identifiers in C programming language start with <b>a letter or underscore (_)</b>.</li>
+<li>break is a keyword in C — <b>True</b>.</li>
+<li>A variable in C can store more than one value at a time — <b>False</b>.</li>
+<li>An integer variable typically reserves <b>4</b> bytes in memory.</li>
+<li>Built-in function used to accept user input from the keyboard is <b>scanf()</b>.</li>
+<li>Format specifier for accepting an integer value from keyboard is <b>%d</b>.</li>
+<li>Every operator in C requires exactly two operands — <b>False</b>.</li>
+<li><b>%</b> sign is used to indicate remainder operation in C.</li>
+<li>To compare two float variables in C, we can use <b>relational operators</b>.</li>
+<li>When we need to select a set of statements for execution in a C program based on some integral value, a good choice can be to use <b>switch-case</b> construct.</li>
+</ol><div class="note">The usual size of <code>int</code> is 4 bytes on modern systems, although the exact size is implementation-dependent.</div></section>
+
+<section class="card"><h2>2. Short Answer Questions</h2>
+<div class="qa"><div class="q">a. If we need to execute many statements when an if condition in C returns true, how can we write them? Write a code segment.</div><div class="ans">Use braces <b>{ }</b> to make a block of statements.</div><div class="code">if (condition)
+{
+    statement1;
+    statement2;
+    statement3;
+}</div></div>
+<div class="qa"><div class="q">b. List five commonly used operators of C programming language with their meaning.</div><div class="ans"><b>+</b> addition, <b>-</b> subtraction, <b>*</b> multiplication, <b>/</b> division, <b>%</b> remainder (modulus). Other important operators include relational, logical and assignment operators.</div></div>
+<div class="qa"><div class="q">c. The scanf statement should always be preceded by a printf statement in C. Is it true? Explain briefly.</div><div class="ans"><b>False.</b> A <code>printf()</code> statement is not required before <code>scanf()</code>. It is normally used to give the user a prompt, but <code>scanf()</code> can read input without a preceding <code>printf()</code>.</div></div>
+</section>
+
+<section class="card"><h2>3. Programming Assignments</h2>
+<div class="qa"><div class="q">a. Write a C program and try to declare variables of type int with the following variable names separately: first_variable, secondVariable, ThirdVariable, char, number, *, -, x, 9months, blp24, 8724, dimatala, gomakukh??, I want to be a doctor. Report if any variable declarations are not permitted by the compiler. Analyze the reasons.</div><div class="ans">Valid identifiers include <b>first_variable, secondVariable, ThirdVariable, number, x, blp24</b> and <b>dimatala</b>. Invalid identifiers include <b>char</b> (keyword), <b>*</b> and <b>-</b> (operators/symbols), <b>9months</b> and <b>8724</b> (start with a digit), and <b>gomakukh??</b> and <b>I want to be a doctor.</b> (contain invalid characters/spaces). C identifiers may use letters, digits and underscores, but cannot start with a digit or be a keyword.</div><div class="code">int first_variable;
+int secondVariable;
+int ThirdVariable;
+int number;
+int x;
+int blp24;
+int dimatala;</div></div>
+
+<div class="qa"><div class="q">b. Write the following code segment inside the main() function of a C program and run it. Analyse the output.</div><div class="code">int var = 7;
+printf("The value of var is %d.", var);
+printf("The address of var in memory is %p", &amp;var);</div><div class="ans">The first line prints <b>7</b>. The second line prints the memory address of <code>var</code>. The address is different from one execution or computer to another. The <code>%p</code> format specifier is used for a pointer address.</div></div>
+
+<div class="qa"><div class="q">c. Write the following code segment inside the main() function of a C program and run it. Analyse the output.</div><div class="code">int p = 9;
+printf("Size of the variable p is %ld \n", sizeof(p));
+printf("Size of an integer is %ld \n", sizeof(int));
+printf("Storage for the type of the variable p is %ld \n", sizeof(typeof(p)));</div><div class="ans">The first two expressions normally produce the same size because <code>p</code> is an <code>int</code>. In standard C, <code>typeof(p)</code> is not part of the standard language; some compilers provide it as an extension. In standard C, use <code>sizeof(p)</code> or <code>sizeof(int)</code> instead. The exact size of <code>int</code> is implementation-dependent.</div></div>
+
+<div class="qa"><div class="q">d. Write a C program to do the following: declare p = 9, q = 7, result = 0; display the result of p+q, p-q, p/q, p*q, p%q, p&amp;&amp;q; then perform ++result, result++, result--; and display result at each step.</div><div class="code">#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int p = 9, q = 7, result = 0;
+
+    printf("p + q = %d\n", p + q);
+    printf("p - q = %d\n", p - q);
+    printf("p / q = %d\n", p / q);
+    printf("p * q = %d\n", p * q);
+    printf("p %% q = %d\n", p % q);
+    printf("p && q = %d\n", p && q);
+
+    ++result;
+    printf("After ++result: %d\n", result);
+
+    result++;
+    printf("After result++: %d\n", result);
+
+    result--;
+    printf("After result--: %d\n", result);
+
+    return 0;
+}</div><div class="ans">For integer variables, the arithmetic results are <b>16, 2, 1, 63, 2</b>; <code>p &amp;&amp; q</code> is <b>1</b> because both values are non-zero. The result values after the three increment/decrement operations are <b>1, 2, 1</b>.</div></div>
+
+<div class="qa"><div class="q">e. Write a C program to find the area of a rectangle. The length and width of the rectangle are inputs.</div><div class="code">#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    float length, width, area;
+
+    printf("Enter length and width: ");
+    scanf("%f %f", &amp;length, &amp;width);
+
+    area = length * width;
+    printf("Area = %.2f\n", area);
+
+    return 0;
+}</div></div>
+
+<div class="qa"><div class="q">f. Change the programming example B.1 to accept the integers from the keyboard using scanf() function.</div><div class="ans">The input values can be accepted using <code>scanf()</code> with the <code>%d</code> format specifier.</div><div class="code">int a, b;
+printf("Enter two integers: ");
+scanf("%d %d", &amp;a, &amp;b);</div></div>
+
+<div class="qa"><div class="q">g. Improve the programming example B.5 to check whether the student scores PASS or FAIL in individual subjects. [Hint: use if clause]</div><div class="ans">Check each subject mark separately against the pass mark used in Example B.5. The following structure can be adapted to the book's pass-mark value.</div><div class="code">if (subject1 &gt;= PASS_MARK)
+    printf("Subject 1: PASS\n");
+else
+    printf("Subject 1: FAIL\n");
+
+if (subject2 &gt;= PASS_MARK)
+    printf("Subject 2: PASS\n");
+else
+    printf("Subject 2: FAIL\n");</div></div>
+
+<div class="qa"><div class="q">h. Improve the programming example B.5 to check whether every mark entered from the keyboard is positive or not. If any mark is entered as negative, prompt the user to re-enter. [Hint: use if clause and then put scanf()].</div><div class="code">do
+{
+    printf("Enter mark: ");
+    scanf("%d", &amp;mark);
+
+    if (mark &lt; 0)
+        printf("Invalid mark. Please re-enter.\n");
+
+} while (mark &lt; 0);</div></div>
+
+<div class="qa"><div class="q">i. Write a program in C for awarding student grade (as Example B.5) using switch-case construct.</div><div class="ans">First convert the student's mark/percentage into a grade code, then use <code>switch</code> to display the corresponding grade. The grade ranges should be kept the same as those specified in Example B.5.</div><div class="code">switch (gradeCode)
+{
+    case 1:
+        printf("FIRST DIVISION");
+        break;
+    case 2:
+        printf("SECOND DIVISION");
+        break;
+    case 3:
+        printf("THIRD DIVISION");
+        break;
+    default:
+        printf("FAIL");
+}</div></div>
+</section>
+
+<div class="note">This page contains the questions visible in the supplied Chapter 9 exercise screenshots. Where the textbook refers to an earlier Example B.5, the solution preserves that dependency rather than inventing grading thresholds not visible in the supplied pages.</div>
+</main></body></html>
