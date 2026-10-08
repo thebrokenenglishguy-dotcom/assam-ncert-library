@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Class 9 Computer — Chapter 7: Coding and Its Importance | Assam NCERT Library</title><style>body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033;line-height:1.6}header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:38px 18px;text-align:center}header h1{margin:0 0 8px;font-size:clamp(24px,5vw,38px)}.wrap{max-width:1000px;margin:auto;padding:28px 18px 60px}.back{display:inline-block;padding:10px 14px;background:#fff;border:1px solid #dfe5ef;border-radius:9px;color:#214e8a;text-decoration:none;font-weight:700;margin-bottom:18px}.card{background:#fff;border:1px solid #e6eaf2;border-radius:16px;padding:22px;margin:18px 0;box-shadow:0 8px 22px #22304a10}h2{color:#214e8a;border-bottom:2px solid #e6eaf2;padding-bottom:8px}.qa{margin:16px 0}.q{font-weight:700}.ans{margin:5px 0 0 18px}ol{padding-left:28px}.code{background:#f1f4f8;border-radius:8px;padding:10px 14px;font-family:monospace;white-space:pre-wrap}.note{background:#f8fafc;border-left:4px solid #2d72c8;padding:12px 14px}</style></head><body><header><h1>Chapter 7 — Coding and Its Importance</h1><p>Class 9 Computer • Questions and Answers</p></header><main class="wrap"><a class="back" href="index.html">← Back to Class 9 Computer</a>
+
+<section class="card"><h2>1. Fill in the Blanks</h2><ol type="a">
+<li>ISA stands for <b>Instruction Set Architecture</b>.</li>
+<li>Programming is also known as <b>coding</b>.</li>
+<li>The rules and regulations of a computer programming language is known as <b>syntax</b>.</li>
+<li>In machine language, computer programs are written using only <b>binary</b> numbers.</li>
+<li>In drawing flowchart, <b>parallelogram</b> is used for input/output operation.</li>
+</ol></section>
+
+<section class="card"><h2>2. Short Answer Questions</h2>
+<div class="qa"><div class="q">a. How do we write programs in assembly level language?</div><div class="ans">Programs in assembly language are written using <b>mnemonics</b> or symbolic instructions such as ADD, SUB and MOV. An <b>assembler</b> translates these instructions into machine language.</div></div>
+<div class="qa"><div class="q">b. The expression a = b + c can be a statement of which type of programming languages?</div><div class="ans">It can be a statement in a <b>high-level programming language</b>, such as C.</div></div>
+<div class="qa"><div class="q">c. Name the two basic ingredients if we want to write a computer program for solving a problem.</div><div class="ans">The two basic ingredients are an <b>algorithm</b> for solving the problem and a <b>programming language</b> for expressing the solution.</div></div>
+<div class="qa"><div class="q">d. Why is it easier for a human being to write programs in high level language than in machine level language?</div><div class="ans">High-level languages use words, symbols and statements that are easier for humans to understand. Machine language uses only binary numbers, making programs difficult to write, read and debug.</div></div>
+</section>
+
+<section class="card"><h2>3. Long Answer Questions</h2>
+<div class="qa"><div class="q">a. Define the term programming. Write the importance of computer programming.</div><div class="ans"><b>Programming</b> is the process of writing instructions in a programming language to make a computer perform a particular task. It is important because it helps us solve problems, automate tasks, process data, create software and develop websites, applications and other digital systems.</div></div>
+<div class="qa"><div class="q">b. Explain the importance of compiler in program execution.</div><div class="ans">A compiler translates a program written in a high-level language into machine-readable code. It checks the program for errors and reports them to the programmer. After successful compilation, the translated program can be executed by the computer. Thus, a compiler acts as a bridge between high-level programming languages and machine language.</div></div>
+<div class="qa"><div class="q">c. Differentiate between algorithm, flowchart and pseudocode.</div><div class="ans"><b>Algorithm:</b> A step-by-step written procedure for solving a problem.<br><b>Flowchart:</b> A graphical representation of an algorithm using standard symbols and arrows.<br><b>Pseudocode:</b> A simple, structured description of an algorithm written in language-like statements without following the exact syntax of a programming language.</div></div>
+</section>
+
+<section class="card"><h2>4. Problem Solving and Algorithm Design Questions</h2>
+<div class="qa"><div class="q">a. Draw a flowchart to find the larger number from two given numbers.</div><div class="ans">Solution strategy: Start → Input A, B → Check A &gt; B? → If Yes, display A as larger → If No, display B as larger → Stop.</div></div>
+<div class="qa"><div class="q">b. Write a solution strategy for finding the largest number among three given numbers. Draw a flowchart for the same.</div><div class="ans">Solution strategy:<ol><li>Start.</li><li>Input A, B and C.</li><li>Set MAX = A.</li><li>If B &gt; MAX, set MAX = B.</li><li>If C &gt; MAX, set MAX = C.</li><li>Display MAX.</li><li>Stop.</li></ol></div></div>
+<div class="qa"><div class="q">c. Design an algorithm to find the smallest of N given numbers. Write a pseudocode for the same. Draw a flowchart to represent the solution strategy.</div><div class="ans"><b>Algorithm:</b> Input N and the numbers. Set MIN to the first number. Compare each remaining number with MIN. If a number is smaller, replace MIN. Finally display MIN.<div class="code">READ N
+READ first number
+MIN = first number
+FOR each remaining number
+    READ X
+    IF X &lt; MIN THEN
+        MIN = X
+    END IF
+END FOR
+PRINT MIN</div></div></div>
+<div class="qa"><div class="q">d. Write a solution strategy for finding the greatest common divisor of two numbers. Draw a flowchart for the same.</div><div class="ans">Use the Euclidean method: input A and B; while B is not zero, calculate R = A MOD B, then set A = B and B = R. When B becomes zero, A is the GCD. Display A.</div></div>
+<div class="qa"><div class="q">e. Write pseudocode for finding the summation of N given numbers. Draw a flowchart for the same.</div><div class="ans"><div class="code">READ N
+SUM = 0
+FOR i = 1 TO N
+    READ X
+    SUM = SUM + X
+END FOR
+PRINT SUM</div></div></div>
+<div class="qa"><div class="q">f. Write a solution strategy for arranging three numbers in ascending order of their values. Draw a flowchart for the same.</div><div class="ans">Input A, B and C. Compare and interchange values so that A contains the smallest value, B the middle value and C the largest value. Then display A, B and C in that order.</div></div>
+<div class="qa"><div class="q">g. Write pseudocode to announce all the even numbers from a given set of numbers. Draw a flowchart for the same.</div><div class="ans"><div class="code">READ N
+FOR i = 1 TO N
+    READ X
+    IF X MOD 2 = 0 THEN
+        PRINT X
+    END IF
+END FOR</div></div></div>
+</section>
+
+<div class="note">This page contains the questions visible in the supplied screenshot. Flowchart questions are provided with clear solution strategies/pseudocode so they can be drawn using standard flowchart symbols.</div>
+</main></body></html>
