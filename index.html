@@ -29,8 +29,8 @@ footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 <h2 class="section-title">Choose Your Class</h2>
 <section class="classes">
 <article class="card" data-search="class 9 english hindi mathematics science social science computer"><h3>📘 Class 9</h3><p>Explore study material arranged subject by subject and chapter by chapter.</p><div class="subjects">
-<a class="subject" href="#">English</a><button class="subject hindi-mil-toggle" type="button" aria-expanded="false">Hindi MIL</button><a class="subject" href="#">Mathematics</a><a class="subject" href="#">Science</a><button class="subject social-toggle" type="button" aria-expanded="false">Social Science</button><a class="subject" href="#">Computer</a>
-</div><div class="history social-list"><h4>📚 Social Science — History</h4><p class="history-note">Choose a chapter:</p></div></article>
+<button class="subject english-toggle" type="button" aria-expanded="false">English</button><button class="subject hindi-mil-toggle" type="button" aria-expanded="false">Hindi MIL</button><a class="subject" href="#">Mathematics</a><a class="subject" href="#">Science</a><button class="subject social-toggle" type="button" aria-expanded="false">Social Science</button><a class="subject" href="#">Computer</a>
+</div><div class="history english-list"><p class="history-note">Choose a book:</p><a class="chapter" href="class9/english/beehive.html">Beehive — Textbook in English for Class IX</a></div><div class="history social-list"><h4>📚 Social Science — History</h4><p class="history-note">Choose a chapter:</p></div></article>
 
 <article class="card" data-search="class 10 english hindi mathematics science social science history geography computer introduction computer network partition bengal swadeshi gandhi freedom anti british peasant revolts assam economic geography resource">
 <h3>📕 Class 10</h3><p>Find questions and answers, important questions, notes and practice material.</p>
@@ -104,6 +104,7 @@ subjectMenus.forEach(name=>{
     btn.setAttribute('aria-expanded',open);
   }));
 });
+document.querySelectorAll('.english-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class9-english')));
 document.querySelectorAll('.science-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-science')));document.querySelectorAll('.mathematics-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-mathematics')));
 document.querySelectorAll('.section-toggle').forEach(btn=>btn.addEventListener('click',()=>{const section=btn.nextElementSibling;const open=section.classList.toggle('open');btn.setAttribute('aria-expanded',open);}));
 document.querySelectorAll('.english-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-english')));
@@ -113,7 +114,7 @@ document.querySelectorAll('.computer-list .chapter').forEach(link=>link.addEvent
 document.querySelectorAll('.social-list > .chapter,.geography-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-social')));
 window.addEventListener('DOMContentLoaded',()=>{
   const saved=sessionStorage.getItem('assamLibraryOpenMenu');
-  if(saved==='class10-science'){const card=document.querySelector('.card[data-search*="class 10"]');const btn=card?.querySelector('.science-toggle');const section=card?.querySelector('.science-list');if(btn&&section){section.classList.add('open');btn.setAttribute('aria-expanded','true');}}else if(saved==='class10-english'){
+  if(saved==='class9-english'){const card=document.querySelector('.card[data-search*="class 9"]');const btn=card?.querySelector('.english-toggle');const section=card?.querySelector('.english-list');if(btn&&section){section.classList.add('open');btn.setAttribute('aria-expanded','true');}}else if(saved==='class10-science'){const card=document.querySelector('.card[data-search*="class 10"]');const btn=card?.querySelector('.science-toggle');const section=card?.querySelector('.science-list');if(btn&&section){section.classList.add('open');btn.setAttribute('aria-expanded','true');}}else if(saved==='class10-english'){
     const card=document.querySelector('.card[data-search*="class 10"]');
     const btn=card?.querySelector('.english-toggle');
     const section=card?.querySelector('.english-list');
