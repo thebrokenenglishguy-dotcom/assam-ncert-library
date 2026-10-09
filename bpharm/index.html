@@ -13,6 +13,16 @@ main{max-width:950px;margin:auto;padding:28px 18px 55px}.back{display:inline-blo
 h2{margin-top:0}.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .subject{padding:14px;background:#eef4ff;border:1px solid #dce7fb;border-radius:10px;color:#214e8a}
 .subject strong{display:block;margin-bottom:4px}.note{color:#596579;font-size:14px}
+.semester-toggle,.subject-toggle{width:100%;display:block;text-align:left;border:1px solid #dce7fb;border-radius:10px;background:#eef4ff;color:#214e8a;padding:15px 16px;font:inherit;cursor:pointer}
+.semester-toggle{font-weight:700;font-size:19px}.subject-toggle{font-weight:600;background:#fff;border-color:#e2e8f0}
+.semester-toggle:before,.subject-toggle:before{content:"▸";display:inline-block;margin-right:10px;transition:transform .2s}
+.semester-menu.open>.semester-toggle:before,.subject-menu.open>.subject-toggle:before{transform:rotate(90deg)}
+.semester-menu,.subject-menu{margin:10px 0;border-radius:10px;overflow:hidden}
+.semester-content{display:none;padding:12px 0 0}.semester-menu.open>.semester-content{display:block}
+.subject-content{display:none;padding:12px 14px;background:#fff;border:1px solid #e2e8f0;border-top:0;border-radius:0 0 10px 10px}
+.subject-menu.open>.subject-content{display:block}
+.subject-content a{display:inline-block;margin-top:8px;color:#214e8a;font-weight:700;text-decoration:none}
+.subject-content a:hover{text-decoration:underline}
 footer{text-align:center;color:#6d7686;padding:0 20px 28px;font-size:14px}
 </style>
 </head>
@@ -26,23 +36,62 @@ footer{text-align:center;color:#6d7686;padding:0 20px 28px;font-size:14px}
 <p class="note">The subject list below is a starting structure. Please follow your university's current syllabus for the exact subjects and units.</p>
 </section>
 <section class="panel">
-<h2>B.Pharm — Semester I</h2>
-<p>Choose a subject below. Each subject has its own page where we will add syllabus-based notes and question answers as you share the source material.</p>
-<div class="subjects">
-<a class="subject" href="semester1/basics-of-python-programming-for-pharmaceutical-sciences.html" style="text-decoration:none;display:block"><strong>BP101T</strong><span>Basics of Python Programming for Pharmaceutical Sciences (Theory)</span><br><span class="note">Open subject page →</span></a>
-<a class="subject" href="semester1/general-pharmacy.html" style="text-decoration:none;display:block"><strong>BP102T</strong><span>General Pharmacy (Theory)</span><br><span class="note">Open subject page →</span></a>
-<a class="subject" href="semester1/healthcare-psychology-and-communication-skills.html" style="text-decoration:none;display:block"><strong>BP103T</strong><span>Healthcare Psychology and Communication Skills (Theory)</span><br><span class="note">Open subject page →</span></a>
-<a class="subject" href="semester1/human-anatomy-physiology-and-pathophysiology-i.html" style="text-decoration:none;display:block"><strong>BP104T</strong><span>Human Anatomy, Physiology and Pathophysiology I (Theory)</span><br><span class="note">Open subject page →</span></a>
-<a class="subject" href="semester1/introduction-to-pharmacognosy.html" style="text-decoration:none;display:block"><strong>BP105T</strong><span>Introduction to Pharmacognosy (Theory)</span><br><span class="note">Open subject page →</span></a>
-<a class="subject" href="semester1/pharmaceutical-inorganic-and-analytical-chemistry.html" style="text-decoration:none;display:block"><strong>BP106T</strong><span>Pharmaceutical Inorganic and Analytical Chemistry (Theory)</span><br><span class="note">Open subject page →</span></a>
-</div>
-<p class="note">These are the six subjects visible in the syllabus image you shared. If the table continues below, send the next part so I can add any remaining Semester I courses.</p>
+<h2>Choose a Semester</h2>
+<p>Open a semester, then open a subject to access its study page.</p>
+<div class="semester-menu">
+<button class="semester-toggle" type="button" aria-expanded="false">B.Pharm 1st Semester</button>
+<div class="semester-content">
+<div class="subject-menu">
+<button class="subject-toggle" type="button" aria-expanded="false">BP101T — Basics of Python Programming for Pharmaceutical Sciences (Theory)</button>
+<div class="subject-content">
+<p>Open this subject to add and study syllabus-based questions and answers.</p>
+<a href="semester1/basics-of-python-programming-for-pharmaceutical-sciences.html">Go to BP101T subject page →</a>
+</div></div>
+<div class="subject-menu">
+<button class="subject-toggle" type="button" aria-expanded="false">BP102T — General Pharmacy (Theory)</button>
+<div class="subject-content">
+<p>Open this subject to add and study syllabus-based questions and answers.</p>
+<a href="semester1/general-pharmacy.html">Go to BP102T subject page →</a>
+</div></div>
+<div class="subject-menu">
+<button class="subject-toggle" type="button" aria-expanded="false">BP103T — Healthcare Psychology and Communication Skills (Theory)</button>
+<div class="subject-content">
+<p>Open this subject to add and study syllabus-based questions and answers.</p>
+<a href="semester1/healthcare-psychology-and-communication-skills.html">Go to BP103T subject page →</a>
+</div></div>
+<div class="subject-menu">
+<button class="subject-toggle" type="button" aria-expanded="false">BP104T — Human Anatomy, Physiology and Pathophysiology I (Theory)</button>
+<div class="subject-content">
+<p>Open this subject to add and study syllabus-based questions and answers.</p>
+<a href="semester1/human-anatomy-physiology-and-pathophysiology-i.html">Go to BP104T subject page →</a>
+</div></div>
+<div class="subject-menu">
+<button class="subject-toggle" type="button" aria-expanded="false">BP105T — Introduction to Pharmacognosy (Theory)</button>
+<div class="subject-content">
+<p>Open this subject to add and study syllabus-based questions and answers.</p>
+<a href="semester1/introduction-to-pharmacognosy.html">Go to BP105T subject page →</a>
+</div></div>
+<div class="subject-menu">
+<button class="subject-toggle" type="button" aria-expanded="false">BP106T — Pharmaceutical Inorganic and Analytical Chemistry (Theory)</button>
+<div class="subject-content">
+<p>Open this subject to add and study syllabus-based questions and answers.</p>
+<a href="semester1/pharmaceutical-inorganic-and-analytical-chemistry.html">Go to BP106T subject page →</a>
+</div></div>
+</div></div>
 </section>
 <section class="panel">
 <h2>More Semesters</h2>
 <p>Semester II, III, IV, V, VI, VII and VIII sections will be organised here as the relevant syllabus and study materials are added.</p>
 </section>
 </main>
+<script>
+document.querySelectorAll('.semester-toggle').forEach(btn=>btn.addEventListener('click',()=>{
+ const menu=btn.closest('.semester-menu');const open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));
+}));
+document.querySelectorAll('.subject-toggle').forEach(btn=>btn.addEventListener('click',()=>{
+ const menu=btn.closest('.subject-menu');const open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));
+}));
+</script>
 <footer>Assam Education Hub · Free learning resources</footer>
 </body>
 </html>
