@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BP201T — Applied Biostatistics and Data Analytics for Pharmaceutical Sciences | Assam Education Hub</title>
+<meta name="description" content="B.Pharm Semester II BP201T syllabus-based notes, worked examples and question answers for Applied Biostatistics and Data Analytics for Pharmaceutical Sciences.">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#172033;line-height:1.65}
+header{background:linear-gradient(135deg,#173b72,#2d72c8);color:#fff;padding:34px 20px;text-align:center}header p{margin:6px auto;max-width:820px}h1{font-size:clamp(25px,4vw,38px);margin:8px auto;max-width:950px}
+main{max-width:920px;margin:auto;padding:26px 16px 55px}.back{display:inline-block;color:#214e8a;text-decoration:none;font-weight:bold;margin-bottom:18px}
+.panel{background:#fff;border:1px solid #e2e8f0;border-radius:15px;padding:20px;margin:15px 0;box-shadow:0 6px 20px #22304a0a}
+h2{margin-top:0;color:#173b72}h3{margin-bottom:6px}.code{display:inline-block;background:#eef4ff;color:#214e8a;padding:5px 10px;border-radius:7px;font-weight:bold}
+.unit{border:1px solid #dfe5ef;background:#fff;border-radius:12px;margin:14px 0;overflow:hidden}.unit summary{cursor:pointer;background:#eef4ff;color:#173b72;font-weight:700;padding:15px 17px}.unit-body{padding:16px}.qa{padding:12px 0;border-bottom:1px solid #edf0f5}.qa:last-child{border-bottom:0}.question{font-weight:700;margin-bottom:5px}.answer{margin:0}.note{background:#fff8e6;border-left:4px solid #e8b64b;padding:12px 14px;border-radius:7px}.example{background:#f7f9fc;border:1px solid #e3e8f0;border-radius:9px;padding:12px;margin:10px 0;overflow-x:auto}pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.5}.small{color:#5d687b;font-size:14px}table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid #dfe5ef;text-align:left;padding:9px;vertical-align:top}th{background:#eef4ff}footer{text-align:center;color:#6d7686;padding:0 20px 28px;font-size:14px}a{color:#214e8a}
+</style>
+</head>
+<body>
+<header><p>BP201T · B.Pharm Semester II · Theory</p><h1>Applied Biostatistics and Data Analytics for Pharmaceutical Sciences</h1><p>Syllabus-based notes, worked examples and question answers</p></header>
+<main>
+<a class="back" href="../index.html">← Back to B.Pharm Semester II subjects</a>
+<section class="panel">
+<span class="code">BP201T</span><h2>Course outline</h2>
+<p>This page follows the five units in the syllabus screenshots you shared. Each unit is allotted 6 lecture hours. Questions and answers are arranged for study and exam revision; they are not an official question paper.</p>
+<table><thead><tr><th>Unit</th><th>Topics</th><th>Lecture hours</th></tr></thead><tbody>
+<tr><td>I</td><td>Descriptive statistics, data types and sources, central tendency, dispersion, skewness, Python-based analysis</td><td>6</td></tr>
+<tr><td>II</td><td>Probability, conditional probability, Bayes' theorem, random variables, normal, binomial and Poisson distributions</td><td>6</td></tr>
+<tr><td>III</td><td>Sampling, sampling error and bias, Central Limit Theorem, confidence intervals and hypothesis testing</td><td>6</td></tr>
+<tr><td>IV</td><td>Correlation, Pearson correlation, scatter plots, linear regression and odds ratios</td><td>6</td></tr>
+<tr><td>V</td><td>Statistical analysis using Python, SciPy, statsmodels and scikit-learn, output interpretation and reports</td><td>6</td></tr>
+</tbody></table>
+<p class="note"><strong>Study note:</strong> Pharmaceutical examples on this page are simplified teaching examples. Clinical decisions require suitable study design, validated data, statistical review and professional judgement. Correlation alone does not prove causation.</p>
+</section>
+
+<details class="unit" open><summary>UNIT I — Descriptive Statistics</summary><div class="unit-body">
+<div class="qa"><div class="question">Q1. Define biostatistics.</div><p class="answer">Biostatistics is the application of statistical methods to data from biology, medicine, pharmacy and healthcare. It helps researchers describe data, compare treatments, estimate uncertainty and interpret clinical or laboratory studies.</p></div>
+<div class="qa"><div class="question">Q2. What is descriptive statistics?</div><p class="answer">Descriptive statistics summarises the main features of a dataset. It includes tables, graphs and numerical measures such as mean, median, mode, range, variance and standard deviation. It describes the observed data but does not, by itself, establish conclusions about every person in a population.</p></div>
+<div class="qa"><div class="question">Q3. Explain nominal, ordinal, interval and ratio data with pharmaceutical examples.</div><p class="answer"><strong>Nominal:</strong> categories without order, such as blood group or dosage-form type. <strong>Ordinal:</strong> categories with an order, such as mild, moderate and severe symptoms. <strong>Interval:</strong> numeric values with equal intervals but no true zero, such as temperature in °C. <strong>Ratio:</strong> numeric values with equal intervals and a meaningful zero, such as mass, age, concentration or tablet count.</p></div>
+<div class="qa"><div class="question">Q4. What are the main sources of pharmaceutical data?</div><p class="answer">Sources include clinical trials, pharmacovigilance and adverse drug reaction reports, quality-control testing, pharmacokinetic (PK) studies, hospital records, laboratory experiments, prescription data and public-health surveys. Data must be collected lawfully, accurately and with suitable privacy safeguards.</p></div>
+<div class="qa"><div class="question">Q5. Define population, sample and variable.</div><p class="answer">A <strong>population</strong> is the full group of interest, such as all eligible patients in a defined study. A <strong>sample</strong> is the smaller group actually observed. A <strong>variable</strong> is a characteristic recorded for each observation, such as age, blood pressure or drug concentration.</p></div>
+<div class="qa"><div class="question">Q6. Define arithmetic mean and give its formula.</div><p class="answer">The arithmetic mean is the sum of all observations divided by the number of observations. For values (x_1,x_2,\ldots,x_n), the formula is <strong>mean = Σx / n</strong>.</p><div class="example"><p><strong>Example:</strong> The measured concentrations are 2, 4 and 6 mg/L.</p><p>Mean = (2 + 4 + 6) / 3 = 12 / 3 = <strong>4 mg/L</strong>.</p></div></div>
+<div class="qa"><div class="question">Q7. What is the median? How is it calculated?</div><p class="answer">The median is the middle value after observations are arranged in ascending order. If the number of observations is odd, choose the middle value. If it is even, take the average of the two middle values.</p><div class="example"><p>For 3, 5, 8, the median is 5. For 3, 5, 8, 10, the median is (5 + 8) / 2 = 6.5.</p></div></div>
+<div class="qa"><div class="question">Q8. Define mode and explain when it is useful.</div><p class="answer">The mode is the value or category that occurs most often. It is especially useful for categorical data, such as identifying the most frequently reported adverse reaction or the most common dosage form in a dataset. A dataset can have one mode, more than one mode, or no unique mode.</p></div>
+<div class="qa"><div class="question">Q9. Compare mean, median and mode.</div><p class="answer">The mean uses every numerical value but can be affected by extreme values. The median is resistant to extreme values and is useful for skewed data. The mode identifies the most frequent value or category and can be used with nominal data.</p></div>
+<div class="qa"><div class="question">Q10. Define range, variance and standard deviation.</div><p class="answer">The <strong>range</strong> is maximum minus minimum. <strong>Variance</strong> measures the average squared distance from the mean. <strong>Standard deviation (SD)</strong> is the square root of variance and describes spread in the original measurement units.</p></div>
+<div class="qa"><div class="question">Q11. Distinguish population variance from sample variance.</div><p class="answer">For a population of size N, variance is the sum of squared deviations from the population mean divided by N. For a sample of size n, the usual unbiased variance estimate divides the sum of squared deviations from the sample mean by n − 1. The n − 1 denominator corrects for estimating the mean from the sample.</p></div>
+<div class="qa"><div class="question">Q12. Calculate the sample variance and sample standard deviation for 2, 4 and 6.</div><p class="answer">Mean = 4. Squared deviations are (2−4)² = 4, (4−4)² = 0 and (6−4)² = 4. Their sum is 8. Sample variance = 8/(3−1) = <strong>4</strong>. Sample SD = √4 = <strong>2</strong>. Units of SD are the same as the original measurements.</p></div>
+<div class="qa"><div class="question">Q13. What is skewness?</div><p class="answer">Skewness describes asymmetry in a distribution. A positively skewed distribution has a longer right tail; a negatively skewed distribution has a longer left tail. A symmetric distribution has approximately balanced tails. Biological measurements and healthcare costs may be skewed, so the median and interquartile range can sometimes summarise them better than the mean and SD.</p></div>
+<div class="qa"><div class="question">Q14. How can Python be used for descriptive statistics?</div><p class="answer">Python libraries such as NumPy and Pandas can calculate summary statistics, inspect missing values and summarise columns in a dataset.</p><div class="example"><pre>import pandas as pd
+
+data = pd.Series([2.0, 4.0, 6.0, 8.0])
+print("Mean:", data.mean())
+print("Median:", data.median())
+print("Sample SD:", data.std())
+print("Minimum:", data.min())
+print("Maximum:", data.max())
+print(data.describe())</pre></div><p class="small">Pandas Series.std() uses sample standard deviation by default (ddof=1).</p></div>
+<div class="qa"><div class="question">Q15. Why should results be interpreted, not merely calculated?</div><p class="answer">A number alone may not explain clinical importance. Interpretation should consider the measurement units, sample size, data quality, distribution, missing observations, study design and whether a difference is meaningful in practice.</p></div>
+</div></details>
+
+<details class="unit"><summary>UNIT II — Probability and Statistical Distributions in Healthcare</summary><div class="unit-body">
+<div class="qa"><div class="question">Q1. Define probability.</div><p class="answer">Probability measures how likely an event is. Its value lies between 0 and 1: 0 means impossible and 1 means certain. If all outcomes are equally likely, P(A) = number of outcomes favourable to A / total number of outcomes.</p></div>
+<div class="qa"><div class="question">Q2. State the addition rule of probability.</div><p class="answer">For events A and B, P(A or B) = P(A) + P(B) − P(A and B). If the events are mutually exclusive, they cannot occur together, so P(A and B) = 0 and the formula becomes P(A or B) = P(A) + P(B).</p></div>
+<div class="qa"><div class="question">Q3. State the multiplication rule of probability.</div><p class="answer">P(A and B) = P(A) × P(B given A). If A and B are independent, P(B given A) = P(B), so P(A and B) = P(A) × P(B).</p></div>
+<div class="qa"><div class="question">Q4. What is conditional probability?</div><p class="answer">Conditional probability is the probability of event A when event B is known to have occurred. Provided P(B) is greater than zero, P(A given B) = P(A and B) / P(B). For example, it may describe the probability of a positive test result among patients who truly have a condition.</p></div>
+<div class="qa"><div class="question">Q5. State Bayes' theorem and explain its healthcare use.</div><p class="answer">Bayes' theorem updates the probability of a hypothesis after new evidence is observed: P(A given B) = [P(B given A) × P(A)] / P(B). In healthcare, it helps combine prior probability with test performance to estimate the probability of a condition after a test result. It is important to account for the condition's prevalence as well as sensitivity and specificity.</p></div>
+<div class="qa"><div class="question">Q6. Give a simple Bayes' theorem example.</div><p class="answer">Suppose a condition has prevalence 1%, a test has sensitivity 90%, and specificity 95%. In 10,000 people, about 100 have the condition: 90 test positive. Of 9,900 without it, 5% (495) test positive. Among all 585 positive results, 90 are true positives. The positive predictive value is 90/585 ≈ <strong>15.4%</strong>. This simplified example shows why a positive test does not always mean the condition is likely when prevalence is low.</p></div>
+<div class="qa"><div class="question">Q7. What is a random variable? Distinguish discrete and continuous variables.</div><p class="answer">A random variable assigns a numerical value to the outcome of a random process. A <strong>discrete</strong> variable takes countable values, such as the number of adverse drug reactions reported. A <strong>continuous</strong> variable can take any value within a range, such as blood pressure or drug concentration, subject to measurement precision.</p></div>
+<div class="qa"><div class="question">Q8. Explain the normal distribution.</div><p class="answer">The normal distribution is a symmetric, bell-shaped continuous distribution defined by its mean and standard deviation. In an ideal normal distribution, mean, median and mode are equal. Approximately 68% of values fall within 1 SD of the mean, 95% within 2 SDs and 99.7% within 3 SDs.</p></div>
+<div class="qa"><div class="question">Q9. What is a z-score?</div><p class="answer">A z-score expresses how many standard deviations an observation lies above or below the mean. Formula: z = (x − μ)/σ for a population with mean μ and SD σ. A z-score of +2 means the observation is two SDs above the mean.</p></div>
+<div class="qa"><div class="question">Q10. Explain the binomial distribution and its conditions.</div><p class="answer">The binomial distribution models the number of successes in a fixed number of independent trials when each trial has two outcomes and the probability of success p stays constant. Its parameters are n (number of trials) and p. Examples include the number of patients who respond to treatment in a fixed-size study, if the assumptions are reasonable.</p></div>
+<div class="qa"><div class="question">Q11. Give the binomial probability formula.</div><p class="answer">The probability of exactly x successes is P(X=x) = C(n,x) pˣ (1−p)ⁿ⁻ˣ, where C(n,x) is the number of ways to choose x successes from n trials.</p><div class="example"><p>If n = 3 and p = 0.5, the probability of exactly 2 successes is C(3,2)(0.5)²(0.5)¹ = 3 × 0.125 = <strong>0.375</strong>.</p></div></div>
+<div class="qa"><div class="question">Q12. Explain the Poisson distribution.</div><p class="answer">The Poisson distribution models counts of events in a defined interval of time, area or exposure when events occur independently at a stable average rate. It may be used as a teaching model for rare event counts, such as adverse event reports per defined number of patient-days, when its assumptions are appropriate. It does not automatically explain the cause of an event.</p></div>
+<div class="qa"><div class="question">Q13. Write the Poisson probability formula.</div><p class="answer">For event count x and average rate λ, P(X=x) = e⁻λ λˣ / x!, where λ is the expected number of events in the interval.</p><div class="example"><p>If λ = 2, the probability of zero events is P(X=0) = e⁻² ≈ <strong>0.1353</strong>, or about 13.5%.</p></div></div>
+<div class="qa"><div class="question">Q14. Compare normal, binomial and Poisson distributions.</div><p class="answer">Normal is continuous and models measurements around a mean. Binomial is discrete and counts successes in a fixed number of independent trials. Poisson is discrete and counts events in a defined interval using an average event rate.</p></div>
+<div class="qa"><div class="question">Q15. How can Python visualise probability distributions?</div><p class="answer">SciPy provides probability functions and Matplotlib can plot the results. The example below plots a binomial probability mass function.</p><div class="example"><pre>import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import binom
+
+n, p = 10, 0.4
+x = np.arange(0, n + 1)
+probabilities = binom.pmf(x, n, p)
+
+plt.bar(x, probabilities)
+plt.xlabel("Number of successes")
+plt.ylabel("Probability")
+plt.title("Binomial distribution: n=10, p=0.4")
+plt.show()</pre></div></div>
+</div></details>
+
+<details class="unit"><summary>UNIT III — Sampling and Statistical Inference</summary><div class="unit-body">
+<div class="qa"><div class="question">Q1. Distinguish population and sample in clinical research.</div><p class="answer">The population is the whole group to which the research question relates. The sample is the group selected and measured. Researchers use samples because studying every member of a population is often impractical.</p></div>
+<div class="qa"><div class="question">Q2. Name common sampling techniques.</div><p class="answer"><strong>Simple random sampling:</strong> each member has a known, equal chance of selection. <strong>Systematic sampling:</strong> select at a fixed interval after a starting point. <strong>Stratified sampling:</strong> divide the population into relevant strata and sample from each. <strong>Cluster sampling:</strong> randomly select groups or clusters. <strong>Convenience sampling:</strong> select readily available participants; it is easy but can be strongly biased.</p></div>
+<div class="qa"><div class="question">Q3. What are sampling error and sampling bias?</div><p class="answer">Sampling error is the natural difference between a sample estimate and the population value because only some members were observed. Sampling bias is a systematic problem in how the sample was selected or retained, making it unrepresentative. Increasing sample size can reduce random sampling error but does not automatically remove bias.</p></div>
+<div class="qa"><div class="question">Q4. Explain the Central Limit Theorem.</div><p class="answer">Under suitable conditions, the sampling distribution of the sample mean becomes approximately normal as sample size increases, even when the original data are not normally distributed. The theorem requires independent observations and finite variance; how large a sample is needed depends on the underlying distribution and study design.</p></div>
+<div class="qa"><div class="question">Q5. What is a confidence interval?</div><p class="answer">A confidence interval is a range calculated from sample data using a method designed to capture the true population parameter at a stated long-run rate. A 95% confidence procedure means that, over repeated samples under the model assumptions, about 95% of intervals constructed this way would contain the true parameter. It is not strictly correct to say that a fixed parameter has a 95% probability of lying in the already calculated interval.</p></div>
+<div class="qa"><div class="question">Q6. What affects the width of a confidence interval?</div><p class="answer">The interval is usually narrower with a larger sample size and lower variability, and wider with higher confidence levels. The method used, study design and data distribution also matter. A narrow interval indicates greater precision under the method's assumptions, not necessarily freedom from bias.</p></div>
+<div class="qa"><div class="question">Q7. What is hypothesis testing?</div><p class="answer">Hypothesis testing uses sample data to evaluate a claim about a population parameter. The <strong>null hypothesis (H₀)</strong> often represents no difference or no association. The <strong>alternative hypothesis (H₁ or Hₐ)</strong> represents the difference or association being investigated.</p></div>
+<div class="qa"><div class="question">Q8. Explain the usual steps in hypothesis testing.</div><p class="answer">State H₀ and H₁; select a suitable test and significance level before examining results; check assumptions; calculate the test statistic and p-value; compare the p-value with the significance level; and report the estimate, confidence interval, p-value and practical meaning. The test must match the study design and data type.</p></div>
+<div class="qa"><div class="question">Q9. What is a p-value?</div><p class="answer">A p-value is the probability, assuming the null hypothesis and model assumptions are true, of obtaining a test result at least as extreme as the observed result. A small p-value indicates that the data are relatively incompatible with H₀. It is not the probability that H₀ is true and does not measure the size or importance of an effect.</p></div>
+<div class="qa"><div class="question">Q10. Define Type I and Type II errors.</div><p class="answer"><strong>Type I error (α):</strong> rejecting a true null hypothesis, a false positive decision. <strong>Type II error (β):</strong> failing to reject a false null hypothesis, a false negative decision. Statistical power is 1−β, the probability of detecting a specified effect when that effect is present under the assumptions.</p></div>
+<div class="qa"><div class="question">Q11. What is statistical significance?</div><p class="answer">A result is statistically significant at a preselected level, such as α = 0.05, when the p-value is below that threshold for the specified test. Significance does not guarantee clinical importance, a large effect or a reliable study. Effect size, confidence interval, design and bias must also be considered.</p></div>
+<div class="qa"><div class="question">Q12. Distinguish one-tailed and two-tailed tests.</div><p class="answer">A one-tailed test evaluates evidence in one prespecified direction. A two-tailed test evaluates departures in either direction. The choice should be based on the research question and made before seeing the results, not selected afterward to obtain significance.</p></div>
+<div class="qa"><div class="question">Q13. Why are sample size and power important in a clinical study?</div><p class="answer">An under-sized study may fail to detect a meaningful effect, while an unnecessarily large study may use resources inefficiently and expose more participants than needed. Sample-size planning commonly considers the expected effect, variability, significance level, desired power, outcome type, allocation and anticipated dropouts.</p></div>
+<div class="qa"><div class="question">Q14. How can Python support confidence intervals and hypothesis tests?</div><p class="answer">SciPy provides many statistical tests and distribution functions. The analyst must select a test that fits the question and assumptions, then report results in context rather than treating software output as an automatic conclusion.</p><div class="example"><pre>from scipy import stats
+
+group_a = [12, 13, 11, 14, 12]
+group_b = [15, 14, 16, 13, 15]
+
+result = stats.ttest_ind(group_a, group_b, equal_var=False)
+print("t statistic:", result.statistic)
+print("p-value:", result.pvalue)</pre></div><p class="small">This is a small demonstration only. Real study analysis requires checking design, assumptions, data quality and an appropriate analysis plan.</p></div>
+</div></details>
+
+<details class="unit"><summary>UNIT IV — Basics of Correlation and Regression</summary><div class="unit-body">
+<div class="qa"><div class="question">Q1. Define correlation.</div><p class="answer">Correlation measures the strength and direction of association between two variables. It does not, by itself, prove that one variable causes the other.</p></div>
+<div class="qa"><div class="question">Q2. What is Pearson's correlation coefficient?</div><p class="answer">Pearson's correlation coefficient, r, measures the strength and direction of a linear relationship between two numerical variables. Its value ranges from −1 to +1. A value near +1 indicates a strong positive linear association, near −1 a strong negative linear association, and near 0 little or no linear association.</p></div>
+<div class="qa"><div class="question">Q3. Explain positive, negative and zero correlation.</div><p class="answer"><strong>Positive:</strong> larger values of one variable tend to occur with larger values of the other. <strong>Negative:</strong> larger values of one tend to occur with smaller values of the other. <strong>Near zero:</strong> little linear association is detected. A near-zero Pearson coefficient does not rule out a nonlinear relationship.</p></div>
+<div class="qa"><div class="question">Q4. What is a scatter plot and why is it useful?</div><p class="answer">A scatter plot displays paired numerical observations as points. It helps identify direction, form, outliers, clusters and changes in spread. In pharmaceutical research it may show the relationship between dose and response or concentration and time.</p></div>
+<div class="qa"><div class="question">Q5. State important limitations of correlation.</div><p class="answer">Correlation can be affected by outliers, restricted ranges and nonlinear relationships. A third variable may influence both measurements. Correlation is an association measure, not proof of causation, and Pearson's r is intended for linear association between numerical variables.</p></div>
+<div class="qa"><div class="question">Q6. Define simple linear regression.</div><p class="answer">Simple linear regression models the relationship between one predictor x and an outcome y using a straight line: <strong>ŷ = a + bx</strong>. Here, a is the intercept, b is the slope and ŷ is the predicted outcome. The model estimates a linear trend; it does not guarantee accurate predictions outside the observed data range.</p></div>
+<div class="qa"><div class="question">Q7. Interpret the slope and intercept of a regression line.</div><p class="answer">The slope b is the predicted change in y for a one-unit increase in x. The intercept a is the predicted value of y when x equals zero. The intercept may not have a meaningful practical interpretation if x = 0 is outside the observed range.</p></div>
+<div class="qa"><div class="question">Q8. How is regression different from correlation?</div><p class="answer">Correlation summarises the strength and direction of a linear association and treats the two variables symmetrically. Regression models an outcome in terms of a predictor, gives a prediction equation and depends on which variable is selected as the outcome.</p></div>
+<div class="qa"><div class="question">Q9. What is an odds ratio?</div><p class="answer">An odds ratio (OR) compares the odds of an outcome in one group with the odds in a reference group. OR = 1 means equal odds; OR greater than 1 means higher odds in the first group; OR below 1 means lower odds. An odds ratio is not the same as a risk ratio, especially when an outcome is common.</p></div>
+<div class="qa"><div class="question">Q10. Calculate an odds ratio from a 2 × 2 table.</div><p class="answer">Suppose 30 exposed participants have an outcome and 70 do not; among unexposed participants, 10 have the outcome and 90 do not. OR = (30 × 90)/(70 × 10) = 2700/700 ≈ <strong>3.86</strong>. The estimated odds of the outcome are about 3.86 times as high in the exposed group in this example. This does not establish causation.</p></div>
+<div class="qa"><div class="question">Q11. How do confidence intervals help interpret correlation or regression?</div><p class="answer">A confidence interval shows the uncertainty around an estimated parameter under the chosen method. For regression, it can quantify uncertainty in the slope; for correlation, it can show plausible values for the population correlation. A complete interpretation considers the estimate, interval, data and assumptions together.</p></div>
+<div class="qa"><div class="question">Q12. Demonstrate correlation and linear regression in Python.</div><div class="example"><pre>import pandas as pd
+from scipy.stats import pearsonr
+from scipy.stats import linregress
+
+dose = pd.Series([1, 2, 3, 4, 5], dtype=float)
+response = pd.Series([2, 3, 5, 4, 7], dtype=float)
+
+r, p = pearsonr(dose, response)
+fit = linregress(dose, response)
+
+print("Pearson r:", r)
+print("Correlation p-value:", p)
+print("Slope:", fit.slope)
+print("Intercept:", fit.intercept)
+print("Regression R-squared:", fit.rvalue ** 2)</pre></div><p class="answer">The correlation coefficient describes linear association. The slope estimates the expected change in response per one-unit increase in dose under the fitted model. The p-value should be interpreted with the study design and assumptions in mind.</p></div>
+</div></details>
+
+<details class="unit"><summary>UNIT V — Statistical Analysis Using Python: Case-Based Learning</summary><div class="unit-body">
+<div class="qa"><div class="question">Q1. Name Python libraries used for statistical analysis in the syllabus.</div><p class="answer"><strong>NumPy</strong> supports numerical arrays and calculations; <strong>Pandas</strong> handles tabular data; <strong>SciPy</strong> provides scientific and statistical functions; <strong>statsmodels</strong> supports statistical models and detailed summaries; and <strong>scikit-learn</strong> provides tools for predictive modelling and machine learning. Matplotlib can visualise data and results.</p></div>
+<div class="qa"><div class="question">Q2. How should a pharmaceutical dataset be prepared before analysis?</div><p class="answer">Check the data dictionary and units; verify row and column meanings; look for duplicate records, missing values, impossible values and inconsistent categories; confirm participant identifiers and study groups; protect personal information; and document every cleaning decision. Never silently delete observations or replace values without a defensible reason.</p></div>
+<div class="qa"><div class="question">Q3. How can Pandas summarise a dataset?</div><div class="example"><pre>import pandas as pd
+
+df = pd.DataFrame({
+    "group": ["A", "A", "B", "B"],
+    "concentration": [2.1, 2.4, 3.0, 2.8]
+})
+
+print(df.head())
+print(df.info())
+print(df.describe())
+print(df.groupby("group")["concentration"].mean())</pre></div><p class="answer">head() shows the first rows, info() reports columns and data types, describe() summarises numerical columns, and groupby() allows summaries by a category.</p></div>
+<div class="qa"><div class="question">Q4. How can SciPy be used to perform a statistical test?</div><p class="answer">SciPy contains functions for tests such as t-tests, chi-square tests and correlation tests. The correct test depends on the outcome type, number of groups, paired or independent design, distribution and assumptions. A p-value must be reported with the test name, estimate and relevant context.</p></div>
+<div class="qa"><div class="question">Q5. What is statsmodels used for?</div><p class="answer">statsmodels provides statistical modelling tools such as ordinary least squares regression, generalized linear models and detailed model summaries. These summaries can include coefficients, standard errors, confidence intervals, test statistics and p-values.</p></div>
+<div class="qa"><div class="question">Q6. What is scikit-learn used for in data analysis?</div><p class="answer">Scikit-learn offers tools for predictive modelling, preprocessing, model evaluation and cross-validation. It is useful when a task involves prediction, but predictive performance must be evaluated on data not used to fit the model. A model that predicts well does not automatically explain causation.</p></div>
+<div class="qa"><div class="question">Q7. How should a p-value in software output be interpreted?</div><p class="answer">First identify the statistical test or model and the null hypothesis. Then interpret the p-value relative to a prespecified significance level, alongside the estimated effect, confidence interval, sample size, assumptions and clinical relevance. A p-value alone is not a complete report.</p></div>
+<div class="qa"><div class="question">Q8. What should a statistical report contain?</div><p class="answer">A report should state the objective and study design; data source and sample size; variables and units; data cleaning and missing-data handling; statistical methods and assumptions; descriptive summaries and relevant graphs; estimates, confidence intervals and p-values where appropriate; limitations; and a clear conclusion linked to the research question.</p></div>
+<div class="qa"><div class="question">Q9. Demonstrate a small end-to-end descriptive analysis.</div><div class="example"><pre>import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    "time_h": [0, 1, 2, 4, 6],
+    "concentration_mg_L": [0.0, 2.2, 3.4, 2.0, 0.8]
+})
+
+print("Summary:")
+print(df["concentration_mg_L"].describe())
+
+plt.plot(df["time_h"], df["concentration_mg_L"], marker="o")
+plt.xlabel("Time (hours)")
+plt.ylabel("Concentration (mg/L)")
+plt.title("Illustrative concentration-time profile")
+plt.grid(True)
+plt.show()</pre></div><p class="answer">This creates a descriptive summary and a concentration-time graph. The values are illustrative only, not real patient data or a basis for dosing. Interpretation should consider sampling times, units, study protocol and data quality.</p></div>
+<div class="qa"><div class="question">Q10. What are common mistakes when interpreting statistical output?</div><p class="answer">Common mistakes include treating correlation as causation, assuming statistical significance means clinical importance, ignoring confidence intervals, using an unsuitable test, failing to check missing data or outliers, testing many hypotheses without consideration, and reporting only favourable results. Results should be transparent and reproducible.</p></div>
+<div class="qa"><div class="question">Q11. Why is reproducibility important in pharmaceutical data analysis?</div><p class="answer">Reproducibility allows another analyst to understand and repeat the analysis. Keep a clear record of data sources, code, software versions, variable definitions, exclusions, transformations and statistical methods. Use de-identified or appropriately authorised data and follow relevant ethical and privacy requirements.</p></div>
+<div class="qa"><div class="question">Q12. Give an example of a concise statistical conclusion.</div><p class="answer">A good conclusion states the main estimate and its uncertainty, explains whether the evidence supports the research question, and mentions important limitations. For example: “The sample showed a positive linear association between dose and measured response. This association does not establish causation; the result should be interpreted in light of the sample size, design and model assumptions.” Avoid inventing conclusions not supported by the data.</p></div>
+</div></details>
+
+<section class="panel">
+<h2>Quick Revision: Important Formulas</h2>
+<table><thead><tr><th>Measure / concept</th><th>Formula or key point</th></tr></thead><tbody>
+<tr><td>Arithmetic mean</td><td>Σx / n</td></tr>
+<tr><td>Range</td><td>Maximum − minimum</td></tr>
+<tr><td>Sample variance</td><td>Σ(x − x̄)² / (n − 1)</td></tr>
+<tr><td>Sample standard deviation</td><td>Square root of sample variance</td></tr>
+<tr><td>Conditional probability</td><td>P(A|B) = P(A∩B) / P(B), when P(B) &gt; 0</td></tr>
+<tr><td>Bayes' theorem</td><td>P(A|B) = P(B|A)P(A) / P(B)</td></tr>
+<tr><td>Normal z-score</td><td>z = (x − μ) / σ</td></tr>
+<tr><td>Binomial probability</td><td>P(X=x) = C(n,x)pˣ(1−p)ⁿ⁻ˣ</td></tr>
+<tr><td>Poisson probability</td><td>P(X=x) = e⁻λ λˣ / x!</td></tr>
+<tr><td>Pearson correlation</td><td>r ranges from −1 to +1; measures linear association</td></tr>
+<tr><td>Simple linear regression</td><td>ŷ = a + bx</td></tr>
+<tr><td>Odds ratio</td><td>For a 2×2 table, OR = ad / bc</td></tr>
+</tbody></table>
+<p class="note"><strong>Revision tip:</strong> Practise calculations by hand first, then verify them with Python. In an exam answer, write the formula, substitute values, show the calculation and state the result with units and interpretation.</p>
+</section>
+</main>
+<footer>Assam Education Hub · Free learning resources</footer>
+</body>
+</html>
