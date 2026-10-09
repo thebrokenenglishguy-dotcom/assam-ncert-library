@@ -16,7 +16,14 @@ header h1{margin:0 0 12px;font-size:clamp(30px,5vw,52px)}header p{margin:0 auto;
 .subject{padding:12px;border-radius:10px;background:#eef4ff;text-decoration:none;color:#214e8a;font-weight:600;text-align:center;border:0;font-size:16px;font-family:inherit;cursor:pointer;width:100%}
 .subject:hover{background:#dfeaff}.history{display:none;margin-top:18px;padding:18px;background:#f8fafc;border-radius:12px;border:1px solid #e5e9f0}
 .history.open{display:block}.geography-list{margin-top:10px}.history h4{margin:0 0 12px}.chapter{display:block;padding:12px 13px;margin:8px 0;background:#fff;border-radius:9px;text-decoration:none;color:#214e8a;border:1px solid #e1e6ef}
-.chapter:hover{background:#eef4ff}.book-menu{margin:10px 0;background:#fff;border:1px solid #dfe5ef;border-radius:11px;overflow:hidden}.book-toggle{width:100%;border:0;cursor:pointer;padding:14px 15px;font:inherit;font-weight:700;text-align:left;color:#214e8a;background:#f8fafc}.book-toggle:before{content:'▸';display:inline-block;margin-right:9px;transition:transform .2s}.book-menu.open .book-toggle:before{transform:rotate(90deg)}.book-toggle:hover{background:#eef4ff}.book-chapters{display:none;padding:5px 10px 10px}.book-menu.open .book-chapters{display:block}.book-chapters .chapter{margin:7px 0}.book-chapters .chapter span{color:#667085;font-size:14px}.history-note{font-size:14px;color:#657084;margin:0 0 10px}
+.chapter:hover{background:#eef4ff}.book-menu{margin:10px 0;background:#fff;border:1px solid #dfe5ef;border-radius:11px;overflow:hidden}.book-toggle{width:100%;border:0;cursor:pointer;padding:14px 15px;font:inherit;font-weight:700;text-align:left;color:#214e8a;background:#f8fafc}.book-toggle:before{content:'▸';display:inline-block;margin-right:9px;transition:transform .2s}.book-menu.open .book-toggle:before{transform:rotate(90deg)}.book-toggle:hover{background:#eef4ff}.book-chapters{display:none;padding:5px 10px 10px}.book-menu.open .book-chapters{display:block}.book-chapters .chapter{margin:7px 0}
+.pharmacy-semester-list{display:none;padding:8px 0 0}.pharmacy-menu.open>.pharmacy-semester-list{display:block}
+.pharmacy-semester-toggle{text-align:left;position:relative;padding-left:34px}
+.pharmacy-semester-toggle:before{content:'▸';position:absolute;left:13px;transition:transform .2s}
+.pharmacy-menu.open>.pharmacy-semester-toggle:before{transform:rotate(90deg)}
+.pharmacy-subject-menu .book-toggle{font-size:14px;padding:12px;background:#fff}
+.pharmacy-subject-menu .book-chapters{padding:4px 10px 10px}
+.pharmacy-subject-menu .chapter{margin:5px 0}.book-chapters .chapter span{color:#667085;font-size:14px}.history-note{font-size:14px;color:#657084;margin:0 0 10px}
 footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 .feedback{margin:34px auto 0;max-width:760px;background:#fff;border:1px solid #e6eaf2;border-radius:18px;padding:26px;box-shadow:0 10px 28px #22304a12}.feedback h2{margin:0 0 8px;text-align:center}.feedback p{color:#5d687b;text-align:center;line-height:1.5}.feedback input,.feedback textarea{width:100%;padding:13px 14px;margin:7px 0 12px;border:1px solid #d8deea;border-radius:10px;font:inherit}.feedback textarea{min-height:120px;resize:vertical}.feedback button{width:100%;padding:13px;border:0;border-radius:10px;background:#214e8a;color:#fff;font-size:16px;font-weight:700;cursor:pointer}.feedback button:hover{background:#173b72}.feedback-status{text-align:center;margin:12px 0 0;font-size:14px;color:#214e8a}.feedback-note{font-size:13px!important;margin:10px 0 0!important}
 </style>
@@ -102,10 +109,39 @@ footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 </div>
 </div>
 <div class="history computer-list"><p class="history-note">Choose a chapter:</p><a class="chapter" href="class10/computer/introduction-to-computer-network.html">Chapter 1 — Introduction to Computer Network</a><a class="chapter" href="class10/computer/html-and-css3-part-i-introduction.html">Chapter 2 — HTML and CSS3 — Part I: Introduction</a><a class="chapter" href="class10/computer/html-and-css3-part-ii-list-tables-images.html">Chapter 2 — HTML and CSS3 — Part II: List, Tables and Images</a><a class="chapter" href="class10/computer/html-and-css3-part-iii-link-frames-forms.html">Chapter 2 — HTML and CSS3 — Part III: Link, Frames and Forms</a><a class="chapter" href="class10/computer/database-part-ii-mysql.html">Chapter 3 — Database Part II: MySQL</a><a class="chapter" href="class10/computer/introduction-to-loops.html">Chapter 4 — Introduction to Loops</a><a class="chapter" href="class10/computer/nested-loops-in-c.html">Chapter 5 — Nested Loops in C</a><a class="chapter" href="class10/computer/arrays-in-c.html">Chapter 6 — Arrays in C</a><a class="chapter" href="class10/computer/functions-in-c.html">Chapter 7 — Functions in C</a><a class="chapter" href="class10/computer/pointers-in-c.html">Chapter 8 — Pointers in C</a><a class="chapter" href="class10/computer/structure-in-c.html">Chapter 9 — Structure in C</a><a class="chapter" href="class10/computer/introduction-to-object-oriented-programming.html">Chapter 10 — An Introduction to Object Oriented Programming</a><a class="chapter" href="class10/computer/case-studies.html">Chapter 11 — Case Studies</a></div></article>
-<article class="card" data-search="bachelor pharmacy bpharm medical pharmaceutical sciences semester college">
+<article class="card" data-search="bachelor pharmacy bpharm medical pharmaceutical sciences semester college python general pharmacy healthcare psychology communication anatomy physiology pathophysiology pharmacognosy inorganic analytical chemistry">
 <h3>💊 Bachelor of Pharmacy (B.Pharm)</h3>
-<p>Explore pharmacy subjects, semester-wise notes, question answers and exam preparation resources.</p>
-<div class="subjects"><a class="subject" href="bpharm/index.html">Open B.Pharm Section →</a></div>
+<p>Tap the semester and then a subject to open its study page.</p>
+<div class="pharmacy-menu">
+<button class="subject pharmacy-semester-toggle" type="button" aria-expanded="false">B.Pharm 1st Semester</button>
+<div class="pharmacy-semester-list">
+<div class="book-menu pharmacy-subject-menu">
+<button class="book-toggle pharmacy-subject-toggle" type="button" aria-expanded="false">BP101T — Basics of Python Programming for Pharmaceutical Sciences</button>
+<div class="book-chapters"><a class="chapter" href="bpharm/semester1/basics-of-python-programming-for-pharmaceutical-sciences.html">Open BP101T subject page →</a></div>
+</div>
+<div class="book-menu pharmacy-subject-menu">
+<button class="book-toggle pharmacy-subject-toggle" type="button" aria-expanded="false">BP102T — General Pharmacy</button>
+<div class="book-chapters"><a class="chapter" href="bpharm/semester1/general-pharmacy.html">Open BP102T subject page →</a></div>
+</div>
+<div class="book-menu pharmacy-subject-menu">
+<button class="book-toggle pharmacy-subject-toggle" type="button" aria-expanded="false">BP103T — Healthcare Psychology and Communication Skills</button>
+<div class="book-chapters"><a class="chapter" href="bpharm/semester1/healthcare-psychology-and-communication-skills.html">Open BP103T subject page →</a></div>
+</div>
+<div class="book-menu pharmacy-subject-menu">
+<button class="book-toggle pharmacy-subject-toggle" type="button" aria-expanded="false">BP104T — Human Anatomy, Physiology and Pathophysiology I</button>
+<div class="book-chapters"><a class="chapter" href="bpharm/semester1/human-anatomy-physiology-and-pathophysiology-i.html">Open BP104T subject page →</a></div>
+</div>
+<div class="book-menu pharmacy-subject-menu">
+<button class="book-toggle pharmacy-subject-toggle" type="button" aria-expanded="false">BP105T — Introduction to Pharmacognosy</button>
+<div class="book-chapters"><a class="chapter" href="bpharm/semester1/introduction-to-pharmacognosy.html">Open BP105T subject page →</a></div>
+</div>
+<div class="book-menu pharmacy-subject-menu">
+<button class="book-toggle pharmacy-subject-toggle" type="button" aria-expanded="false">BP106T — Pharmaceutical Inorganic and Analytical Chemistry</button>
+<div class="book-chapters"><a class="chapter" href="bpharm/semester1/pharmaceutical-inorganic-and-analytical-chemistry.html">Open BP106T subject page →</a></div>
+</div>
+<a class="chapter" href="bpharm/index.html">Open full B.Pharm section →</a>
+</div>
+</div>
 </article>
 </section>
 <section class="feedback" id="feedback"><h2>💬 Send Feedback</h2><p>Have a suggestion, found a mistake, or want to request a chapter? Send us a message.</p><form id="feedback-form" action="https://formspree.io/f/mjygkgbr" method="POST"><input type="text" name="name" placeholder="Your name (optional)"><textarea name="message" placeholder="Write your feedback here..." required></textarea><input type="hidden" name="_subject" value="New feedback — Assam NCERT English Medium Library"><button type="submit">Send Feedback</button></form><p class="feedback-status" id="feedback-status" aria-live="polite"></p><p class="feedback-note">🔒 Your feedback is private and can only be viewed by the website owner.</p></section>
@@ -151,6 +187,16 @@ subjectMenus.forEach(name=>{
     btn.setAttribute('aria-expanded',open);
   }));
 });
+document.querySelectorAll('.pharmacy-semester-toggle').forEach(btn=>btn.addEventListener('click',()=>{
+  const menu=btn.closest('.pharmacy-menu');
+  const open=menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded',String(open));
+}));
+document.querySelectorAll('.pharmacy-subject-toggle').forEach(btn=>btn.addEventListener('click',()=>{
+  const menu=btn.closest('.pharmacy-subject-menu');
+  const open=menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded',String(open));
+}));
 document.querySelectorAll('.book-toggle').forEach(btn=>btn.addEventListener('click',()=>{
   const menu=btn.closest('.book-menu');
   const open=menu.classList.toggle('open');
