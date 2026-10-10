@@ -257,7 +257,8 @@ subjectMenus.forEach(name=>{
   }));
 });
 document.querySelectorAll('.pharmacy-semester-toggle').forEach(btn=>btn.addEventListener('click',()=>{
-  const menu=btn.closest('.pharmacy-menu');
+  const menu=btn.closest('.pharmacy-menu, .pharmacy-semester-menu');
+  if(!menu) return;
   const open=menu.classList.toggle('open');
   btn.setAttribute('aria-expanded',String(open));
 }));
