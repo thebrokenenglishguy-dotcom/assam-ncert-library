@@ -266,16 +266,14 @@ document.querySelectorAll('.pharmacy-subject-toggle').forEach(btn=>btn.addEventL
   const open=menu.classList.toggle('open');
   btn.setAttribute('aria-expanded',String(open));
 }));
-document.querySelectorAll('.pharmacy-semester-toggle').forEach(btn=>btn.addEventListener('click',()=>{
-  const menu=btn.closest('.pharmacy-menu');
+document.querySelectorAll('.book-toggle').forEach(btn=>btn.addEventListener('click',()=>{
+  // Pharmacy semester and subject buttons have dedicated handlers above.
+  // Do not toggle them a second time through the generic book handler.
+  if(btn.matches('.pharmacy-semester-toggle, .pharmacy-subject-toggle')) return;
+  const menu=btn.closest('.book-menu');
+  if(!menu) return;
   const open=menu.classList.toggle('open');
   btn.setAttribute('aria-expanded',String(open));
-}));
-
-document.querySelectorAll('.book-toggle').forEach(btn=>btn.addEventListener('click',()=>{
-  const menu=btn.closest('.book-menu');
-  const open=menu.classList.toggle('open');
-  btn.setAttribute('aria-expanded',open);
 }));
 
 document.querySelectorAll('.science-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-science')));document.querySelectorAll('.mathematics-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-mathematics')));
