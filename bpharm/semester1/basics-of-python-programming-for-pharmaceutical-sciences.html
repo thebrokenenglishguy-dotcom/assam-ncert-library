@@ -32,37 +32,350 @@ footer{text-align:center;color:#6d7686;padding:0 20px 28px;font-size:14px}a{colo
 </section>
 
 <details class="unit" open><summary>UNIT I — Introduction to Python Programming</summary><div class="unit-body">
-<div class="qa"><div class="question">Q1. What is Python?</div><p class="answer">Python is a high-level, general-purpose programming language. Its readable syntax makes it useful for calculations, automation, data analysis and scientific work. In pharmacy, Python can help organise datasets, calculate BMI from supplied values, analyse laboratory data and make graphs.</p></div>
-<div class="qa"><div class="question">Q2. What is an IDE? Give examples.</div><p class="answer">An Integrated Development Environment (IDE) is an application that provides tools to write, run and debug programs in one place. Examples from the syllabus are Jupyter Notebook, PyCharm and Visual Studio Code (VS Code).</p></div>
-<div class="qa"><div class="question">Q3. State the advantages of an IDE over a basic text editor.</div><p class="answer">An IDE can provide syntax highlighting, code completion, error highlighting, debugging tools, project organisation and convenient program execution. A plain text editor mainly lets a user write and save text; extra programming tools may need to be configured separately.</p></div>
-<div class="qa"><div class="question">Q4. What is a variable? Give an example.</div><p class="answer">A variable is a name that refers to a value in a program. Example: <code>temperature_c = 25.5</code>. Here, <code>temperature_c</code> refers to the number 25.5.</p></div>
-<div class="qa"><div class="question">Q5. Explain the basic Python data types in the syllabus.</div><p class="answer"><code>int</code> stores whole numbers, such as <code>12</code>; <code>float</code> stores decimal numbers, such as <code>2.5</code>; <code>str</code> stores text, such as <code>"Paracetamol"</code>; and <code>bool</code> stores either <code>True</code> or <code>False</code>.</p><div class="example"><pre>quantity = 12
-mass_g = 2.5
-drug_name = "Sample"
-is_available = True
+<p class="note"><strong>Unit duration:</strong> 6 hours. These notes combine the Unit I syllabus you shared with the topics and examples in your 27-page PDF. The language is kept simple. The examples are for learning Python, not for making clinical decisions.</p>
 
-print(type(quantity))
-print(type(mass_g))
+<h3>1. What is Python?</h3>
+<ul>
+<li>Python is a high-level, interpreted, general-purpose programming language.</li>
+<li><strong>High-level:</strong> its commands are easier for people to read than low-level machine instructions.</li>
+<li><strong>Interpreted:</strong> the Python interpreter runs the program; a separate compilation step is usually not needed.</li>
+<li><strong>General-purpose:</strong> Python can be used for many types of tasks.</li>
+<li><strong>Object-oriented:</strong> it supports classes and objects, along with inheritance, polymorphism and encapsulation.</li>
+<li>Python was created by Guido van Rossum and first released in 1991.</li>
+<li>The name came from the comedy show <em>Monty Python's Flying Circus</em>, not from the snake.</li>
+<li>Python 3 is the modern version to use. Python 2 is no longer maintained.</li>
+</ul>
+
+<h3>2. Main characteristics, advantages and limitations</h3>
+<p><strong>Characteristics and advantages:</strong></p>
+<ul>
+<li>Simple, readable syntax that is friendly to beginners.</li>
+<li>Fast to test and debug because code can be run directly by the interpreter.</li>
+<li>Works on Windows, macOS and Linux.</li>
+<li>Free and open source.</li>
+<li>Has a large community and many learning resources.</li>
+<li>Includes a large standard library.</li>
+<li>Supports reusable, object-oriented code and can work with other languages and tools.</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>It can run more slowly than compiled languages such as C or C++ for some tasks.</li>
+<li>It may use more memory than some lower-level languages.</li>
+<li>It is not the first choice for every mobile application.</li>
+<li>It is less commonly used for very low-level hardware programming.</li>
+</ul>
+
+<h3>3. Applications of Python</h3>
+<ul>
+<li><strong>Data analysis and visualisation:</strong> organise data and create graphs.</li>
+<li><strong>Web development:</strong> build websites and web services using tools such as Django and Flask.</li>
+<li><strong>Artificial intelligence and machine learning:</strong> analyse data and build predictive models.</li>
+<li><strong>Automation:</strong> perform repeated tasks such as file organisation and report generation.</li>
+<li><strong>Scientific computing:</strong> perform numerical calculations and simulations.</li>
+</ul>
+<p><strong>Uses in pharmaceutical sciences:</strong></p>
+<ul>
+<li><strong>Pharmaceutical chemistry:</strong> analyse chemical structures and calculate molecular properties; tools such as RDKit can support cheminformatics and QSAR work.</li>
+<li><strong>Pharmaceutics:</strong> calculate ingredient quantities and formulation ratios for checking and research.</li>
+<li><strong>Pharmacology and toxicology:</strong> analyse concentration-response data and estimate values such as EC50 and IC50 using suitable methods.</li>
+<li><strong>Pharmacognosy:</strong> analyse biological sequences and genetic data using tools such as BioPython.</li>
+<li><strong>Pharmacy practice and clinical pharmacy:</strong> help analyse health datasets and identify records that may need professional review. Software output must not replace clinical judgement.</li>
+</ul>
+
+<h3>4. Installing Python and choosing an IDE</h3>
+<ul>
+<li>An <strong>IDE</strong> means Integrated Development Environment. It brings together tools to write, run and debug code.</li>
+<li><strong>Jupyter Notebook:</strong> runs code in separate cells; useful for learning, data analysis and showing results with notes.</li>
+<li><strong>PyCharm:</strong> a feature-rich environment suited to larger Python projects.</li>
+<li><strong>Visual Studio Code (VS Code):</strong> a flexible editor that can support Python through extensions and configuration.</li>
+</ul>
+<p><strong>Basic installation steps from the PDF:</strong></p>
+<ul>
+<li><strong>Windows:</strong> download Python from <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org</a>, run the installer, select “Add Python to PATH”, then install.</li>
+<li><strong>macOS:</strong> open the downloaded package and follow the installation steps.</li>
+<li><strong>Linux:</strong> check whether Python 3 is installed with <code>python3 --version</code>; use your distribution's package manager if needed.</li>
+<li>Check installation in a terminal with <code>python --version</code> or <code>python3 --version</code>.</li>
+<li>Install and open an IDE separately, then select the Python interpreter/environment you want to use.</li>
+</ul>
+<p><strong>Advantages of IDEs over a basic text editor:</strong></p>
+<ul>
+<li>Syntax highlighting makes code easier to read.</li>
+<li>Code completion can suggest commands and names.</li>
+<li>Error checking and debugging tools help locate problems.</li>
+<li>Running code and managing project files is more convenient.</li>
+<li>A basic text editor mainly edits text; programming features may need separate tools or setup.</li>
+</ul>
+
+<h3>5. Variables and naming rules</h3>
+<ul>
+<li>A <strong>variable</strong> is a name that refers to a value used by a program.</li>
+<li>Python creates a variable when a value is assigned to it with <code>=</code>.</li>
+<li>A name must start with a letter or underscore, not a number.</li>
+<li>A name can contain letters, numbers and underscores.</li>
+<li>Names are case-sensitive: <code>Dose</code> and <code>dose</code> are different.</li>
+<li>Reserved words such as <code>if</code>, <code>for</code> and <code>while</code> cannot be used as variable names.</li>
+<li>Use clear names such as <code>drug_name</code> and <code>patient_age</code>.</li>
+<li>Valid examples: <code>drug_concentration</code>, <code>patient_age</code>, <code>dose_mg</code>. Invalid examples: <code>2dose</code>, <code>drug-name</code>, <code>for</code>.</li>
+<li>Python also supports multiple assignment, for example <code>time, dose = 2, 500</code>.</li>
+</ul>
+<div class="example"><pre>concentration = 25.5
+drug_name = "Paracetamol"
+time, dose = 2, 500
+
+print(concentration)
+print(drug_name)
+print(time, dose)</pre></div>
+
+<h3>6. The four basic data types</h3>
+<ul>
+<li><strong>Integer (<code>int</code>):</strong> a whole number, such as <code>30</code>. Example: number of tablets counted.</li>
+<li><strong>Float (<code>float</code>):</strong> a number with a decimal point, such as <code>15.42</code>. Example: a measured concentration.</li>
+<li><strong>String (<code>str</code>):</strong> text inside quotes, such as <code>"Paracetamol"</code>. Example: a medicine name.</li>
+<li><strong>Boolean (<code>bool</code>):</strong> either <code>True</code> or <code>False</code>. Example: whether a sample is available.</li>
+<li>Use <code>type()</code> to check a value's type.</li>
+<li>Floating-point numbers can have tiny rounding differences because computers store many decimal fractions approximately. For work needing exact decimal arithmetic, Python's <code>decimal</code> module may be more suitable.</li>
+</ul>
+<div class="example"><pre>tablets_dispensed = 30
+plasma_concentration = 15.42
+drug_name = "Paracetamol"
+sample_available = True
+
+print(type(tablets_dispensed))
+print(type(plasma_concentration))
 print(type(drug_name))
-print(type(is_available))</pre></div></div>
-<div class="qa"><div class="question">Q6. What is type casting?</div><p class="answer">Type casting means converting a value from one data type to another. Common functions include <code>int()</code>, <code>float()</code> and <code>str()</code>. Conversion can fail if the text does not represent a valid number.</p><div class="example"><pre>age_text = "20"
-age = int(age_text)
-weight = float("54.5")
-print(age, weight)</pre></div></div>
-<div class="qa"><div class="question">Q7. Explain arithmetic, comparison and logical operators.</div><p class="answer">Arithmetic operators perform calculations: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code> and <code>**</code>. Comparison operators compare values: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code> and <code>&lt;=</code>. Logical operators combine conditions: <code>and</code>, <code>or</code> and <code>not</code>.</p></div>
-<div class="qa"><div class="question">Q8. Explain input and output operations.</div><p class="answer"><code>input()</code> reads user input as text. <code>print()</code> displays output. Convert input to a numeric type when performing arithmetic.</p><div class="example"><pre>name = input("Enter sample name: ")
-volume_ml = float(input("Enter volume in mL: "))
-print("Sample:", name)
-print("Volume:", volume_ml, "mL")</pre></div></div>
-<div class="qa"><div class="question">Q9. What are basic string operations?</div><p class="answer">A string is text inside quotes. Common operations include joining strings with <code>+</code>, repeating with <code>*</code>, changing letter case with <code>upper()</code> and <code>lower()</code>, removing outside spaces with <code>strip()</code>, replacing text with <code>replace()</code>, and splitting text with <code>split()</code>. Strings are immutable, so methods return a new string rather than changing the original.</p><div class="example"><pre>drug = "  Sample Medicine  "
-clean_name = drug.strip()
+print(type(sample_available))</pre></div>
+
+<h3>7. Type casting (type conversion)</h3>
+<ul>
+<li><strong>Type casting</strong> means changing a value from one data type to another.</li>
+<li><strong>Implicit casting:</strong> Python converts a type automatically when appropriate. Example: <code>10 + 2.5</code> produces <code>12.5</code>.</li>
+<li><strong>Explicit casting:</strong> the programmer converts the value using a function.</li>
+<li><code>int(12.99)</code> gives <code>12</code>; it removes the decimal part and does not round to 13.</li>
+<li><code>float("25.5")</code> gives <code>25.5</code>.</li>
+<li><code>str(500)</code> gives the text <code>"500"</code>.</li>
+<li><code>bool(0)</code> is <code>False</code>; non-zero numbers are <code>True</code>. An empty string is <code>False</code>, while a non-empty string is <code>True</code>.</li>
+<li><code>input()</code> returns text, so convert it before numeric calculations.</li>
+</ul>
+<div class="example"><pre>result = 10 + 2.5
+print(result)              # 12.5
+
+print(int(12.99))          # 12
+print(float("25.5"))       # 25.5
+print(str(500))            # "500"
+print(bool(""))            # False
+
+dose_text = input("Enter a whole-number dose for this exercise: ")
+dose = int(dose_text)
+print(dose)</pre></div>
+<p class="note">If the user enters text that cannot be converted to the requested number type, Python raises an error. Programs can later be improved by validating input and handling errors.</p>
+
+<h3>8. Basic operators</h3>
+<p><strong>Arithmetic operators:</strong></p>
+<table><thead><tr><th>Operator</th><th>Meaning</th><th>Example</th><th>Result</th></tr></thead><tbody>
+<tr><td><code>+</code></td><td>Addition</td><td><code>250 + 500</code></td><td>750</td></tr>
+<tr><td><code>-</code></td><td>Subtraction</td><td><code>100 - 20</code></td><td>80</td></tr>
+<tr><td><code>*</code></td><td>Multiplication</td><td><code>70 * 2</code></td><td>140</td></tr>
+<tr><td><code>/</code></td><td>Division</td><td><code>100 / 20</code></td><td>5.0</td></tr>
+<tr><td><code>//</code></td><td>Floor division</td><td><code>7 // 2</code></td><td>3</td></tr>
+<tr><td><code>%</code></td><td>Remainder (modulus)</td><td><code>7 % 2</code></td><td>1</td></tr>
+<tr><td><code>**</code></td><td>Power</td><td><code>2 ** 3</code></td><td>8</td></tr>
+</tbody></table>
+<p><strong>Operator order:</strong> parentheses first, then powers, then multiplication/division/floor division/remainder, then addition/subtraction. Use parentheses to make calculations clear.</p>
+<div class="example"><pre>print(10 + 5 * 2)       # 20
+print((10 + 5) * 2)     # 30
+print(7 // 2, 7 % 2)    # 3 1</pre></div>
+<p><strong>Comparison operators:</strong> these compare values and return <code>True</code> or <code>False</code>.</p>
+<ul><li><code>==</code> equal to; <code>!=</code> not equal to; <code>&gt;</code> greater than; <code>&lt;</code> less than; <code>&gt;=</code> greater than or equal to; <code>&lt;=</code> less than or equal to.</li><li><code>=</code> assigns a value; <code>==</code> checks equality.</li><li>Chained comparisons are allowed, for example <code>10 &lt; dose &lt; 1000</code>.</li></ul>
+<p><strong>Logical operators:</strong></p>
+<ul><li><code>and</code> is true when both conditions are true.</li><li><code>or</code> is true when at least one condition is true.</li><li><code>not</code> reverses a Boolean value.</li><li>Order: <code>not</code>, then <code>and</code>, then <code>or</code>. Parentheses improve clarity.</li><li>Python uses short-circuit evaluation: with <code>and</code>, a false first condition can stop the check; with <code>or</code>, a true first condition can stop the check.</li></ul>
+<div class="example"><pre>dose = 250
+print(dose >= 100)                  # True
+print(10 < dose < 1000)             # True
+print((dose > 0) and (dose <= 1000)) # True
+print(not False)                    # True</pre></div>
+<p><strong>Common errors:</strong> using <code>=</code> instead of <code>==</code> in a comparison, comparing incompatible types, forgetting operator order, and dividing by zero.</p>
+
+<h3>9. Input and output operations</h3>
+<ul>
+<li><code>input()</code> reads what a user types and returns it as a string.</li>
+<li><code>print()</code> displays text, variables and results.</li>
+<li>Convert input with <code>int()</code> or <code>float()</code> when it is used in a calculation.</li>
+<li>Use <code>sep</code> to choose the separator between printed values and <code>end</code> to choose what is printed at the end.</li>
+<li>An f-string such as <code>f"Dose: {dose} mg"</code> inserts a variable into text. Formatting such as <code>{value:.2f}</code> displays two decimal places.</li>
+</ul>
+<div class="example"><pre>name = input("Enter sample name: ")
+volume = float(input("Enter volume in mL: "))
+print("Sample", name, sep=": ")
+print(f"Volume: {volume:.2f} mL")
+print("A", "B", sep=" - ")
+print("Done", end="!\n")</pre></div>
+
+<h3>10. Basic string operations and manipulation</h3>
+<ul>
+<li>A <strong>string</strong> is a sequence of characters written inside single or double quotes. Triple quotes can hold text across multiple lines.</li>
+<li><strong>Indexing:</strong> access one character. Indexing starts at 0; index <code>-1</code> is the last character.</li>
+<li><strong>Slicing:</strong> extract part of a string using <code>text[start:stop]</code>; the stop index is not included. <code>text[::-1]</code> reverses a string.</li>
+<li><strong>Concatenation:</strong> join strings with <code>+</code>. <strong>Repetition:</strong> repeat text with <code>*</code>.</li>
+<li><code>len(text)</code> counts characters; <code>upper()</code> and <code>lower()</code> change letter case.</li>
+<li><code>strip()</code> removes spaces from the beginning and end; <code>replace(old, new)</code> replaces text.</li>
+<li><code>split()</code> separates text into a list; <code>join()</code> combines strings from an iterable using a separator.</li>
+<li><code>find()</code> returns the position of a substring or <code>-1</code> if not found; <code>count()</code> counts occurrences.</li>
+<li><code>isdigit()</code> checks whether all characters are digits. <code>in</code> checks whether a substring is present. <code>startswith()</code> and <code>endswith()</code> check the beginning and end.</li>
+<li><strong>Strings are immutable:</strong> their characters cannot be changed in place. String methods return new strings.</li>
+</ul>
+<div class="example"><pre>drug = "Paracetamol"
+print(drug[0])             # P
+print(drug[-1])            # l
+print(drug[0:4])           # Para
+print(drug[::-1])          # lomatecaraP
+print(len(drug))           # 11
+print(drug.lower())
+print(drug.upper())
+print("  Drug A  ".strip())
+print("Drug A".replace("A", "B"))
+print("500,2.5".split(","))
+print(" ".join(["Drug", "A"]))
+print(drug.find("mol"))
+print("123".isdigit())
+print("para" in drug.lower())
+print(drug.startswith("Para"))
+print(drug.endswith("mol"))</pre></div>
+<p><strong>Pharmacy-related use:</strong> string methods can clean extra spaces in medicine names, standardise upper/lower case, separate data fields and check labels. Always retain and protect source data when cleaning real records.</p>
+<p><strong>String-cleaning example:</strong></p>
+<div class="example"><pre>dirty_name = "     ibuPROFEN   "
+clean_name = dirty_name.strip()
+print(clean_name)
+print(clean_name.lower())
 print(clean_name.upper())
-print(clean_name.replace("Medicine", "Tablet"))</pre></div></div>
-<div class="qa"><div class="question">Q10. What are standard and third-party libraries? How are they installed?</div><p class="answer">The Python standard library is included with Python. A third-party library is separately developed and installed, for example NumPy, pandas or Matplotlib. A common installation command is <code>python -m pip install numpy pandas matplotlib</code>. Use the terminal associated with the Python environment in which the program will run. To remove a package, use <code>python -m pip uninstall package_name</code>.</p></div>
-<div class="qa"><div class="question">Q11. Write a program to calculate the total cost of laboratory items.</div><div class="example"><pre>price_per_item = float(input("Price per item: "))
-quantity = int(input("Quantity: "))
-total = price_per_item * quantity
-print("Total cost:", total)</pre></div><p class="answer">The program reads the unit price and quantity, multiplies them, and displays the total. This is a simple example of arithmetic and input/output.</p></div>
+print(len(clean_name))
+print(clean_name.lower().count("profen"))
+print(clean_name.replace("ibu", "acet"))
+print(clean_name.startswith("ibu"))
+print(clean_name.lower().endswith("fen"))</pre></div>
+
+<h3>11. Standard and third-party libraries</h3>
+<ul>
+<li>A <strong>library</strong> is a collection of ready-made code that can be reused instead of writing everything from the beginning.</li>
+<li><strong>Standard libraries</strong> come with Python and usually do not need separate installation.</li>
+<li><strong>Third-party libraries</strong> are made by other developers and usually need to be installed.</li>
+</ul>
+<table><thead><tr><th>Standard library</th><th>Common use</th></tr></thead><tbody>
+<tr><td><code>math</code></td><td>Square roots, logarithms and trigonometry</td></tr>
+<tr><td><code>statistics</code></td><td>Mean, median and statistical summaries</td></tr>
+<tr><td><code>datetime</code></td><td>Dates and times</td></tr>
+<tr><td><code>random</code></td><td>Random values and simulations</td></tr>
+<tr><td><code>os</code> and <code>sys</code></td><td>Operating-system tasks and Python system information</td></tr>
+</tbody></table>
+<table><thead><tr><th>Third-party library</th><th>Common use</th></tr></thead><tbody>
+<tr><td>NumPy</td><td>Numerical computing and arrays</td></tr>
+<tr><td>pandas</td><td>Tables and datasets</td></tr>
+<tr><td>Matplotlib</td><td>Graphs and visualisation</td></tr>
+<tr><td>SciPy</td><td>Scientific and numerical methods</td></tr>
+<tr><td>scikit-learn</td><td>Machine learning</td></tr>
+<tr><td>BioPython</td><td>Biological sequence analysis</td></tr>
+</tbody></table>
+<p><strong>Importing libraries:</strong></p>
+<div class="example"><pre>import math
+from math import sqrt
+import statistics
+import numpy as np
+
+print(math.sqrt(25))
+print(sqrt(36))
+print(statistics.mean([2, 4, 6]))</pre></div>
+<p><strong>Installing, checking, upgrading and removing third-party libraries:</strong> run these commands in the terminal, not as ordinary Python statements.</p>
+<div class="example"><pre>python -m pip install numpy
+python -m pip install numpy==1.21.0
+python -m pip install numpy pandas
+python -m pip install --upgrade numpy
+python -m pip list
+python -m pip show pandas
+python -m pip uninstall numpy</pre></div>
+<ul>
+<li>Use <code>python -m pip</code> to help ensure pip belongs to the Python interpreter you are using. On some systems, use <code>python3 -m pip</code>.</li>
+<li>A <strong>virtual environment</strong> keeps a project's installed packages separate from other projects and helps avoid version conflicts.</li>
+<li>Create one with <code>python -m venv myenv</code>. On macOS/Linux, activate it with <code>source myenv/bin/activate</code>. Activation steps differ on Windows and depend on the terminal.</li>
+</ul>
+
+<h3>12. File handling (additional material in your PDF)</h3>
+<ul>
+<li>Python's <code>open()</code> function can read or write files.</li>
+<li><code>"r"</code> reads an existing file; <code>"w"</code> writes and replaces existing content; <code>"a"</code> adds content at the end.</li>
+<li>Using <code>with open(...)</code> is recommended because it closes the file automatically.</li>
+</ul>
+<div class="example"><pre>with open("data.txt", "r", encoding="utf-8") as file:
+    content = file.read()
+    print(content)
+
+with open("output.txt", "w", encoding="utf-8") as file:
+    file.write("Sample result: 25")</pre></div>
+
+<h3>13. Unit I short-answer questions and answers</h3>
+<div class="qa"><div class="question">Q1. What is Python?</div><p class="answer">Python is a high-level, interpreted, general-purpose programming language with readable syntax.</p></div>
+<div class="qa"><div class="question">Q2. Who created Python, and when was it first released?</div><p class="answer">Guido van Rossum created Python. Its first release was in 1991.</p></div>
+<div class="qa"><div class="question">Q3. What is an IDE? Name three Python IDEs or development tools.</div><p class="answer">An IDE brings together tools for writing, running and debugging code. Examples are Jupyter Notebook, PyCharm and VS Code.</p></div>
+<div class="qa"><div class="question">Q4. Why are IDEs useful compared with basic text editors?</div><p class="answer">They can offer code completion, syntax highlighting, debugging, error checking and convenient program execution.</p></div>
+<div class="qa"><div class="question">Q5. Define a variable and state three naming rules.</div><p class="answer">A variable is a name that refers to a value. It must not start with a number; it can contain letters, numbers and underscores; and it cannot be a reserved keyword. Names are case-sensitive.</p></div>
+<div class="qa"><div class="question">Q6. Name the four basic data types.</div><p class="answer"><code>int</code>, <code>float</code>, <code>str</code> and <code>bool</code>.</p></div>
+<div class="qa"><div class="question">Q7. What is the difference between int() and float()?</div><p class="answer"><code>int()</code> converts a suitable value to an integer and removes the decimal part of a float. <code>float()</code> converts a suitable value to a decimal number.</p></div>
+<div class="qa"><div class="question">Q8. What is the difference between implicit and explicit type casting?</div><p class="answer">Implicit casting is done automatically by Python. Explicit casting is requested by the programmer using functions such as <code>int()</code> and <code>float()</code>.</p></div>
+<div class="qa"><div class="question">Q9. What is the difference between / and //?</div><p class="answer"><code>/</code> performs division and returns a float. <code>//</code> performs floor division, rounding the result down to the next integer value when both operands are integers.</p></div>
+<div class="qa"><div class="question">Q10. Why must input often be converted before calculation?</div><p class="answer"><code>input()</code> returns a string, even if the user types digits. Convert it to <code>int</code> or <code>float</code> before doing numeric calculations.</p></div>
+<div class="qa"><div class="question">Q11. What does string immutability mean?</div><p class="answer">It means that the characters in an existing string cannot be changed in place. Methods such as <code>upper()</code> return a new string.</p></div>
+<div class="qa"><div class="question">Q12. What is the difference between standard and third-party libraries?</div><p class="answer">Standard libraries are included with Python. Third-party libraries are normally installed separately. Examples are <code>math</code> (standard) and NumPy (third-party).</p></div>
+<div class="qa"><div class="question">Q13. What is pip?</div><p class="answer">pip is a package installer used to install, upgrade and uninstall Python packages.</p></div>
+<div class="qa"><div class="question">Q14. What is a virtual environment?</div><p class="answer">It is an isolated Python environment that keeps a project's packages separate from packages used by other projects.</p></div>
+<div class="qa"><div class="question">Q15. What do the file modes r, w and a mean?</div><p class="answer"><code>r</code> reads a file, <code>w</code> writes and overwrites a file, and <code>a</code> adds content to the end.</p></div>
+
+<h3>14. MCQs for revision</h3>
+<ol>
+<li>Python is a: (a) machine language (b) high-level language (c) assembly language. <strong>Answer: (b)</strong></li>
+<li>Which is a Python development tool? (a) PyCharm (b) Paint (c) Calculator. <strong>Answer: (a)</strong></li>
+<li>Which data type stores True or False? (a) int (b) str (c) bool. <strong>Answer: (c)</strong></li>
+<li>Which operator returns the remainder? (a) // (b) % (c) **. <strong>Answer: (b)</strong></li>
+<li>What does <code>int(12.99)</code> return? (a) 13 (b) 12.99 (c) 12. <strong>Answer: (c)</strong></li>
+<li>Which function accepts keyboard input? (a) print() (b) input() (c) type(). <strong>Answer: (b)</strong></li>
+<li>Which function gives a string's length? (a) size() (b) len() (c) count(). <strong>Answer: (b)</strong></li>
+<li>Strings in Python are: (a) immutable (b) always numeric (c) Boolean. <strong>Answer: (a)</strong></li>
+<li>Which command installs a package? (a) pip install (b) pip remove (c) import install. <strong>Answer: (a)</strong></li>
+<li>Which is a standard library? (a) math (b) NumPy (c) pandas. <strong>Answer: (a)</strong></li>
+</ol>
+
+<h3>15. Predict the output</h3>
+<div class="example"><pre># 1
+print(10 + 5 * 2)
+# Output: 20
+
+# 2
+print(int(12.99))
+# Output: 12
+
+# 3
+print(bool(""))
+# Output: False
+
+# 4
+print(7 // 2, 7 % 2)
+# Output: 3 1
+
+# 5
+x = "Drug"
+print(x[::-1])
+# Output: gurD</pre></div>
+
+<h3>16. Long-answer questions for practice</h3>
+<ol>
+<li>Explain Python, its characteristics, advantages, limitations and pharmaceutical uses.</li>
+<li>Describe Python installation and compare Jupyter Notebook, PyCharm and VS Code.</li>
+<li>Explain variables and the four basic data types with examples.</li>
+<li>Explain implicit and explicit type casting with examples.</li>
+<li>Discuss arithmetic, comparison and logical operators, including operator precedence.</li>
+<li>Explain input and output operations with examples.</li>
+<li>Describe string indexing, slicing and common string methods.</li>
+<li>Compare standard and third-party libraries and explain how pip manages packages.</li>
+<li>Explain file modes and the use of <code>with open()</code>.</li>
+<li>Explain virtual environments and why they help prevent package conflicts.</li>
+</ol>
 </div></details>
 
 <details class="unit"><summary>UNIT II — Control Structures and Functions</summary><div class="unit-body">
