@@ -40,33 +40,18 @@ body.gate-locked{overflow:hidden}
 
 \n.feedback-heading-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.feedback-heading-row h2{margin:0}.site-logout-button{border:0;border-radius:9px;padding:10px 16px;background:#173b72;color:#fff;font-weight:700;cursor:pointer;font-size:14px}.site-logout-button:hover{background:#245aa5}\n.logout-footer{margin-top:14px;display:flex;justify-content:center}.site-logout-button{border:0;border-radius:9px;padding:10px 18px;background:#173b72;color:#fff;font-weight:700;cursor:pointer;font-size:14px}.site-logout-button:hover{background:#245aa5}\n</style>
 <!-- Class 10 Science Q&A navigation -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <div id="site-login-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
-  <form class="gate-card" id="site-login-form">
+  <div class="gate-card">
     <div class="gate-icon" aria-hidden="true">🔒</div>
     <h2 id="gate-title">Private Study Website</h2>
-    <p>Enter the password to continue to Assam Education Hub.</p>
-    <input id="site-login-password" type="password" placeholder="Enter website password" autocomplete="current-password" required aria-label="Website password">
-    <button type="submit">Unlock Website</button>
-    <div class="gate-error" id="site-login-error" role="alert"></div>
-  </form>
+    <p>Sign in to access Assam Education Hub. New members need an invitation code.</p>
+    <a href="auth.html" class="gate-link">Login or create an account</a>
+  </div>
 </div>
-
-<header><h1>Assam Education Hub</h1><p>Free learning resources for students in Assam, from school studies to medical-field learning.</p></header>
-<main class="wrap">
-<div class="search"><input id="search" type="search" placeholder="Search a class, subject or chapter..."></div>
-<h2 class="section-title">Choose Your Class</h2>
-<section class="classes">
-<article class="card" data-search="class 9 english hindi mathematics science social science geography history computer"><h3>📘 Class 9</h3><p>Explore study material arranged subject by subject and chapter by chapter.</p><div class="subjects">
-<button class="subject english-toggle" type="button" aria-expanded="false">English</button><button class="subject hindi-mil-toggle" type="button" aria-expanded="false">Hindi MIL</button><button class="subject mathematics-toggle" type="button" aria-expanded="false">Mathematics</button><button class="subject science-toggle" type="button" aria-expanded="false">Science</button><button class="subject social-toggle" type="button" aria-expanded="false">Social Science</button><button class="subject computer-toggle" type="button" aria-expanded="false">Computer</button>
-</div>
-<div class="history english-list">
-<p class="history-note">Choose a book. Click the book to expand its chapters.</p>
-<div class="book-menu"><button class="book-toggle" type="button" aria-expanded="false">📘 Beehive — Textbook in English for Class IX</button><div class="book-chapters">
-<a class="chapter" href="class9/english/question-answers.html#the-fun-they-had">1. The Fun They Had <span>— Isaac Asimov</span></a><a class="chapter" href="class9/english/question-answers.html#the-road-not-taken">The Road Not Taken <span>— Robert Frost · Poem</span></a><a class="chapter" href="class9/english/question-answers.html#the-sound-of-music">2. The Sound of Music <span>— Evelyn Glennie · Bismillah Khan</span></a><a class="chapter" href="class9/english/question-answers.html#wind">Wind <span>— Subramania Bharati · Poem</span></a><a class="chapter" href="class9/english/question-answers.html#the-little-girl">3. The Little Girl <span>— Katherine Mansfield</span></a><a class="chapter" href="class9/english/question-answers.html#rain-on-the-roof">Rain on the Roof <span>— Coates Kinney · Poem</span></a><a class="chapter" href="class9/english/question-answers.html#a-truly-beautiful-mind">4. A Truly Beautiful Mind <span>— Biography of Albert Einstein</span></a><a class="chapter" href="class9/english/question-answers.html#the-lake-isle-of-innisfree">The Lake Isle of Innisfree <span>— W. B. Yeats · Poem</span></a><a class="chapter" href="class9/english/question-answers.html#the-snake-and-the-mirror">5. The Snake and the Mirror <span>— Vaikom Muhammad Basheer</span></a><a class="chapter" href="class9/english/question-answers.html#a-legend-of-the-northland">A Legend of the Northland <span>— Phoebe Cary · Poem</span></a><a class="chapter" href="class9/english/question-answers.html#my-childhood">6. My Childhood <span>— A. P. J. Abdul Kalam</span></a><a class="chapter" href="class9/english/question-answers.html#no-men-are-foreign">No Men Are Foreign <span>— James Kirkup · Poem</span></a><a class="chapter" href="class9/english/question-answers.html#packing">7. Packing <span>— Jerome K. Jerome</span></a><a class="chapter" href="class9/english/question-answers.html#the-duck-and-the-kangaroo">The Duck and the Kangaroo <span>— Edward Lear · Poem</span></a><a class="chapter" href="class9/english/question-answers.html#reach-for-the-top">8. Reach for the Top <span>— Santosh Yadav · Maria Sharapova</span></a><a class="chapter" href="class9/english/question-answers.html#on-killing-a-tree">On Killing a Tree <span>— Gieve Patel · Poem</span></a><a class="chapter" href="class9/english/question-answers.html#trees">Trees <span>— Joyce Kilmer · Poem</span></a><a class="chapter" href="class9/english/question-answers.html#the-bond-of-love">9. The Bond of Love <span>— Kenneth Anderson</span></a><a class="chapter" href="class9/english/question-answers.html#the-snake-trying">The Snake Trying <span>— W. W. E. Ross · Poem</span></a><a class="chapter" href="class9/english/question-answers.html#kathmandu">10. Kathmandu <span>— Vikram Seth</span></a><a class="chapter" href="class9/english/question-answers.html#a-slumber-did-my-spirit-seal">A Slumber Did My Spirit Seal <span>— William Wordsworth · Poem</span></a><a class="chapter" href="class9/english/question-answers.html#if-i-were-you">11. If I Were You <span>— Douglas James</span></a><a class="chapter" href="class9/english/question-answers.html#a-visit-to-kaziranga-and-sivasagar">12. A Visit to Kaziranga and Sivasagar <span>— Dr. Srutimala Duara</span></a>
-</div></div>
 <div class="book-menu"><button class="book-toggle" type="button" aria-expanded="false">📚 Moments — Supplementary Reader for Class IX</button><div class="book-chapters">
 <a class="chapter" href="class9/english/question-answers.html#the-lost-child">1. The Lost Child <span>— Mulk Raj Anand</span></a><a class="chapter" href="class9/english/question-answers.html#the-adventures-of-toto">2. The Adventures of Toto <span>— Ruskin Bond</span></a><a class="chapter" href="class9/english/question-answers.html#iswaran-the-storyteller">3. Iswaran the Storyteller <span>— R. K. Laxman</span></a><a class="chapter" href="class9/english/question-answers.html#in-the-kingdom-of-fools">4. In the Kingdom of Fools <span>— Kannada Folktale</span></a><a class="chapter" href="class9/english/question-answers.html#the-happy-prince">5. The Happy Prince <span>— Oscar Wilde</span></a><a class="chapter" href="class9/english/question-answers.html#weathering-the-storm-in-ersama">6. Weathering the Storm in Ersama <span>— Harsh Mander</span></a><a class="chapter" href="class9/english/question-answers.html#the-last-leaf">7. The Last Leaf <span>— O. Henry</span></a><a class="chapter" href="class9/english/question-answers.html#a-house-is-not-a-home">8. A House Is Not a Home <span>— Zan Gaudioso</span></a><a class="chapter" href="class9/english/question-answers.html#the-accidental-tourist">9. The Accidental Tourist <span>— Bill Bryson</span></a><a class="chapter" href="class9/english/question-answers.html#the-beggar">10. The Beggar <span>— Anton Chekhov</span></a>
 </div></div></div>
@@ -242,34 +227,30 @@ body.gate-locked{overflow:hidden}
 </main>
 <script>
 
-/* BASIC FRONT-END GATE ONLY. Do not use this for confidential content.
-   Change CHANGE_THIS_PASSWORD below before relying on the screen. */
+/* Supabase session gate. This only controls the homepage UI; static files remain publicly accessible by direct URL. */
 (function(){
-  const SITE_PASSWORD = "Makers";
+  const SUPABASE_URL = 'https://fglkzwexpuihghhyuboz.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_h4N-qILBpPnhkocTczCSNA_HzZeV69o';
   const gate = document.getElementById('site-login-gate');
-  const form = document.getElementById('site-login-form');
-  const password = document.getElementById('site-login-password');
-  const error = document.getElementById('site-login-error');
-  if(!gate || !form) return;
+  const logout = document.getElementById('site-logout-button');
+  if (!gate || !window.supabase) return;
+  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   document.body.classList.add('gate-locked');
-  function unlock(){
-    gate.style.display='none';
-    document.body.classList.remove('gate-locked');
-    try { sessionStorage.setItem('assamHubUnlocked','yes'); } catch(e) {}
-  }
-  try {
-    if(sessionStorage.getItem('assamHubUnlocked')==='yes') unlock();
-  } catch(e) {}
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(password.value === SITE_PASSWORD){
-      error.textContent='';
-      unlock();
+  client.auth.getSession().then(({data,error})=>{
+    if (!error && data.session) {
+      gate.style.display='none';
+      document.body.classList.remove('gate-locked');
     } else {
-      error.textContent='Incorrect password. Please try again.';
-      password.value='';
-      password.focus();
+      gate.style.display='flex';
     }
+  });
+  client.auth.onAuthStateChange((_event, session)=>{
+    if(session){gate.style.display='none';document.body.classList.remove('gate-locked');}
+    else {gate.style.display='flex';document.body.classList.add('gate-locked');}
+  });
+  logout?.addEventListener('click',async()=>{
+    await client.auth.signOut();
+    window.location.href='auth.html';
   });
 })();
 
