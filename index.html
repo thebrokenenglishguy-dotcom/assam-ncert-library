@@ -312,46 +312,55 @@ input.addEventListener('input',()=>{
     }
   });
 });
-const subjectMenus=['science','english','hindi-mil','mathematics','social','computer'];
-function closeOtherMenus(card,active){
-  subjectMenus.forEach(name=>{
-    if(name===active)return;
-    const section=card.querySelector('.'+name+'-list');
-    const btn=card.querySelector('.'+name+'-toggle');
-    if(section)section.classList.remove('open');
-    if(btn)btn.setAttribute('aria-expanded','false');
-  });
-}
-subjectMenus.forEach(name=>{
-  document.querySelectorAll('.'+name+'-toggle').forEach(btn=>btn.addEventListener('click',()=>{
-    const card=btn.closest('.card');
-    const section=card.querySelector('.'+name+'-list');
-    const open=section.classList.toggle('open');
-    if(open)closeOtherMenus(card,name);
-    btn.setAttribute('aria-expanded',open);
-  }));
-});
-document.querySelectorAll('.pharmacy-semester-toggle').forEach(btn=>btn.addEventListener('click',()=>{
-  const menu=btn.closest('.pharmacy-menu, .pharmacy-semester-menu');
-  if(!menu) return;
-  const open=menu.classList.toggle('open');
-  btn.setAttribute('aria-expanded',String(open));
-}));
-document.querySelectorAll('.pharmacy-subject-toggle').forEach(btn=>btn.addEventListener('click',()=>{
-  const menu=btn.closest('.pharmacy-subject-menu');
-  const open=menu.classList.toggle('open');
-  btn.setAttribute('aria-expanded',String(open));
-}));
-document.querySelectorAll('.book-toggle').forEach(btn=>btn.addEventListener('click',()=>{
-  // Pharmacy semester and subject buttons have dedicated handlers above.
-  // Do not toggle them a second time through the generic book handler.
-  if(btn.matches('.pharmacy-semester-toggle, .pharmacy-subject-toggle')) return;
-  const menu=btn.closest('.book-menu');
-  if(!menu) return;
-  const open=menu.classList.toggle('open');
-  btn.setAttribute('aria-expanded',String(open));
-}));
+/* Robust delegated handlers for all expandable menus. */
+document.addEventListener('click', function(event){
+  const btn = event.target.closest('button');
+  if(!btn) return;
 
+  if(btn.matches('.subject[class*="-toggle"]')){
+    const card = btn.closest('.card');
+    if(!card) return;
+    const names = ['science','english','hindi-mil','mathematics','social','computer'];
+    const name = names.find(n => btn.classList.contains(n+'-toggle'));
+    if(!name) return;
+    const section = card.querySelector('.'+name+'-list');
+    if(!section) return;
+    const opening = !section.classList.contains('open');
+    names.filter(n=>n!==name).forEach(n=>{
+      card.querySelector('.'+n+'-list')?.classList.remove('open');
+      card.querySelector('.'+n+'-toggle')?.setAttribute('aria-expanded','false');
+    });
+    section.classList.toggle('open',opening);
+    btn.setAttribute('aria-expanded',String(opening));
+    return;
+  }
+
+  if(btn.matches('.pharmacy-semester-toggle')){
+    const menu = btn.closest('.pharmacy-menu, .pharmacy-semester-menu');
+    if(!menu) return;
+    const opening = !menu.classList.contains('open');
+    menu.classList.toggle('open',opening);
+    btn.setAttribute('aria-expanded',String(opening));
+    return;
+  }
+
+  if(btn.matches('.pharmacy-subject-toggle')){
+    const menu = btn.closest('.pharmacy-subject-menu');
+    if(!menu) return;
+    const opening = !menu.classList.contains('open');
+    menu.classList.toggle('open',opening);
+    btn.setAttribute('aria-expanded',String(opening));
+    return;
+  }
+
+  if(btn.matches('.book-toggle')){
+    const menu = btn.closest('.book-menu');
+    if(!menu) return;
+    const opening = !menu.classList.contains('open');
+    menu.classList.toggle('open',opening);
+    btn.setAttribute('aria-expanded',String(opening));
+  }
+});
 document.querySelectorAll('.science-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-science')));document.querySelectorAll('.mathematics-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-mathematics')));
 document.querySelectorAll('.section-toggle').forEach(btn=>btn.addEventListener('click',()=>{const section=btn.nextElementSibling;const open=section.classList.toggle('open');btn.setAttribute('aria-expanded',open);}));
 document.querySelectorAll('.card[data-search*="class 10"] .english-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-english')));
