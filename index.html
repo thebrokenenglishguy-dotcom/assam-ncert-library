@@ -234,7 +234,7 @@ body.gate-locked{overflow:hidden}
   const gate = document.getElementById('site-login-gate');
   const logout = document.getElementById('site-logout-button');
   if (!gate || !window.supabase) return;
-  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY); window.assamSupabaseClient = client;
   document.body.classList.add('gate-locked');
   client.auth.getSession().then(({data,error})=>{
     if (!error && data.session) {
@@ -353,16 +353,9 @@ window.addEventListener('DOMContentLoaded',()=>{
 });
 const feedbackForm=document.getElementById('feedback-form');const feedbackStatus=document.getElementById('feedback-status');feedbackForm.addEventListener('submit',async e=>{e.preventDefault();const btn=feedbackForm.querySelector('button');btn.disabled=true;btn.textContent='Sending...';feedbackStatus.textContent='';try{const response=await fetch(feedbackForm.action,{method:'POST',body:new FormData(feedbackForm),headers:{Accept:'application/json'}});if(response.ok){feedbackForm.reset();feedbackStatus.textContent='✅ Thank you! Your feedback has been sent.';}else{feedbackStatus.textContent='❌ Could not send feedback. Please try again.';}}catch(err){feedbackStatus.textContent='❌ Could not send feedback. Please try again.';}finally{btn.disabled=false;btn.textContent='Send Feedback';}});
 
-document.getElementById('site-logout-button')?.addEventListener('click',()=>{
-  try { sessionStorage.removeItem('assamHubUnlocked'); } catch(e) {}
-  const gate=document.getElementById('site-login-gate');
-  const password=document.getElementById('site-login-password');
-  const error=document.getElementById('site-login-error');
-  if(gate) gate.style.display='flex';
-  if(password) { password.value=''; password.focus(); }
-  if(error) error.textContent='';
-  document.body.classList.add('gate-locked');
-  window.scrollTo(0,0);
+document.getElementById('site-logout-button')?.addEventListener('click',async()=>{
+  if(window.assamSupabaseClient) await window.assamSupabaseClient.auth.signOut();
+  window.location.href='auth.html';
 });
 </script>
 </body></html>
