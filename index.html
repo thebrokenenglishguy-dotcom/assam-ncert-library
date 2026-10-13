@@ -317,7 +317,7 @@ document.addEventListener('click', function(event){
   const btn = event.target.closest('button');
   if(!btn) return;
 
-  if(btn.matches('.subject[class*="-toggle"]')){
+  if(btn.matches('.subject[class*="-toggle"]:not(.pharmacy-semester-toggle):not(.pharmacy-subject-toggle)')){
     const card = btn.closest('.card');
     if(!card) return;
     const names = ['science','english','hindi-mil','mathematics','social','computer'];
