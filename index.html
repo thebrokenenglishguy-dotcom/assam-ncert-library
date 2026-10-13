@@ -26,10 +26,34 @@ header h1{margin:0 0 12px;font-size:clamp(30px,5vw,52px)}header p{margin:0 auto;
 .pharmacy-subject-menu .chapter{margin:5px 0}.book-chapters .chapter span{color:#667085;font-size:14px}.history-note{font-size:14px;color:#657084;margin:0 0 10px}
 footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 .feedback{margin:34px auto 0;max-width:760px;background:#fff;border:1px solid #e6eaf2;border-radius:18px;padding:26px;box-shadow:0 10px 28px #22304a12}.feedback h2{margin:0 0 8px;text-align:center}.feedback p{color:#5d687b;text-align:center;line-height:1.5}.feedback input,.feedback textarea{width:100%;padding:13px 14px;margin:7px 0 12px;border:1px solid #d8deea;border-radius:10px;font:inherit}.feedback textarea{min-height:120px;resize:vertical}.feedback button{width:100%;padding:13px;border:0;border-radius:10px;background:#214e8a;color:#fff;font-size:16px;font-weight:700;cursor:pointer}.feedback button:hover{background:#173b72}.feedback-status{text-align:center;margin:12px 0 0;font-size:14px;color:#214e8a}.feedback-note{font-size:13px!important;margin:10px 0 0!important}
+
+/* Basic password screen: visual deterrent only, not server-side security. */
+#site-login-gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:22px;background:linear-gradient(135deg,#10294f,#2d72c8);font-family:Arial,Helvetica,sans-serif}
+#site-login-gate .gate-card{width:min(100%,420px);background:#fff;border-radius:20px;padding:30px 24px;box-shadow:0 18px 60px #07152e55;text-align:center}
+#site-login-gate .gate-icon{font-size:42px;margin-bottom:8px}
+#site-login-gate h2{margin:0 0 8px;color:#173b72;font-size:27px}
+#site-login-gate p{color:#526176;line-height:1.5;margin:0 0 20px}
+#site-login-gate input{width:100%;padding:14px;border:1px solid #cbd5e1;border-radius:10px;font-size:16px;margin-bottom:12px}
+#site-login-gate button{width:100%;padding:14px;border:0;border-radius:10px;background:#173b72;color:white;font-size:16px;font-weight:bold;cursor:pointer}
+#site-login-gate .gate-error{min-height:22px;color:#b42318;font-size:14px;margin:10px 0 0}
+body.gate-locked{overflow:hidden}
+
 </style>
 <!-- Class 10 Science Q&A navigation -->
 </head>
 <body>
+
+<div id="site-login-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <form class="gate-card" id="site-login-form">
+    <div class="gate-icon" aria-hidden="true">🔒</div>
+    <h2 id="gate-title">Private Study Website</h2>
+    <p>Enter the password to continue to Assam Education Hub.</p>
+    <input id="site-login-password" type="password" placeholder="Enter website password" autocomplete="current-password" required aria-label="Website password">
+    <button type="submit">Unlock Website</button>
+    <div class="gate-error" id="site-login-error" role="alert"></div>
+  </form>
+</div>
+
 <header><h1>Assam Education Hub</h1><p>Free learning resources for students in Assam, from school studies to medical-field learning.</p></header>
 <main class="wrap">
 <div class="search"><input id="search" type="search" placeholder="Search a class, subject or chapter..."></div>
@@ -217,6 +241,38 @@ footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 <footer>Made as a free learning resource for students in Assam.</footer>
 </main>
 <script>
+
+/* BASIC FRONT-END GATE ONLY. Do not use this for confidential content.
+   Change CHANGE_THIS_PASSWORD below before relying on the screen. */
+(function(){
+  const SITE_PASSWORD = "CHANGE_THIS_PASSWORD";
+  const gate = document.getElementById('site-login-gate');
+  const form = document.getElementById('site-login-form');
+  const password = document.getElementById('site-login-password');
+  const error = document.getElementById('site-login-error');
+  if(!gate || !form) return;
+  document.body.classList.add('gate-locked');
+  function unlock(){
+    gate.style.display='none';
+    document.body.classList.remove('gate-locked');
+    try { sessionStorage.setItem('assamHubUnlocked','yes'); } catch(e) {}
+  }
+  try {
+    if(sessionStorage.getItem('assamHubUnlocked')==='yes') unlock();
+  } catch(e) {}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(password.value === SITE_PASSWORD){
+      error.textContent='';
+      unlock();
+    } else {
+      error.textContent='Incorrect password. Please try again.';
+      password.value='';
+      password.focus();
+    }
+  });
+})();
+
 const input=document.getElementById('search');const cards=[...document.querySelectorAll('.card')];
 input.addEventListener('input',()=>{
   const tokens=input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
