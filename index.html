@@ -38,7 +38,7 @@ footer{text-align:center;color:#6d7686;padding-top:35px;font-size:14px}
 #site-login-gate .gate-error{min-height:22px;color:#b42318;font-size:14px;margin:10px 0 0}
 body.gate-locked{overflow:hidden}
 
-</style>
+\n.feedback-heading-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.feedback-heading-row h2{margin:0}.site-logout-button{border:0;border-radius:9px;padding:10px 16px;background:#173b72;color:#fff;font-weight:700;cursor:pointer;font-size:14px}.site-logout-button:hover{background:#245aa5}\n</style>
 <!-- Class 10 Science Q&A navigation -->
 </head>
 <body>
@@ -237,7 +237,7 @@ body.gate-locked{overflow:hidden}
 <div class="book-menu pharmacy-semester-menu"><button class="book-toggle pharmacy-semester-toggle" type="button" aria-expanded="false">Semester IV — 5 subjects</button><div class="book-chapters"><div class="book-menu pharmacy-subject-menu"><button class="book-toggle pharmacy-subject-toggle" type="button" aria-expanded="false">BP401T — Herbal Drug Technology</button><div class="book-chapters"><a class="chapter" href="bpharm/semester4/herbal-drug-technology.html">Open BP401T subject page →</a></div></div><div class="book-menu pharmacy-subject-menu"><button class="book-toggle pharmacy-subject-toggle" type="button" aria-expanded="false">BP402T — Medicinal Chemistry</button><div class="book-chapters"><a class="chapter" href="bpharm/semester4/medicinal-chemistry.html">Open BP402T subject page →</a></div></div><div class="book-menu pharmacy-subject-menu"><button class="book-toggle pharmacy-subject-toggle" type="button" aria-expanded="false">BP403T — Pharmaceutical Biotechnology</button><div class="book-chapters"><a class="chapter" href="bpharm/semester4/pharmaceutical-biotechnology.html">Open BP403T subject page →</a></div></div><div class="book-menu pharmacy-subject-menu"><button class="book-toggle pharmacy-subject-toggle" type="button" aria-expanded="false">BP404T — Social Pharmacy and Public Health</button><div class="book-chapters"><a class="chapter" href="bpharm/semester4/social-pharmacy-and-public-health.html">Open BP404T subject page →</a></div></div><div class="book-menu pharmacy-subject-menu"><button class="book-toggle pharmacy-subject-toggle" type="button" aria-expanded="false">BP405T — Systemic Pharmacology I</button><div class="book-chapters"><a class="chapter" href="bpharm/semester4/systemic-pharmacology-i.html">Open BP405T subject page →</a></div></div></div></div>
 </article>
 </section>
-<section class="feedback" id="feedback"><h2>💬 Send Feedback</h2><p>Have a suggestion, found a mistake, or want to request a chapter? Send us a message.</p><form id="feedback-form" action="https://formspree.io/f/mjygkgbr" method="POST"><input type="text" name="name" placeholder="Your name (optional)"><textarea name="message" placeholder="Write your feedback here..." required></textarea><input type="hidden" name="_subject" value="New feedback — Assam NCERT English Medium Library"><button type="submit">Send Feedback</button></form><p class="feedback-status" id="feedback-status" aria-live="polite"></p><p class="feedback-note">🔒 Your feedback is private and can only be viewed by the website owner.</p></section>
+<section class="feedback" id="feedback"><div class="feedback-heading-row"><h2>💬 Send Feedback</h2><button type="button" id="site-logout-button" class="site-logout-button">🔒 Logout</button></div><p>Have a suggestion, found a mistake, or want to request a chapter? Send us a message.</p><form id="feedback-form" action="https://formspree.io/f/mjygkgbr" method="POST"><input type="text" name="name" placeholder="Your name (optional)"><textarea name="message" placeholder="Write your feedback here..." required></textarea><input type="hidden" name="_subject" value="New feedback — Assam NCERT English Medium Library"><button type="submit">Send Feedback</button></form><p class="feedback-status" id="feedback-status" aria-live="polite"></p><p class="feedback-note">🔒 Your feedback is private and can only be viewed by the website owner.</p></section>
 <footer>Made as a free learning resource for students in Assam.</footer>
 </main>
 <script>
@@ -371,5 +371,17 @@ window.addEventListener('DOMContentLoaded',()=>{
   if(saved) sessionStorage.removeItem('assamLibraryOpenMenu');
 });
 const feedbackForm=document.getElementById('feedback-form');const feedbackStatus=document.getElementById('feedback-status');feedbackForm.addEventListener('submit',async e=>{e.preventDefault();const btn=feedbackForm.querySelector('button');btn.disabled=true;btn.textContent='Sending...';feedbackStatus.textContent='';try{const response=await fetch(feedbackForm.action,{method:'POST',body:new FormData(feedbackForm),headers:{Accept:'application/json'}});if(response.ok){feedbackForm.reset();feedbackStatus.textContent='✅ Thank you! Your feedback has been sent.';}else{feedbackStatus.textContent='❌ Could not send feedback. Please try again.';}}catch(err){feedbackStatus.textContent='❌ Could not send feedback. Please try again.';}finally{btn.disabled=false;btn.textContent='Send Feedback';}});
+
+document.getElementById('site-logout-button')?.addEventListener('click',()=>{
+  try { sessionStorage.removeItem('assamHubUnlocked'); } catch(e) {}
+  const gate=document.getElementById('site-login-gate');
+  const password=document.getElementById('site-login-password');
+  const error=document.getElementById('site-login-error');
+  if(gate) gate.style.display='flex';
+  if(password) { password.value=''; password.focus(); }
+  if(error) error.textContent='';
+  document.body.classList.add('gate-locked');
+  window.scrollTo(0,0);
+});
 </script>
 </body></html>
