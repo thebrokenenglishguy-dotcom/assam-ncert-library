@@ -356,8 +356,6 @@ document.getElementById('site-logout-button')?.addEventListener('click',async()=
   if(window.assamSupabaseClient) await window.assamSupabaseClient.auth.signOut();
   window.location.href='auth.html';
 });
-</script>
-
 /* One accordion controller for all class, book, chapter-section and B.Pharm menus. */
 document.addEventListener('click', function(event) {
   const button = event.target.closest('button.subject, button.book-toggle');
@@ -429,5 +427,6 @@ document.addEventListener('click', function(event) {
     button.setAttribute('aria-expanded', String(opening));
   }
 });
+</script>
 
 </body></html>
