@@ -376,6 +376,23 @@ document.addEventListener('click', function(event) {
     return;
   }
 
+  if (button.classList.contains('pharmacy-semester-toggle')) {
+    const menu = button.closest('.pharmacy-menu, .pharmacy-semester-menu, .book-menu');
+    if (!menu) return;
+    const parent = menu.parentElement;
+    const opening = !menu.classList.contains('open');
+    parent.querySelectorAll(':scope > .pharmacy-menu, :scope > .pharmacy-semester-menu, :scope > .book-menu').forEach(function(item) {
+      if (item !== menu) {
+        item.classList.remove('open');
+        const otherButton = item.querySelector(':scope > .pharmacy-semester-toggle, :scope > .book-toggle');
+        if (otherButton) otherButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+    menu.classList.toggle('open', opening);
+    button.setAttribute('aria-expanded', String(opening));
+    return;
+  }
+
   if (button.classList.contains('book-toggle')) {
     const menu = button.closest('.book-menu');
     if (!menu) return;
