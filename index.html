@@ -293,7 +293,7 @@ body.gate-locked{overflow:hidden}
 })();
 
 const input=document.querySelector('.search input');const cards=[...document.querySelectorAll('.card')];
-input.addEventListener('input',()=>{
+input?.addEventListener('input',()=>{
   const tokens=input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
   const classNumber=tokens.includes('9')?'9':tokens.includes('10')?'10':null;
   const subjectTokens=tokens.filter(t=>t!=='class'&&t!=='9'&&t!=='10');
