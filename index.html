@@ -312,55 +312,7 @@ input?.addEventListener('input',()=>{
     }
   });
 });
-/* Robust delegated handlers for all expandable menus. */
-document.addEventListener('click', function(event){
-  const btn = event.target.closest('button');
-  if(!btn) return;
-
-  if(btn.matches('.subject[class*="-toggle"]:not(.pharmacy-semester-toggle):not(.pharmacy-subject-toggle)')){
-    const card = btn.closest('.card');
-    if(!card) return;
-    const names = ['science','english','hindi-mil','mathematics','social','computer'];
-    const name = names.find(n => btn.classList.contains(n+'-toggle'));
-    if(!name) return;
-    const section = card.querySelector('.'+name+'-list');
-    if(!section) return;
-    const opening = !section.classList.contains('open');
-    names.filter(n=>n!==name).forEach(n=>{
-      card.querySelector('.'+n+'-list')?.classList.remove('open');
-      card.querySelector('.'+n+'-toggle')?.setAttribute('aria-expanded','false');
-    });
-    section.classList.toggle('open',opening);
-    btn.setAttribute('aria-expanded',String(opening));
-    return;
-  }
-
-  if(btn.matches('.pharmacy-semester-toggle')){
-    const menu = btn.closest('.pharmacy-menu, .pharmacy-semester-menu');
-    if(!menu) return;
-    const opening = !menu.classList.contains('open');
-    menu.classList.toggle('open',opening);
-    btn.setAttribute('aria-expanded',String(opening));
-    return;
-  }
-
-  if(btn.matches('.pharmacy-subject-toggle')){
-    const menu = btn.closest('.pharmacy-subject-menu');
-    if(!menu) return;
-    const opening = !menu.classList.contains('open');
-    menu.classList.toggle('open',opening);
-    btn.setAttribute('aria-expanded',String(opening));
-    return;
-  }
-
-  if(btn.matches('.book-toggle')){
-    const menu = btn.closest('.book-menu');
-    if(!menu) return;
-    const opening = !menu.classList.contains('open');
-    menu.classList.toggle('open',opening);
-    btn.setAttribute('aria-expanded',String(opening));
-  }
-});
+/* Menu buttons use their own inline handlers to avoid double-toggling. */
 document.querySelectorAll('.science-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-science')));document.querySelectorAll('.mathematics-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-mathematics')));
 document.querySelectorAll('.section-toggle').forEach(btn=>btn.addEventListener('click',()=>{const section=btn.nextElementSibling;const open=section.classList.toggle('open');btn.setAttribute('aria-expanded',open);}));
 document.querySelectorAll('.card[data-search*="class 10"] .english-list .chapter').forEach(link=>link.addEventListener('click',()=>sessionStorage.setItem('assamLibraryOpenMenu','class10-english')));
