@@ -133,10 +133,17 @@ footer{text-align:center;color:#6d7686;padding:0 20px 28px;font-size:14px}
 </main>
 <script>
 document.querySelectorAll('.semester-toggle').forEach(btn=>btn.addEventListener('click',()=>{
- const menu=btn.closest('.semester-menu');const open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));
+ const menu=btn.closest('.semester-menu');if(!menu)return;
+ const opening=!menu.classList.contains('open');
+ menu.parentElement.querySelectorAll(':scope > .semester-menu').forEach(other=>{if(other!==menu){other.classList.remove('open');const b=other.querySelector(':scope > .semester-toggle');if(b)b.setAttribute('aria-expanded','false');other.querySelectorAll('.subject-menu.open').forEach(sub=>{sub.classList.remove('open');const sb=sub.querySelector(':scope > .subject-toggle');if(sb)sb.setAttribute('aria-expanded','false');});}});
+ menu.classList.toggle('open',opening);btn.setAttribute('aria-expanded',String(opening));
+ if(!opening)menu.querySelectorAll('.subject-menu.open').forEach(sub=>{sub.classList.remove('open');const sb=sub.querySelector(':scope > .subject-toggle');if(sb)sb.setAttribute('aria-expanded','false');});
 }));
 document.querySelectorAll('.subject-toggle').forEach(btn=>btn.addEventListener('click',()=>{
- const menu=btn.closest('.subject-menu');const open=menu.classList.toggle('open');btn.setAttribute('aria-expanded',String(open));
+ const menu=btn.closest('.subject-menu');if(!menu)return;
+ const opening=!menu.classList.contains('open');
+ menu.parentElement.querySelectorAll(':scope > .subject-menu').forEach(other=>{if(other!==menu){other.classList.remove('open');const b=other.querySelector(':scope > .subject-toggle');if(b)b.setAttribute('aria-expanded','false');}});
+ menu.classList.toggle('open',opening);btn.setAttribute('aria-expanded',String(opening));
 }));
 </script>
 <footer>Assam Education Hub · Free learning resources</footer>
