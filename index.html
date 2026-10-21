@@ -40,18 +40,10 @@ body.gate-locked{overflow:hidden}
 
 \n.feedback-heading-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.feedback-heading-row h2{margin:0}.site-logout-button{border:0;border-radius:9px;padding:10px 16px;background:#173b72;color:#fff;font-weight:700;cursor:pointer;font-size:14px}.site-logout-button:hover{background:#245aa5}\n.logout-footer{margin-top:14px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.site-logout-button{border:0;border-radius:9px;padding:10px 18px;background:#173b72;color:#fff;font-weight:700;cursor:pointer;font-size:14px}.site-logout-button:hover{background:#245aa5}\n</style>
 <!-- Class 10 Science Q&A navigation -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 </head>
 <body>
 
-<div id="site-login-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
-  <div class="gate-card">
-    <div class="gate-icon" aria-hidden="true">🔒</div>
-    <h2 id="gate-title">Private Study Website</h2>
-    <p>Sign in to access Assam Education Hub. New members need an invitation code.</p>
-    <a href="auth.html" class="gate-link">Login or create an account</a>
-  </div>
-</div>
 <article class="card" data-search="class 9 english hindi mathematics science social science history geography computer"><h3>📘 Class 9</h3><p>Choose a subject to open its books, chapters, notes and question answers.</p><div class="subjects"><button class="subject english-toggle" type="button" aria-expanded="false">English</button><button class="subject hindi-mil-toggle" type="button" aria-expanded="false">Hindi MIL</button><button class="subject mathematics-toggle" type="button" aria-expanded="false">Mathematics</button><button class="subject science-toggle" type="button" aria-expanded="false">Science</button><button class="subject social-toggle" type="button" aria-expanded="false">Social Science</button><button class="subject computer-toggle" type="button" aria-expanded="false">Computer</button></div><div class="history english-list"><p class="history-note">Choose a book. Click the book to expand its chapters.</p><div class="book-menu"><button class="book-toggle" type="button" aria-expanded="false">📚 Moments — Supplementary Reader for Class IX</button><div class="book-chapters">
 <a class="chapter" href="class9/english/question-answers.html#the-lost-child">1. The Lost Child <span>— Mulk Raj Anand</span></a><a class="chapter" href="class9/english/question-answers.html#the-adventures-of-toto">2. The Adventures of Toto <span>— Ruskin Bond</span></a><a class="chapter" href="class9/english/question-answers.html#iswaran-the-storyteller">3. Iswaran the Storyteller <span>— R. K. Laxman</span></a><a class="chapter" href="class9/english/question-answers.html#in-the-kingdom-of-fools">4. In the Kingdom of Fools <span>— Kannada Folktale</span></a><a class="chapter" href="class9/english/question-answers.html#the-happy-prince">5. The Happy Prince <span>— Oscar Wilde</span></a><a class="chapter" href="class9/english/question-answers.html#weathering-the-storm-in-ersama">6. Weathering the Storm in Ersama <span>— Harsh Mander</span></a><a class="chapter" href="class9/english/question-answers.html#the-last-leaf">7. The Last Leaf <span>— O. Henry</span></a><a class="chapter" href="class9/english/question-answers.html#a-house-is-not-a-home">8. A House Is Not a Home <span>— Zan Gaudioso</span></a><a class="chapter" href="class9/english/question-answers.html#the-accidental-tourist">9. The Accidental Tourist <span>— Bill Bryson</span></a><a class="chapter" href="class9/english/question-answers.html#the-beggar">10. The Beggar <span>— Anton Chekhov</span></a>
 </div></div><div class="book-menu"><button class="book-toggle" type="button" aria-expanded="false">📘 Beehive — Textbook in English for Class IX</button><div class="book-chapters"><a class="chapter" href="class9/english/beehive.html">Open Beehive chapters →</a></div></div></div>
@@ -223,75 +215,11 @@ body.gate-locked{overflow:hidden}
 </article>
 </section>
 <section class="feedback" id="feedback"><h2>💬 Send Feedback</h2><p>Have a suggestion, found a mistake, or want to request a chapter? Send us a message.</p><form id="feedback-form" action="https://formspree.io/f/mjygkgbr" method="POST"><input type="text" name="name" placeholder="Your name (optional)"><textarea name="message" placeholder="Write your feedback here..." required></textarea><input type="hidden" name="_subject" value="New feedback — Assam NCERT English Medium Library"><button type="submit">Send Feedback</button></form><p class="feedback-status" id="feedback-status" aria-live="polite"></p><p class="feedback-note">🔒 Your feedback is private and can only be viewed by the website owner.</p></section>
-<footer>Made as a free learning resource for students in Assam.<div class="logout-footer"><button type="button" id="site-create-invite-button" class="site-logout-button">🔗 Create Invitation Code</button><button type="button" id="site-logout-button" class="site-logout-button">🔒 Logout</button></div><div id="site-invite-result" class="hidden" style="max-width:520px;margin:12px auto;padding:12px;background:#eef4ff;border-radius:10px;color:#173b72;text-align:center"><p id="site-invite-message">Your invitation code will appear here.</p><button type="button" id="site-copy-invite-button" class="site-logout-button" style="display:none">Copy Invitation Code</button></div></footer>
+<footer>Made as a free learning resource for students in Assam.</footer>
 </main>
 <script>
 
-/* Supabase session gate. This only controls the homepage UI; static files remain publicly accessible by direct URL. */
-(function(){
-  const SUPABASE_URL = 'https://fglkzwexpuihghhyuboz.supabase.co';
-  const SUPABASE_KEY = 'sb_publishable_h4N-qILBpPnhkocTczCSNA_HzZeV69o';
-  const gate = document.getElementById('site-login-gate');
-  const logout = document.getElementById('site-logout-button');
-  if (!gate || !window.supabase) return;
-  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY); window.assamSupabaseClient = client;
-  document.body.classList.add('gate-locked');
-  client.auth.getSession().then(({data,error})=>{
-    if (!error && data.session) {
-      gate.style.display='none';
-      document.body.classList.remove('gate-locked');
-    } else {
-      gate.style.display='flex';
-    }
-  });
-  client.auth.onAuthStateChange((_event, session)=>{
-    if(session){gate.style.display='none';document.body.classList.remove('gate-locked');}
-    else {gate.style.display='flex';document.body.classList.add('gate-locked');}
-  });
-  const inviteButton = document.getElementById('site-create-invite-button');
-  const inviteResult = document.getElementById('site-invite-result');
-  const inviteMessage = document.getElementById('site-invite-message');
-  const copyInviteButton = document.getElementById('site-copy-invite-button');
-  let currentInviteCode = '';
-  inviteButton?.addEventListener('click', async () => {
-    inviteButton.disabled = true;
-    inviteButton.textContent = 'Creating...';
-    inviteResult.style.display = 'block';
-    inviteMessage.textContent = 'Creating a secure invitation code...';
-    copyInviteButton.style.display = 'none';
-    try {
-      const { data: { session } } = await client.auth.getSession();
-      if (!session) {
-        inviteMessage.textContent = 'Please log in first to create an invitation code.';
-        return;
-      }
-      const { data, error } = await client.rpc('create_invitation', { p_uses_allowed: 1, p_days_valid: 7 });
-      if (error) throw error;
-      currentInviteCode = data;
-      inviteMessage.textContent = 'Share this code with one student. It expires in 7 days: ' + currentInviteCode;
-      copyInviteButton.style.display = 'inline-block';
-    } catch (err) {
-      inviteMessage.textContent = 'Could not create a code: ' + (err.message || 'Please log in again and retry.');
-    } finally {
-      inviteButton.disabled = false;
-      inviteButton.textContent = '🔗 Create Invitation Code';
-    }
-  });
-  copyInviteButton?.addEventListener('click', async () => {
-    if (!currentInviteCode) return;
-    try {
-      await navigator.clipboard.writeText(currentInviteCode);
-      copyInviteButton.textContent = 'Copied!';
-    } catch (_) {
-      inviteMessage.textContent += ' (Select and copy the code manually if copy does not work.)';
-    }
-  });
-  logout?.addEventListener('click',async()=>{
-    await client.auth.signOut();
-    window.location.href='auth.html';
-  });
-})();
-
+/* Public study library: no account or invitation gate. */
 const input=document.querySelector('.search input');const cards=[...document.querySelectorAll('.card')];
 input?.addEventListener('input',()=>{
   const tokens=input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
@@ -352,10 +280,6 @@ window.addEventListener('DOMContentLoaded',()=>{
 });
 const feedbackForm=document.getElementById('feedback-form');const feedbackStatus=document.getElementById('feedback-status');feedbackForm.addEventListener('submit',async e=>{e.preventDefault();const btn=feedbackForm.querySelector('button');btn.disabled=true;btn.textContent='Sending...';feedbackStatus.textContent='';try{const response=await fetch(feedbackForm.action,{method:'POST',body:new FormData(feedbackForm),headers:{Accept:'application/json'}});if(response.ok){feedbackForm.reset();feedbackStatus.textContent='✅ Thank you! Your feedback has been sent.';}else{feedbackStatus.textContent='❌ Could not send feedback. Please try again.';}}catch(err){feedbackStatus.textContent='❌ Could not send feedback. Please try again.';}finally{btn.disabled=false;btn.textContent='Send Feedback';}});
 
-document.getElementById('site-logout-button')?.addEventListener('click',async()=>{
-  if(window.assamSupabaseClient) await window.assamSupabaseClient.auth.signOut();
-  window.location.href='auth.html';
-});
 /* One accordion controller for all class, book, chapter-section and B.Pharm menus. */
 document.addEventListener('click', function(event) {
   const button = event.target.closest('button.subject, button.book-toggle');
